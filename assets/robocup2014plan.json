@@ -1,0 +1,1111 @@
+{
+  "name" : "Tournament",
+  "numberOfClusters" : 1,
+  "gameDuration" : 10.0,
+  "teams" : [ {
+    "type" : "team",
+    "id" : 1,
+    "name" : "UT Austin Villa",
+    "setTeam" : false,
+    "username" : "username1",
+    "startScriptFileName" : "startA.sh",
+    "pathToScriptFile" : " /Downloads/TeamA"
+  }, {
+    "type" : "team",
+    "id" : 2,
+    "name" : "Bahia RT",
+    "setTeam" : false,
+    "username" : "username2",
+    "startScriptFileName" : "startB.sh",
+    "pathToScriptFile" : " /Downloads/TeamB"
+  }, {
+    "type" : "team",
+    "id" : 3,
+    "name" : "FC Portugal 3D",
+    "setTeam" : false,
+    "username" : "username3",
+    "startScriptFileName" : "startC.sh",
+    "pathToScriptFile" : " /Downloads/TeamC"
+  }, {
+    "type" : "team",
+    "id" : 4,
+    "name" : "FUT-K",
+    "setTeam" : false,
+    "username" : "username4",
+    "startScriptFileName" : "startD.sh",
+    "pathToScriptFile" : " /Downloads/TeamD"
+  }, {
+    "type" : "team",
+    "id" : 5,
+    "name" : "Hfutengine3D",
+    "setTeam" : false,
+    "username" : "username5",
+    "startScriptFileName" : "startE.sh",
+    "pathToScriptFile" : " /Downloads/TeamE"
+  }, {
+    "type" : "team",
+    "id" : 6,
+    "name" : "Karachi Koalas",
+    "setTeam" : false,
+    "username" : "username6",
+    "startScriptFileName" : "startF.sh",
+    "pathToScriptFile" : " /Downloads/TeamF"
+  }, {
+    "type" : "team",
+    "id" : 7,
+    "name" : "L3M-SIM",
+    "setTeam" : false,
+    "username" : "username7",
+    "startScriptFileName" : "startG.sh",
+    "pathToScriptFile" : " /Downloads/TeamG"
+  }, {
+    "type" : "team",
+    "id" : 8,
+    "name" : "MagmaOffenburg",
+    "setTeam" : false,
+    "username" : "username8",
+    "startScriptFileName" : "startH.sh",
+    "pathToScriptFile" : " /Downloads/TeamH"
+  }, {
+    "type" : "team",
+    "id" : 9,
+    "name" : "Mithras3D",
+    "setTeam" : false,
+    "username" : "username9",
+    "startScriptFileName" : "startI.sh",
+    "pathToScriptFile" : " /Downloads/TeamI"
+  }, {
+    "type" : "team",
+    "id" : 10,
+    "name" : "ODENS",
+    "setTeam" : false,
+    "username" : "username10",
+    "startScriptFileName" : "startJ.sh",
+    "pathToScriptFile" : " /Downloads/TeamJ"
+  }, {
+    "type" : "team",
+    "id" : 11,
+    "name" : "RoboCanes",
+    "setTeam" : false,
+    "username" : "username11",
+    "startScriptFileName" : "startK.sh",
+    "pathToScriptFile" : " /Downloads/TeamK"
+  }, {
+    "type" : "team",
+    "id" : 12,
+    "name" : "SEU Jolly",
+    "setTeam" : false,
+    "username" : "username1",
+    "startScriptFileName" : "startA.sh",
+    "pathToScriptFile" : " /Downloads/TeamA"
+  } ],
+  "phases" : [ {
+    "type" : "groupPhase",
+    "name" : "Group Phase 1",
+    "groups" : [ {
+      "id" : 13,
+      "name" : "A",
+      "teams" : [ 1, 4, 5, 8, 11, 12 ],
+      "plan" : {
+        "games" : [ {
+          "id" : 14,
+          "homeTeam" : 4,
+          "guestTeam" : 1,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 9
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 15,
+          "homeTeam" : 11,
+          "guestTeam" : 12,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 16,
+          "homeTeam" : 5,
+          "guestTeam" : 8,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 17,
+          "homeTeam" : 5,
+          "guestTeam" : 4,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 18,
+          "homeTeam" : 5,
+          "guestTeam" : 11,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 19,
+          "homeTeam" : 11,
+          "guestTeam" : 1,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 20,
+          "homeTeam" : 4,
+          "guestTeam" : 12,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 21,
+          "homeTeam" : 4,
+          "guestTeam" : 11,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 22,
+          "homeTeam" : 11,
+          "guestTeam" : 8,
+          "result" : {
+            "homeTeamPoints" : 2,
+            "guestTeamPoints" : 1
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 23,
+          "homeTeam" : 4,
+          "guestTeam" : 8,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 24,
+          "homeTeam" : 5,
+          "guestTeam" : 12,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 25,
+          "homeTeam" : 12,
+          "guestTeam" : 1,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 26,
+          "homeTeam" : 5,
+          "guestTeam" : 1,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 27,
+          "homeTeam" : 8,
+          "guestTeam" : 12,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 28,
+          "homeTeam" : 8,
+          "guestTeam" : 1,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        } ]
+      }
+    }, {
+      "id" : 29,
+      "name" : "B",
+      "teams" : [ 2, 3, 6, 7, 9, 10 ],
+      "plan" : {
+        "games" : [ {
+          "id" : 30,
+          "homeTeam" : 9,
+          "guestTeam" : 2,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 10
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 31,
+          "homeTeam" : 10,
+          "guestTeam" : 2,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 32,
+          "homeTeam" : 2,
+          "guestTeam" : 6,
+          "result" : {
+            "homeTeamPoints" : 1,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 33,
+          "homeTeam" : 10,
+          "guestTeam" : 3,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 34,
+          "homeTeam" : 7,
+          "guestTeam" : 10,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 1
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 35,
+          "homeTeam" : 9,
+          "guestTeam" : 10,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 36,
+          "homeTeam" : 7,
+          "guestTeam" : 6,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 4
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 37,
+          "homeTeam" : 6,
+          "guestTeam" : 3,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 38,
+          "homeTeam" : 7,
+          "guestTeam" : 3,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 8
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 39,
+          "homeTeam" : 9,
+          "guestTeam" : 3,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 10
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 40,
+          "homeTeam" : 9,
+          "guestTeam" : 6,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 41,
+          "homeTeam" : 10,
+          "guestTeam" : 6,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 4
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 42,
+          "homeTeam" : 7,
+          "guestTeam" : 2,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 9
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 43,
+          "homeTeam" : 2,
+          "guestTeam" : 3,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 44,
+          "homeTeam" : 7,
+          "guestTeam" : 9,
+          "result" : {
+            "homeTeamPoints" : 2,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        } ]
+      }
+    } ],
+    "numberOfQualifyingTeams" : 6
+  }, {
+    "type" : "groupPhase",
+    "name" : "Group Phase 2",
+    "groups" : [ {
+      "id" : 45,
+      "name" : "A",
+      "teams" : [ {
+        "type" : "qualifiedTeam",
+        "id" : 46,
+        "group" : 13,
+        "rank" : 1,
+        "name" : "1st Group A"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 47,
+        "group" : 29,
+        "rank" : 2,
+        "name" : "2nd Group B"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 48,
+        "group" : 13,
+        "rank" : 3,
+        "name" : "3rd Group A"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 49,
+        "group" : 29,
+        "rank" : 4,
+        "name" : "4th Group B"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 50,
+        "group" : 13,
+        "rank" : 5,
+        "name" : "5th Group A"
+      } ],
+      "plan" : {
+        "games" : [ {
+          "id" : 54,
+          "homeTeam" : 49,
+          "guestTeam" : 48,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 55,
+          "homeTeam" : 50,
+          "guestTeam" : 46,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 56,
+          "homeTeam" : 50,
+          "guestTeam" : 47,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 57,
+          "homeTeam" : 48,
+          "guestTeam" : 47,
+          "result" : {
+            "homeTeamPoints" : 2,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 58,
+          "homeTeam" : 48,
+          "guestTeam" : 46,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 60,
+          "homeTeam" : 49,
+          "guestTeam" : 46,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 61,
+          "homeTeam" : 47,
+          "guestTeam" : 46,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 3
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 64,
+          "homeTeam" : 49,
+          "guestTeam" : 47,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 65,
+          "homeTeam" : 50,
+          "guestTeam" : 49,
+          "result" : {
+            "homeTeamPoints" : 1,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 66,
+          "homeTeam" : 50,
+          "guestTeam" : 48,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        } ]
+      }
+    }, {
+      "id" : 67,
+      "name" : "B",
+      "teams" : [ {
+        "type" : "qualifiedTeam",
+        "id" : 68,
+        "group" : 29,
+        "rank" : 1,
+        "name" : "1st Group B"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 69,
+        "group" : 13,
+        "rank" : 2,
+        "name" : "2nd Group A"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 70,
+        "group" : 29,
+        "rank" : 3,
+        "name" : "3rd Group B"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 71,
+        "group" : 13,
+        "rank" : 4,
+        "name" : "4th Group A"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 72,
+        "group" : 29,
+        "rank" : 5,
+        "name" : "5th Group B"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 73,
+        "group" : 13,
+        "rank" : 6,
+        "name" : "6th Group A"
+      } ],
+      "plan" : {
+        "games" : [ {
+          "id" : 74,
+          "homeTeam" : 73,
+          "guestTeam" : 69,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 75,
+          "homeTeam" : 72,
+          "guestTeam" : 68,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 76,
+          "homeTeam" : 69,
+          "guestTeam" : 68,
+          "result" : {
+            "homeTeamPoints" : 1,
+            "guestTeamPoints" : 1
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 77,
+          "homeTeam" : 72,
+          "guestTeam" : 69,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 78,
+          "homeTeam" : 72,
+          "guestTeam" : 70,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 79,
+          "homeTeam" : 73,
+          "guestTeam" : 70,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 80,
+          "homeTeam" : 70,
+          "guestTeam" : 69,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 3
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 81,
+          "homeTeam" : 73,
+          "guestTeam" : 72,
+          "result" : {
+            "homeTeamPoints" : 6,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 82,
+          "homeTeam" : 73,
+          "guestTeam" : 68,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 1
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 83,
+          "homeTeam" : 72,
+          "guestTeam" : 71,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 10
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 84,
+          "homeTeam" : 71,
+          "guestTeam" : 70,
+          "result" : {
+            "homeTeamPoints" : 1,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 85,
+          "homeTeam" : 70,
+          "guestTeam" : 68,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 3
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 86,
+          "homeTeam" : 71,
+          "guestTeam" : 69,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 87,
+          "homeTeam" : 71,
+          "guestTeam" : 68,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 1
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 88,
+          "homeTeam" : 73,
+          "guestTeam" : 71,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 1
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        } ]
+      }
+    } ],
+    "numberOfQualifyingTeams" : 4
+  },  {
+    "type" : "groupPhase",
+    "name" : "Group Phase 3",
+    "groups" : [ {
+      "id" : 89,
+      "name" : "A",
+      "teams" : [ {
+        "type" : "qualifiedTeam",
+        "id" : 90,
+        "group" : 45,
+        "rank" : 1,
+        "name" : "1st Group A"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 91,
+        "group" : 67,
+        "rank" : 2,
+        "name" : "2nd Group B"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 92,
+        "group" : 45,
+        "rank" : 3,
+        "name" : "3rd Group A"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 93,
+        "group" : 67,
+        "rank" : 4,
+        "name" : "4th Group B"
+      } ],
+      "plan" : {
+        "games" : [ {
+          "id" : 94,
+          "homeTeam" : 92,
+          "guestTeam" : 90,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 95,
+          "homeTeam" : 93,
+          "guestTeam" : 92,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 96,
+          "homeTeam" : 92,
+          "guestTeam" : 91,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 1
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 97,
+          "homeTeam" : 93,
+          "guestTeam" : 91,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 98,
+          "homeTeam" : 91,
+          "guestTeam" : 90,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 4
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 99,
+          "homeTeam" : 93,
+          "guestTeam" : 90,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        } ]
+      }
+    }, {
+      "id" : 100,
+      "name" : "B",
+      "teams" : [ {
+        "type" : "qualifiedTeam",
+        "id" : 101,
+        "group" : 67,
+        "rank" : 1,
+        "name" : "1st Group B"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 102,
+        "group" : 45,
+        "rank" : 2,
+        "name" : "2nd Group A"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 103,
+        "group" : 67,
+        "rank" : 3,
+        "name" : "3rd Group B"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 104,
+        "group" : 45,
+        "rank" : 4,
+        "name" : "4th Group A"
+      } ],
+      "plan" : {
+        "games" : [ {
+          "id" : 105,
+          "homeTeam" : 104,
+          "guestTeam" : 103,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 4
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 106,
+          "homeTeam" : 103,
+          "guestTeam" : 102,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 107,
+          "homeTeam" : 104,
+          "guestTeam" : 102,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 4
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 108,
+          "homeTeam" : 102,
+          "guestTeam" : 101,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 109,
+          "homeTeam" : 104,
+          "guestTeam" : 101,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        }, {
+          "id" : 110,
+          "homeTeam" : 103,
+          "guestTeam" : 101,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "PLANNED",
+          "plannedStartTime" : null,
+          "realStartTime" : null
+        } ]
+      }
+    } ],
+    "numberOfQualifyingTeams" : 2
+  }, {
+    "type" : "koPhase",
+    "name" : "Semifinals",
+    "games" : [ {
+      "id" : 111,
+      "homeTeam" : {
+        "type" : "qualifiedTeam",
+        "id" : 112,
+        "group" : 89,
+        "rank" : 1,
+        "name" : "1st Group A"
+      },
+      "guestTeam" : {
+        "type" : "qualifiedTeam",
+        "id" : 113,
+        "group" : 100,
+        "rank" : 2,
+        "name" : "2nd Group B"
+      },
+      "result" : {
+        "homeTeamPoints" : 2,
+        "guestTeamPoints" : 0
+      },
+      "state" : "PLANNED",
+      "plannedStartTime" : null,
+      "realStartTime" : null
+    }, {
+      "id" : 114,
+      "homeTeam" : {
+        "type" : "qualifiedTeam",
+        "id" : 115,
+        "group" : 100,
+        "rank" : 1,
+        "name" : "1st Group B"
+      },
+      "guestTeam" : {
+        "type" : "qualifiedTeam",
+        "id" : 116,
+        "group" : 89,
+        "rank" : 2,
+        "name" : "2nd Group A"
+      },
+      "result" : {
+        "homeTeamPoints" : 0,
+        "guestTeamPoints" : 3
+      },
+      "state" : "PLANNED",
+      "plannedStartTime" : null,
+      "realStartTime" : null
+    } ]
+  }, {
+    "type" : "koPhase",
+    "name" : "Third Place Play-Off",
+    "games" : [ {
+      "id" : 120,
+      "homeTeam" : {
+        "type" : "looser",
+        "id" : 121,
+        "game" : 111,
+        "name" : "Looser '1st Group A : 2nd Group B'"
+      },
+      "guestTeam" : {
+        "type" : "looser",
+        "id" : 122,
+        "game" : 114,
+        "name" : "Looser '1st Group B : 2nd Group A'"
+      },
+      "result" : {
+        "homeTeamPoints" : 1,
+        "guestTeamPoints" : 0
+      },
+      "state" : "PLANNED",
+      "plannedStartTime" : null,
+      "realStartTime" : null
+    } ]
+  }, {
+    "type" : "koPhase",
+    "name" : "Final",
+    "games" : [ {
+      "id" : 117,
+      "homeTeam" : {
+        "type" : "winner",
+        "id" : 118,
+        "game" : 111,
+        "name" : "Winner '1st Group A : 2nd Group B'"
+      },
+      "guestTeam" : {
+        "type" : "winner",
+        "id" : 119,
+        "game" : 114,
+        "name" : "Winner '1st Group B : 2nd Group A'"
+      },
+      "result" : {
+        "homeTeamPoints" : 4,
+        "guestTeamPoints" : 0
+      },
+      "state" : "PLANNED",
+      "plannedStartTime" : null,
+      "realStartTime" : null
+    } ]
+  } ]
+}

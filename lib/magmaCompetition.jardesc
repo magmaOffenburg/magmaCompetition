@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="magma-competition/lib/magmaCompetition.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/magma-competition/lib/magmaCompetition.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=magma-competition/src\/main\/java&lt;magma.tools.competition{SimManager.java[SimManager" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <file path="/magma-competition/.gitignore"/>
+        <file path="/magma-competition/.project"/>
+        <file path="/magma-competition/pom.xml"/>
+        <folder path="/magma-competition/src/main"/>
+        <file path="/magma-competition/simmanager.properties"/>
+        <folder path="/magma-competition/bin"/>
+        <file path="/magma-competition/.sonar4clipse"/>
+        <javaElement handleIdentifier="=magma-competition/src\/main\/java"/>
+        <javaElement handleIdentifier="=magma-competition/src\/main\/resources"/>
+        <file path="/magma-competition/RobocupSourceFormatter.xml"/>
+        <folder path="/magma-competition/target"/>
+        <folder path="/magma-competition/assets"/>
+        <file path="/magma-competition/.classpath"/>
+    </selectedElements>
+</jardesc>

@@ -1,0 +1,1218 @@
+{
+  "name" : "Tournament",
+  "numberOfClusters" : 1,
+  "gameDuration" : 10.0,
+  "teams" : [ {
+    "type" : "team",
+    "id" : 1,
+    "name" : "UT Austin Villa",
+    "setTeam" : false,
+    "username" : "username1",
+    "startScriptFileName" : "startA.sh",
+    "pathToScriptFile" : " /Downloads/TeamA"
+  }, {
+    "type" : "team",
+    "id" : 2,
+    "name" : "Bahia RT",
+    "setTeam" : false,
+    "username" : "username2",
+    "startScriptFileName" : "startB.sh",
+    "pathToScriptFile" : " /Downloads/TeamB"
+  }, {
+    "type" : "team",
+    "id" : 3,
+    "name" : "FC Portugal 3D",
+    "setTeam" : false,
+    "username" : "username3",
+    "startScriptFileName" : "startC.sh",
+    "pathToScriptFile" : " /Downloads/TeamC"
+  }, {
+    "type" : "team",
+    "id" : 4,
+    "name" : "FUT-K",
+    "setTeam" : false,
+    "username" : "username4",
+    "startScriptFileName" : "startD.sh",
+    "pathToScriptFile" : " /Downloads/TeamD"
+  }, {
+    "type" : "team",
+    "id" : 5,
+    "name" : "Hfutengine3D",
+    "setTeam" : false,
+    "username" : "username5",
+    "startScriptFileName" : "startE.sh",
+    "pathToScriptFile" : " /Downloads/TeamE"
+  }, {
+    "type" : "team",
+    "id" : 6,
+    "name" : "Karachi Koalas",
+    "setTeam" : false,
+    "username" : "username6",
+    "startScriptFileName" : "startF.sh",
+    "pathToScriptFile" : " /Downloads/TeamF"
+  }, {
+    "type" : "team",
+    "id" : 7,
+    "name" : "L3M-SIM",
+    "setTeam" : false,
+    "username" : "username7",
+    "startScriptFileName" : "startG.sh",
+    "pathToScriptFile" : " /Downloads/TeamG"
+  }, {
+    "type" : "team",
+    "id" : 8,
+    "name" : "MagmaOffenburg",
+    "setTeam" : false,
+    "username" : "username8",
+    "startScriptFileName" : "startH.sh",
+    "pathToScriptFile" : " /Downloads/TeamH"
+  }, {
+    "type" : "team",
+    "id" : 9,
+    "name" : "Mithras3D",
+    "setTeam" : false,
+    "username" : "username9",
+    "startScriptFileName" : "startI.sh",
+    "pathToScriptFile" : " /Downloads/TeamI"
+  }, {
+    "type" : "team",
+    "id" : 10,
+    "name" : "ODENS",
+    "setTeam" : false,
+    "username" : "username10",
+    "startScriptFileName" : "startJ.sh",
+    "pathToScriptFile" : " /Downloads/TeamJ"
+  }, {
+    "type" : "team",
+    "id" : 11,
+    "name" : "RoboCanes",
+    "setTeam" : false,
+    "username" : "username11",
+    "startScriptFileName" : "startK.sh",
+    "pathToScriptFile" : " /Downloads/TeamK"
+  }, {
+    "type" : "team",
+    "id" : 12,
+    "name" : "SEU Jolly",
+    "setTeam" : false,
+    "username" : "username1",
+    "startScriptFileName" : "startA.sh",
+    "pathToScriptFile" : " /Downloads/TeamA"
+  } ],
+  "phases" : [ {
+    "type" : "groupPhase",
+    "name" : "Group Phase 1",
+    "groups" : [ {
+      "id" : 13,
+      "name" : "A",
+      "teams" : [ 1, 4, 5, 8, 11, 12 ],
+      "plan" : {
+        "games" : [ {
+          "id" : 14,
+          "homeTeam" : 4,
+          "guestTeam" : 1,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 9
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 15,
+          "homeTeam" : 11,
+          "guestTeam" : 12,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 16,
+          "homeTeam" : 5,
+          "guestTeam" : 8,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 17,
+          "homeTeam" : 5,
+          "guestTeam" : 4,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 18,
+          "homeTeam" : 5,
+          "guestTeam" : 11,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 19,
+          "homeTeam" : 11,
+          "guestTeam" : 1,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 20,
+          "homeTeam" : 4,
+          "guestTeam" : 12,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 21,
+          "homeTeam" : 4,
+          "guestTeam" : 11,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 22,
+          "homeTeam" : 11,
+          "guestTeam" : 8,
+          "result" : {
+            "homeTeamPoints" : 2,
+            "guestTeamPoints" : 1
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 23,
+          "homeTeam" : 4,
+          "guestTeam" : 8,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 24,
+          "homeTeam" : 5,
+          "guestTeam" : 12,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 25,
+          "homeTeam" : 12,
+          "guestTeam" : 1,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 26,
+          "homeTeam" : 5,
+          "guestTeam" : 1,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 27,
+          "homeTeam" : 8,
+          "guestTeam" : 12,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 28,
+          "homeTeam" : 8,
+          "guestTeam" : 1,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        } ]
+      }
+    }, {
+      "id" : 29,
+      "name" : "B",
+      "teams" : [ 2, 3, 6, 7, 9, 10 ],
+      "plan" : {
+        "games" : [ {
+          "id" : 30,
+          "homeTeam" : 9,
+          "guestTeam" : 2,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 10
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 31,
+          "homeTeam" : 10,
+          "guestTeam" : 2,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 32,
+          "homeTeam" : 2,
+          "guestTeam" : 6,
+          "result" : {
+            "homeTeamPoints" : 1,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 33,
+          "homeTeam" : 10,
+          "guestTeam" : 3,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 34,
+          "homeTeam" : 7,
+          "guestTeam" : 10,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 1
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 35,
+          "homeTeam" : 9,
+          "guestTeam" : 10,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 36,
+          "homeTeam" : 7,
+          "guestTeam" : 6,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 4
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 37,
+          "homeTeam" : 6,
+          "guestTeam" : 3,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 38,
+          "homeTeam" : 7,
+          "guestTeam" : 3,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 8
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 39,
+          "homeTeam" : 9,
+          "guestTeam" : 3,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 10
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 40,
+          "homeTeam" : 9,
+          "guestTeam" : 6,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 41,
+          "homeTeam" : 10,
+          "guestTeam" : 6,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 4
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 42,
+          "homeTeam" : 7,
+          "guestTeam" : 2,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 9
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 43,
+          "homeTeam" : 2,
+          "guestTeam" : 3,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 44,
+          "homeTeam" : 7,
+          "guestTeam" : 9,
+          "result" : {
+            "homeTeamPoints" : 2,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 45,
+          "homeTeam" : 2,
+          "guestTeam" : 3,
+          "result" : {
+            "homeTeamPoints" : 1,
+            "guestTeamPoints" : 4
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : true
+        } ]
+      }
+    } ],
+    "numberOfQualifyingTeams" : 6
+  }, {
+    "type" : "groupPhase",
+    "name" : "Group Phase 2",
+    "groups" : [ {
+      "id" : 46,
+      "name" : "A",
+      "teams" : [ {
+        "type" : "qualifiedTeam",
+        "id" : 47,
+        "group" : 13,
+        "rank" : 1,
+        "name" : "UT Austin Villa"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 48,
+        "group" : 29,
+        "rank" : 2,
+        "name" : "Bahia RT"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 49,
+        "group" : 13,
+        "rank" : 3,
+        "name" : "SEU Jolly"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 50,
+        "group" : 29,
+        "rank" : 4,
+        "name" : "ODENS"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 51,
+        "group" : 13,
+        "rank" : 5,
+        "name" : "Hfutengine3D"
+      } ],
+      "plan" : {
+        "games" : [ {
+          "id" : 52,
+          "homeTeam" : 50,
+          "guestTeam" : 49,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 53,
+          "homeTeam" : 51,
+          "guestTeam" : 47,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 54,
+          "homeTeam" : 51,
+          "guestTeam" : 48,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 55,
+          "homeTeam" : 49,
+          "guestTeam" : 48,
+          "result" : {
+            "homeTeamPoints" : 2,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 56,
+          "homeTeam" : 49,
+          "guestTeam" : 47,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 57,
+          "homeTeam" : 50,
+          "guestTeam" : 47,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 58,
+          "homeTeam" : 48,
+          "guestTeam" : 47,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 3
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 59,
+          "homeTeam" : 50,
+          "guestTeam" : 48,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 6
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 60,
+          "homeTeam" : 51,
+          "guestTeam" : 50,
+          "result" : {
+            "homeTeamPoints" : 1,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 61,
+          "homeTeam" : 51,
+          "guestTeam" : 49,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 62,
+          "homeTeam" : 49,
+          "guestTeam" : 47,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 1
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : true
+        } ]
+      }
+    }, {
+      "id" : 63,
+      "name" : "B",
+      "teams" : [ {
+        "type" : "qualifiedTeam",
+        "id" : 64,
+        "group" : 29,
+        "rank" : 1,
+        "name" : "FC Portugal 3D"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 65,
+        "group" : 13,
+        "rank" : 2,
+        "name" : "RoboCanes"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 66,
+        "group" : 29,
+        "rank" : 3,
+        "name" : "Karachi Koalas"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 67,
+        "group" : 13,
+        "rank" : 4,
+        "name" : "MagmaOffenburg"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 68,
+        "group" : 29,
+        "rank" : 5,
+        "name" : "L3M-SIM"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 69,
+        "group" : 13,
+        "rank" : 6,
+        "name" : "FUT-K"
+      } ],
+      "plan" : {
+        "games" : [ {
+          "id" : 70,
+          "homeTeam" : 69,
+          "guestTeam" : 65,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 71,
+          "homeTeam" : 68,
+          "guestTeam" : 64,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 72,
+          "homeTeam" : 65,
+          "guestTeam" : 64,
+          "result" : {
+            "homeTeamPoints" : 1,
+            "guestTeamPoints" : 1
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 73,
+          "homeTeam" : 68,
+          "guestTeam" : 65,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 7
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 74,
+          "homeTeam" : 68,
+          "guestTeam" : 66,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 75,
+          "homeTeam" : 69,
+          "guestTeam" : 66,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 76,
+          "homeTeam" : 66,
+          "guestTeam" : 65,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 3
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 77,
+          "homeTeam" : 69,
+          "guestTeam" : 68,
+          "result" : {
+            "homeTeamPoints" : 6,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 78,
+          "homeTeam" : 69,
+          "guestTeam" : 64,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 1
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 79,
+          "homeTeam" : 68,
+          "guestTeam" : 67,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 10
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 80,
+          "homeTeam" : 67,
+          "guestTeam" : 66,
+          "result" : {
+            "homeTeamPoints" : 1,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 81,
+          "homeTeam" : 66,
+          "guestTeam" : 64,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 3
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 82,
+          "homeTeam" : 67,
+          "guestTeam" : 65,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 2
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 83,
+          "homeTeam" : 67,
+          "guestTeam" : 64,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 1
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 84,
+          "homeTeam" : 69,
+          "guestTeam" : 67,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 1
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        } ]
+      }
+    } ],
+    "numberOfQualifyingTeams" : 4
+  }, {
+    "type" : "groupPhase",
+    "name" : "Group Phase 3",
+    "groups" : [ {
+      "id" : 85,
+      "name" : "A",
+      "teams" : [ {
+        "type" : "qualifiedTeam",
+        "id" : 86,
+        "group" : 46,
+        "rank" : 1,
+        "name" : "UT Austin Villa"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 87,
+        "group" : 63,
+        "rank" : 2,
+        "name" : "RoboCanes"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 88,
+        "group" : 46,
+        "rank" : 3,
+        "name" : "Bahia RT"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 89,
+        "group" : 63,
+        "rank" : 4,
+        "name" : "FUT-K"
+      } ],
+      "plan" : {
+        "games" : [ {
+          "id" : 90,
+          "homeTeam" : 88,
+          "guestTeam" : 86,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 91,
+          "homeTeam" : 89,
+          "guestTeam" : 88,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 92,
+          "homeTeam" : 88,
+          "guestTeam" : 87,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 1
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 93,
+          "homeTeam" : 89,
+          "guestTeam" : 87,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 94,
+          "homeTeam" : 87,
+          "guestTeam" : 86,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 4
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 95,
+          "homeTeam" : 89,
+          "guestTeam" : 86,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        } ]
+      }
+    }, {
+      "id" : 96,
+      "name" : "B",
+      "teams" : [ {
+        "type" : "qualifiedTeam",
+        "id" : 97,
+        "group" : 63,
+        "rank" : 1,
+        "name" : "FC Portugal 3D"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 98,
+        "group" : 46,
+        "rank" : 2,
+        "name" : "SEU Jolly"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 99,
+        "group" : 63,
+        "rank" : 3,
+        "name" : "MagmaOffenburg"
+      }, {
+        "type" : "qualifiedTeam",
+        "id" : 100,
+        "group" : 46,
+        "rank" : 4,
+        "name" : "Hfutengine3D"
+      } ],
+      "plan" : {
+        "games" : [ {
+          "id" : 101,
+          "homeTeam" : 100,
+          "guestTeam" : 99,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 4
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 102,
+          "homeTeam" : 99,
+          "guestTeam" : 98,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 103,
+          "homeTeam" : 100,
+          "guestTeam" : 98,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 4
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 104,
+          "homeTeam" : 98,
+          "guestTeam" : 97,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 105,
+          "homeTeam" : 100,
+          "guestTeam" : 97,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 5
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 106,
+          "homeTeam" : 99,
+          "guestTeam" : 97,
+          "result" : {
+            "homeTeamPoints" : 0,
+            "guestTeamPoints" : 0
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : false
+        }, {
+          "id" : 107,
+          "homeTeam" : 99,
+          "guestTeam" : 98,
+          "result" : {
+            "homeTeamPoints" : 2,
+            "guestTeamPoints" : 1
+          },
+          "state" : "FINISHED",
+          "plannedStartTime" : null,
+          "realStartTime" : null,
+          "decisionGame" : true
+        } ]
+      }
+    } ],
+    "numberOfQualifyingTeams" : 2
+  }, {
+    "type" : "koPhase",
+    "name" : "Semifinals",
+    "games" : [ {
+      "id" : 108,
+      "homeTeam" : {
+        "type" : "qualifiedTeam",
+        "id" : 109,
+        "group" : 85,
+        "rank" : 1,
+        "name" : "UT Austin Villa"
+      },
+      "guestTeam" : {
+        "type" : "qualifiedTeam",
+        "id" : 110,
+        "group" : 96,
+        "rank" : 2,
+        "name" : "MagmaOffenburg"
+      },
+      "result" : {
+        "homeTeamPoints" : 2,
+        "guestTeamPoints" : 0
+      },
+      "state" : "FINISHED",
+      "plannedStartTime" : null,
+      "realStartTime" : null,
+      "decisionGame" : false
+    }, {
+      "id" : 111,
+      "homeTeam" : {
+        "type" : "qualifiedTeam",
+        "id" : 112,
+        "group" : 96,
+        "rank" : 1,
+        "name" : "FC Portugal 3D"
+      },
+      "guestTeam" : {
+        "type" : "qualifiedTeam",
+        "id" : 113,
+        "group" : 85,
+        "rank" : 2,
+        "name" : "RoboCanes"
+      },
+      "result" : {
+        "homeTeamPoints" : 0,
+        "guestTeamPoints" : 3
+      },
+      "state" : "FINISHED",
+      "plannedStartTime" : null,
+      "realStartTime" : null,
+      "decisionGame" : false
+    } ]
+  }, {
+    "type" : "koPhase",
+    "name" : "Third Place Play-Off",
+    "games" : [ {
+      "id" : 114,
+      "homeTeam" : {
+        "type" : "looser",
+        "id" : 115,
+        "game" : 108,
+        "name" : "MagmaOffenburg"
+      },
+      "guestTeam" : {
+        "type" : "looser",
+        "id" : 116,
+        "game" : 111,
+        "name" : "FC Portugal 3D"
+      },
+      "result" : {
+        "homeTeamPoints" : 1,
+        "guestTeamPoints" : 0
+      },
+      "state" : "FINISHED",
+      "plannedStartTime" : null,
+      "realStartTime" : null,
+      "decisionGame" : false
+    } ]
+  }, {
+    "type" : "koPhase",
+    "name" : "Final",
+    "games" : [ {
+      "id" : 117,
+      "homeTeam" : {
+        "type" : "winner",
+        "id" : 118,
+        "game" : 108,
+        "name" : "UT Austin Villa"
+      },
+      "guestTeam" : {
+        "type" : "winner",
+        "id" : 119,
+        "game" : 111,
+        "name" : "RoboCanes"
+      },
+      "result" : {
+        "homeTeamPoints" : 4,
+        "guestTeamPoints" : 0
+      },
+      "state" : "FINISHED",
+      "plannedStartTime" : null,
+      "realStartTime" : null,
+      "decisionGame" : false
+    } ]
+  } ]
+}

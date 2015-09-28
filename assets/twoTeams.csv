@@ -1,0 +1,3 @@
+TeamName;Username;StartScript;Path;SetTeam
+magmaOpponent;robocup;start.sh;/home/robocup/test_teams/team1;true
+magma2;robocup;start.sh;/home/robocup/test_teams/team2;false

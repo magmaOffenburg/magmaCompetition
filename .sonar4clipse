@@ -1,0 +1,8 @@
+#
+#Wed Apr 16 17:45:39 CEST 2014
+sonar.inactive.directories=
+sonar.buildunit.name=simmanager
+sonar.active.directories=../src/main/java|../src/main/resources|../src/test/java|../src/test/resources|../target/classes|../target/test-classes
+sonar.project.name=simmanager
+sonar.context.file=sonargraph/simmanager.sonargraph
+sonar.violation.marker=Error
