@@ -6,7 +6,7 @@ import javax.swing.JComboBox;
 public class JTableComboBoxEditor extends DefaultCellEditor
 {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 

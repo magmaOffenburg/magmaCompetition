@@ -13,18 +13,17 @@ import com.google.inject.Inject;
 
 /**
  * This class is responsible for reading out csv files
- * 
+ *
  * @author Daniel
- * 
+ *
  */
 public class CSVReader
 {
-
 	@Inject
 	private static TeamBuilder teamBuilder;
 
 	/**
-	 * 
+	 *
 	 * @param pathToCSVFile the path to the CSV file which should be read out
 	 * @param fileHasHeaderRow whether the first row of the csv file contains the
 	 *        column headers (true) or whether the data starts in the first row
@@ -35,8 +34,8 @@ public class CSVReader
 	 * @throws CSVReadingException exception if a problem occurs or the structure
 	 *         of the csv was bad
 	 */
-	public static LinkedList<ITeam> readOutCSV(String pathToCSVFile,
-			boolean fileHasHeaderRow, String separator) throws CSVReadingException
+	public static LinkedList<ITeam> readOutCSV(String pathToCSVFile, boolean fileHasHeaderRow, String separator)
+			throws CSVReadingException
 	{
 		final int COLUMN_COUNT = 5;
 
@@ -65,20 +64,16 @@ public class CSVReader
 					if (!(fileHasHeaderRow && firstRow)) {
 						teamBuilder.name(rowArray[COLUMN_TEAMNAME]);
 						teamBuilder.username(rowArray[COLUMN_USERNAME]);
-						teamBuilder
-								.startScriptFilename(rowArray[COLUMN_STARTSCRIPTFILENAME]);
-						teamBuilder
-								.pathToScriptFile(rowArray[COLUMN_STARTSCRIPTPATH]);
-						teamBuilder.setTeam(Boolean
-								.parseBoolean(rowArray[COLUMN_SETTEAM]));
+						teamBuilder.startScriptFilename(rowArray[COLUMN_STARTSCRIPTFILENAME]);
+						teamBuilder.pathToScriptFile(rowArray[COLUMN_STARTSCRIPTPATH]);
+						teamBuilder.setTeam(Boolean.parseBoolean(rowArray[COLUMN_SETTEAM]));
 						listOfAllTeams.add(teamBuilder.build());
 					}
 				} else {
 					reader.close();
 					throw new CSVReadingException(
-							"Failure while reading the CSV file "
-									+ pathToCSVFile
-									+ ": The column count of the rows was not equal to CSVReader.COLUMN_COUNT!");
+							"Failure while reading the CSV file " + pathToCSVFile +
+							": The column count of the rows was not equal to CSVReader.COLUMN_COUNT!");
 				}
 				firstRow = false;
 			}
@@ -87,12 +82,9 @@ public class CSVReader
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new CSVReadingException(
-					"IOException while reading the CSV file " + pathToCSVFile
-							+ ": \n" + e.getMessage());
+					"IOException while reading the CSV file " + pathToCSVFile + ": \n" + e.getMessage());
 		}
 
 		return listOfAllTeams;
-
 	}
-
 }

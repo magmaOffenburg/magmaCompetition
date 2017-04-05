@@ -26,7 +26,6 @@ import com.google.inject.Provider;
 
 public class JsonHandler
 {
-
 	private static ObjectMapper mapper;
 
 	@Inject
@@ -38,8 +37,7 @@ public class JsonHandler
 	@Inject
 	private static GroupResultFactory resultFactory;
 
-	public static void exportToFile(Object objectToExport, File file)
-			throws IOException
+	public static void exportToFile(Object objectToExport, File file) throws IOException
 	{
 		ObjectMapper objMapper = getMapper();
 		objMapper.writeValue(file, objectToExport);
@@ -59,17 +57,16 @@ public class JsonHandler
 			mapper = new ObjectMapper();
 			mapper.enable(SerializationFeature.INDENT_OUTPUT);
 			InjectableValues values = new InjectableValues.Std()
-					.addValue("dateProvider", dateProvider)
-					.addValue("groupResultFactory", resultFactory)
-					.addValue("teamFactory", teamFactory);
+											  .addValue("dateProvider", dateProvider)
+											  .addValue("groupResultFactory", resultFactory)
+											  .addValue("teamFactory", teamFactory);
 			mapper.setInjectableValues(values);
 		}
 		return mapper;
 	}
 
-	public static void mergeTournaments(Tournament localTournament,
-			Tournament mergeTournament) throws JsonParseException,
-			JsonMappingException, IOException
+	public static void mergeTournaments(Tournament localTournament, Tournament mergeTournament)
+			throws JsonParseException, JsonMappingException, IOException
 	{
 		List<Phase> phases;
 		List<Group> groups;
@@ -78,41 +75,43 @@ public class JsonHandler
 		phases = localTournament.getPhases();
 
 		for (int iPhases = 0; iPhases < phases.size(); iPhases++) {
-
 			if (phases.get(iPhases) instanceof GroupPhase) {
-
 				GroupPhase groupPhase = (GroupPhase) phases.get(iPhases);
 
 				groups = groupPhase.getGroups();
 
 				for (int iGroups = 0; iGroups < groups.size(); iGroups++) {
-
 					games = groups.get(iGroups).getPlan().getGames();
 
 					for (int iGames = 0; iGames < games.size(); iGames++) {
-
 						Game game = games.get(iGames);
 
-						if (!(game.getState().equals(GameState.STARTED) || game
-								.getState().equals(GameState.FINISHED))
-								&& game.getResult().getHomeTeamPoints() == 0
-								&& game.getResult().getGuestTeamPoints() == 0) {
+						if (!(game.getState().equals(GameState.STARTED) ||
+									game.getState().equals(GameState.FINISHED)) &&
+								game.getResult().getHomeTeamPoints() == 0 &&
+								game.getResult().getGuestTeamPoints() == 0) {
 							// Game status is NOT started and NOT finished AND stand is
 							// 0 : 0
 							// --> not played on this cluster yet --> take game from
 							// other cluster
-							GameState otherClusterGameState = ((GroupPhase) mergeTournament
-									.getPhases().get(iPhases)).getGroups().get(iGroups)
-									.getPlan().getGames().get(iGames).getState();
-							GameResult otherClusterGameResult = ((GroupPhase) mergeTournament
-									.getPhases().get(iPhases)).getGroups().get(iGroups)
-									.getPlan().getGames().get(iGames).getResult();
+							GameState otherClusterGameState = ((GroupPhase) mergeTournament.getPhases().get(iPhases))
+																	  .getGroups()
+																	  .get(iGroups)
+																	  .getPlan()
+																	  .getGames()
+																	  .get(iGames)
+																	  .getState();
+							GameResult otherClusterGameResult = ((GroupPhase) mergeTournament.getPhases().get(iPhases))
+																		.getGroups()
+																		.get(iGroups)
+																		.getPlan()
+																		.getGames()
+																		.get(iGames)
+																		.getResult();
 
 							game.setState(otherClusterGameState);
-							game.getResult().setHomeTeamPoints(
-									otherClusterGameResult.getHomeTeamPoints());
-							game.getResult().setGuestTeamPoints(
-									otherClusterGameResult.getGuestTeamPoints());
+							game.getResult().setHomeTeamPoints(otherClusterGameResult.getHomeTeamPoints());
+							game.getResult().setGuestTeamPoints(otherClusterGameResult.getGuestTeamPoints());
 						}
 					}
 				}
@@ -122,29 +121,22 @@ public class JsonHandler
 				games = koPhase.getGames();
 
 				for (int iGames = 0; iGames < games.size(); iGames++) {
-
 					Game game = games.get(iGames);
 
-					if (!(game.getState().equals(GameState.STARTED) || game
-							.getState().equals(GameState.FINISHED))
-							&& game.getResult().getHomeTeamPoints() == 0
-							&& game.getResult().getGuestTeamPoints() == 0) {
+					if (!(game.getState().equals(GameState.STARTED) || game.getState().equals(GameState.FINISHED)) &&
+							game.getResult().getHomeTeamPoints() == 0 && game.getResult().getGuestTeamPoints() == 0) {
 						// Game status is NOT started and NOT finished AND stand is 0
 						// : 0
 						// --> not played on this cluster yet --> take game from other
 						// cluster
-						GameState otherClusterGameState = ((KoPhase) mergeTournament
-								.getPhases().get(iPhases)).getGames().get(iGames)
-								.getState();
-						GameResult otherClusterGameResult = ((KoPhase) mergeTournament
-								.getPhases().get(iPhases)).getGames().get(iGames)
-								.getResult();
+						GameState otherClusterGameState =
+								((KoPhase) mergeTournament.getPhases().get(iPhases)).getGames().get(iGames).getState();
+						GameResult otherClusterGameResult =
+								((KoPhase) mergeTournament.getPhases().get(iPhases)).getGames().get(iGames).getResult();
 
 						game.setState(otherClusterGameState);
-						game.getResult().setHomeTeamPoints(
-								otherClusterGameResult.getHomeTeamPoints());
-						game.getResult().setGuestTeamPoints(
-								otherClusterGameResult.getGuestTeamPoints());
+						game.getResult().setHomeTeamPoints(otherClusterGameResult.getHomeTeamPoints());
+						game.getResult().setGuestTeamPoints(otherClusterGameResult.getGuestTeamPoints());
 					}
 				}
 			}

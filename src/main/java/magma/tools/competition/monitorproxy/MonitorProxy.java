@@ -5,11 +5,11 @@ import java.util.Iterator;
 
 /**
  * Implementation of a generic proxy for the sp monitor.
- * 
+ *
  * Extends {@link Thread}
- * 
+ *
  * @author Simon Gutjahr
- * 
+ *
  */
 public class MonitorProxy extends Thread
 {
@@ -21,13 +21,13 @@ public class MonitorProxy extends Thread
 
 	/**
 	 * Constructor for the MonitorProxy
-	 * 
+	 *
 	 * @param monitorProxyServer TCP Server for clients to connect
 	 * @param monitorClient TCP Client to connect to the monitor
 	 * @throws MonitorProxyException
 	 */
-	public MonitorProxy(MonitorProxyServer monitorProxyServer,
-			MonitorConnection monitorClient) throws MonitorProxyException
+	public MonitorProxy(MonitorProxyServer monitorProxyServer, MonitorConnection monitorClient)
+			throws MonitorProxyException
 	{
 		if (monitorProxyServer != null && monitorClient != null) {
 			_monitorProxyServer = monitorProxyServer;
@@ -60,19 +60,17 @@ public class MonitorProxy extends Thread
 				_monitorProxyServer.start();
 				_monitorProxyServer.setMonitorConnection(_monitorConnection);
 
-				while ((this.isInterrupted() != true)
-						&& (_monitorProxyServer.isAlive() == true)
-						&& (_monitorConnection.isConnected() == true)) {
-
+				while ((this.isInterrupted() != true) && (_monitorProxyServer.isAlive() == true) &&
+						(_monitorConnection.isConnected() == true)) {
 					/* Wait for a new message */
 					recv = _monitorConnection.receiveMessage();
 
 					/* Send message to all connected clients */
 					if (recv != null) {
 						if (recv.length > 0) {
-							for (Iterator<MonitorObserver> iterator = _monitorProxyServer
-									.getMonitorObservers().iterator(); iterator
-									.hasNext();) {
+							for (Iterator<MonitorObserver> iterator =
+											_monitorProxyServer.getMonitorObservers().iterator();
+									iterator.hasNext();) {
 								MonitorObserver observer = iterator.next();
 								observer.sendClientMsg(recv);
 							}

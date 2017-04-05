@@ -47,8 +47,7 @@ public class TieBreakComboBoxModel implements ComboBoxModel
 	{
 		if ((phase != null) && (phase instanceof GroupPhase)) {
 			for (int i = 0; i < ((GroupPhase) phase).getGroups().size(); i++) {
-				String groupName = new String(((GroupPhase) phase).getGroups()
-						.get(i).getName());
+				String groupName = new String(((GroupPhase) phase).getGroups().get(i).getName());
 
 				String compTo = new String(anItem.toString());
 

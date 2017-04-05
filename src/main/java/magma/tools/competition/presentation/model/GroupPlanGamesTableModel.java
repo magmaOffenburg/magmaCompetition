@@ -13,7 +13,7 @@ import magma.tools.competition.domain.Group;
 public class GroupPlanGamesTableModel extends AbstractTableModel
 {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1970106848379144550L;
 
@@ -57,14 +57,12 @@ public class GroupPlanGamesTableModel extends AbstractTableModel
 		if (group != null) {
 			switch (columnIndex) {
 			case 0: {
-				value = group.getPlan().getGames().get(rowIndex).getHomeTeam()
-						.getName();
+				value = group.getPlan().getGames().get(rowIndex).getHomeTeam().getName();
 				break;
 			}
 
 			case 1: {
-				value = group.getPlan().getGames().get(rowIndex).getGuestTeam()
-						.getName();
+				value = group.getPlan().getGames().get(rowIndex).getGuestTeam().getName();
 				break;
 			}
 
@@ -75,11 +73,9 @@ public class GroupPlanGamesTableModel extends AbstractTableModel
 				if (game.getState() == GameState.PLANNED) {
 					result = "- : -";
 				} else {
-					result = String.valueOf(group.getPlan().getGames().get(rowIndex)
-							.getResult().getHomeTeamPoints());
+					result = String.valueOf(group.getPlan().getGames().get(rowIndex).getResult().getHomeTeamPoints());
 					result += " : ";
-					result += String.valueOf(group.getPlan().getGames()
-							.get(rowIndex).getResult().getGuestTeamPoints());
+					result += String.valueOf(group.getPlan().getGames().get(rowIndex).getResult().getGuestTeamPoints());
 				}
 
 				if (group.getPlan().getGames().get(rowIndex).isDecisionGame() == true) {
@@ -174,8 +170,8 @@ public class GroupPlanGamesTableModel extends AbstractTableModel
 		for (int i = 0; i < size; i++) {
 			int index = size;
 
-			TableModelEvent e = new TableModelEvent(this, 0, index,
-					TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
+			TableModelEvent e =
+					new TableModelEvent(this, 0, index, TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
 
 			for (int j = 0, n = listeners.size(); j < n; j++) {
 				listeners.get(j).tableChanged(e);

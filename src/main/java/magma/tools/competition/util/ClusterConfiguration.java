@@ -7,7 +7,6 @@ import java.util.Properties;
 
 public class ClusterConfiguration
 {
-
 	private static final String CLUSTER_CONFIGURATION_PATH = "./simmanager.properties";
 
 	private static final String KEY_SERVER_ADDRESS = "serverAddress";
@@ -33,8 +32,7 @@ public class ClusterConfiguration
 	private ClusterConfiguration() throws IOException
 	{
 		properties = new Properties();
-		properties
-				.load(new FileInputStream(new File(CLUSTER_CONFIGURATION_PATH)));
+		properties.load(new FileInputStream(new File(CLUSTER_CONFIGURATION_PATH)));
 	}
 
 	public static ClusterConfiguration get() throws IOException
@@ -90,8 +88,7 @@ public class ClusterConfiguration
 		String missingElements = "";
 
 		if (getServerAddress() == null) {
-			missingElements += "- Property " + KEY_SERVER_ADDRESS
-					+ " is missing\n";
+			missingElements += "- Property " + KEY_SERVER_ADDRESS + " is missing\n";
 		}
 
 		if (getServerPort() == null) {
@@ -99,23 +96,19 @@ public class ClusterConfiguration
 		}
 
 		if (getServerUserName() == null) {
-			missingElements += "- Property " + KEY_SERVER_USER_NAME
-					+ " is missing\n";
+			missingElements += "- Property " + KEY_SERVER_USER_NAME + " is missing\n";
 		}
 
 		if (getServerUserPassword() == null) {
-			missingElements += "- Property " + KEY_SERVER_USER_PASSWORD
-					+ " is missing\n";
+			missingElements += "- Property " + KEY_SERVER_USER_PASSWORD + " is missing\n";
 		}
 
 		if (getTeamLeftAddress() == null) {
-			missingElements += "- Property " + KEY_TEAM_LEFT_ADDRESS
-					+ " is missing\n";
+			missingElements += "- Property " + KEY_TEAM_LEFT_ADDRESS + " is missing\n";
 		}
 
 		if (getTeamRightAddress() == null) {
-			missingElements += "- Property " + KEY_TEAM_RIGHT_ADDRESS
-					+ " is missing\n";
+			missingElements += "- Property " + KEY_TEAM_RIGHT_ADDRESS + " is missing\n";
 		}
 
 		if (getFileStartPath() == null) {
@@ -129,13 +122,11 @@ public class ClusterConfiguration
 		// check the startFile Path and the knownHosts Path
 		if (missingElements.length() == 0) {
 			if (!(new File(getFileStartPath()).isDirectory())) {
-				missingElements += "- Property " + FILE_START_PATH
-						+ " is not a valid directory!\n";
+				missingElements += "- Property " + FILE_START_PATH + " is not a valid directory!\n";
 			}
 
 			if (!(new File(getKnownHostPath()).isFile())) {
-				missingElements += "- Property " + KNOWN_HOSTS_PATH
-						+ " is not a valid file!\n";
+				missingElements += "- Property " + KNOWN_HOSTS_PATH + " is not a valid file!\n";
 			}
 		}
 
@@ -146,5 +137,4 @@ public class ClusterConfiguration
 	{
 		return properties.getProperty(key);
 	}
-
 }

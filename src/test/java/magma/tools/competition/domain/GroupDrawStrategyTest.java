@@ -25,7 +25,6 @@ import com.google.common.collect.Sets;
 @RunWith(MockitoJUnitRunner.class)
 public class GroupDrawStrategyTest
 {
-
 	@Mock
 	private DrawingBowlFactory factory;
 
@@ -51,8 +50,7 @@ public class GroupDrawStrategyTest
 				when(team.isSetTeam()).thenReturn(true);
 			}
 		}
-		when(factory.create(Matchers.anyObject())).thenReturn(setTeamsBowl)
-				.thenReturn(otherTeamsBowl);
+		when(factory.create(Matchers.anyObject())).thenReturn(setTeamsBowl).thenReturn(otherTeamsBowl);
 		when(setTeamsBowl.draw()).thenReturn(teams.get(0), teams.get(1));
 		when(setTeamsBowl.isEmpty()).thenReturn(false, false, true);
 		when(otherTeamsBowl.draw()).thenReturn(teams.get(2), teams.get(3));
@@ -62,8 +60,7 @@ public class GroupDrawStrategyTest
 	@Test
 	public void testDraw() throws Exception
 	{
-		List<LinkedHashSet<ITeam>> drawResult = strategy.draw(2,
-				Sets.newLinkedHashSet(teams));
+		List<LinkedHashSet<ITeam>> drawResult = strategy.draw(2, Sets.newLinkedHashSet(teams));
 		assertSame(teams.get(0), Lists.newArrayList(drawResult.get(0)).get(0));
 		assertSame(teams.get(2), Lists.newArrayList(drawResult.get(0)).get(1));
 		assertSame(teams.get(1), Lists.newArrayList(drawResult.get(1)).get(0));
@@ -84,5 +81,4 @@ public class GroupDrawStrategyTest
 		teams.remove(0); // 1 Element
 		strategy.draw(2, Sets.newLinkedHashSet(teams));
 	}
-
 }

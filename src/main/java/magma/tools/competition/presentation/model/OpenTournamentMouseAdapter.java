@@ -19,10 +19,8 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.google.common.collect.Lists;
 
-public class OpenTournamentMouseAdapter extends MouseAdapter implements
-		ChangeNotifier<Tournament>
+public class OpenTournamentMouseAdapter extends MouseAdapter implements ChangeNotifier<Tournament>
 {
-
 	private List<ChangeHandler<Tournament>> handlers;
 
 	private JFileChooser chooser;
@@ -96,5 +94,4 @@ public class OpenTournamentMouseAdapter extends MouseAdapter implements
 	{
 		handlers.remove(handler);
 	}
-
 }

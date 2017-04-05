@@ -12,7 +12,6 @@ import com.google.inject.Inject;
 
 public class GameUtil
 {
-
 	private GameFactory factory;
 
 	@Inject
@@ -31,10 +30,8 @@ public class GameUtil
 	{
 		checkNotNull(teams);
 		int teamsSize = teams.size();
-		checkArgument(
-				(teamsSize >= 2) && ((teamsSize & (~teamsSize + 1)) == teamsSize),
-				"The number of teams in a KO Phase must be >= 2 and a power of two, given '%s'.",
-				teamsSize);
+		checkArgument((teamsSize >= 2) && ((teamsSize & (~teamsSize + 1)) == teamsSize),
+				"The number of teams in a KO Phase must be >= 2 and a power of two, given '%s'.", teamsSize);
 		List<Game> games = new ArrayList<>();
 		Iterator<ITeam> iterator = teams.iterator();
 		while (iterator.hasNext()) {
@@ -73,5 +70,4 @@ public class GameUtil
 		}
 		return orderedGames;
 	}
-
 }

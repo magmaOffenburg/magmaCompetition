@@ -14,7 +14,6 @@ import com.google.inject.Inject;
 
 public class GroupDrawStrategy
 {
-
 	private DrawingBowlFactory factory;
 
 	@Inject
@@ -23,8 +22,7 @@ public class GroupDrawStrategy
 		this.factory = factory;
 	}
 
-	public List<LinkedHashSet<ITeam>> draw(int numberOfBuckets,
-			LinkedHashSet<ITeam> teams)
+	public List<LinkedHashSet<ITeam>> draw(int numberOfBuckets, LinkedHashSet<ITeam> teams)
 	{
 		checkTeams(teams);
 		List<LinkedHashSet<ITeam>> teamBuckets = createBuckets(numberOfBuckets);
@@ -68,8 +66,6 @@ public class GroupDrawStrategy
 	private void checkTeams(LinkedHashSet<ITeam> teams)
 	{
 		checkNotNull(teams);
-		checkArgument(teams.size() > 1,
-				"There must be at least two teams to draw from.");
+		checkArgument(teams.size() > 1, "There must be at least two teams to draw from.");
 	}
-
 }

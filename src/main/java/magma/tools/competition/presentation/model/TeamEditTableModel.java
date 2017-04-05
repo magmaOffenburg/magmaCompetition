@@ -20,7 +20,6 @@ import org.slf4j.LoggerFactory;
 
 public class TeamEditTableModel implements TableModel
 {
-
 	private Logger logger = LoggerFactory.getLogger(TeamEditTableModel.class);
 
 	private LinkedList<ITeam> teams;
@@ -124,7 +123,6 @@ public class TeamEditTableModel implements TableModel
 		try {
 			if (teams.size() != 0 && teams.size() >= rowIndex) {
 				if (aValue.equals("") == false) {
-
 					ITeam p = teams.get(rowIndex);
 
 					switch (columnIndex) {
@@ -140,7 +138,6 @@ public class TeamEditTableModel implements TableModel
 						break;
 					}
 					case 3: {
-
 						p.setPathToScriptFile((String) aValue);
 						break;
 					}
@@ -150,8 +147,8 @@ public class TeamEditTableModel implements TableModel
 					}
 					}
 
-					TableModelEvent e = new TableModelEvent(this, rowIndex,
-							rowIndex, TableModelEvent.UPDATE, TableModelEvent.UPDATE);
+					TableModelEvent e = new TableModelEvent(
+							this, rowIndex, rowIndex, TableModelEvent.UPDATE, TableModelEvent.UPDATE);
 
 					for (int i = 0, n = listeners.size(); i < n; i++) {
 						listeners.get(i).tableChanged(e);
@@ -189,8 +186,7 @@ public class TeamEditTableModel implements TableModel
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				new ObjectOutputStream(baos).writeObject(team);
 
-				ByteArrayInputStream bais = new ByteArrayInputStream(
-						baos.toByteArray());
+				ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
 
 				tempEditTeams.add((ITeam) new ObjectInputStream(bais).readObject());
 			}

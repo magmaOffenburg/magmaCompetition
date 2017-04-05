@@ -23,11 +23,10 @@ package magma.tools.competition.util;
 
 /**
  * Interface to guarantee independence of Observer and Subject
- * 
+ *
  * @param <T> Data type transported in updates
  */
-public interface IObserver<T>
-{
+public interface IObserver<T> {
 	/**
 	 * Called to notify an observer about a state change
 	 * @param content reference to the object containing changed state

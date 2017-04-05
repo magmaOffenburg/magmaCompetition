@@ -13,7 +13,7 @@ import magma.tools.competition.domain.ITeam;
 public class GroupPlanStandingTableModel extends AbstractTableModel
 {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1970106848379144555L;
 
@@ -66,8 +66,7 @@ public class GroupPlanStandingTableModel extends AbstractTableModel
 			if (team != null) {
 				pos = String.valueOf(result.getRankOfTeam(team));
 				points = String.valueOf(result.getPoints(team));
-				golas = String.valueOf((result.getGoals(team) - result
-						.getGoalsAgainst(team)));
+				golas = String.valueOf((result.getGoals(team) - result.getGoalsAgainst(team)));
 				games = String.valueOf(result.getGames(team));
 			} else {
 				team = group.getTeams().get(rowIndex);
@@ -195,8 +194,8 @@ public class GroupPlanStandingTableModel extends AbstractTableModel
 		for (int i = 0; i < size; i++) {
 			int index = size;
 
-			TableModelEvent e = new TableModelEvent(this, 0, index,
-					TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
+			TableModelEvent e =
+					new TableModelEvent(this, 0, index, TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
 
 			for (int j = 0, n = listeners.size(); j < n; j++) {
 				listeners.get(j).tableChanged(e);

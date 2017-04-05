@@ -4,7 +4,6 @@ import com.google.inject.Inject;
 
 public class TeamBuilder
 {
-
 	private TeamFactory factory;
 
 	private String name;
@@ -55,8 +54,6 @@ public class TeamBuilder
 
 	public ITeam build()
 	{
-		return factory.create(name, setTeam, username, startScriptFileName,
-				pathToScriptFile);
+		return factory.create(name, setTeam, username, startScriptFileName, pathToScriptFile);
 	}
-
 }

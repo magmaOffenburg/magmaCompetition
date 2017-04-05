@@ -21,13 +21,11 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.assistedinject.Assisted;
 
-@JsonIgnoreProperties({ "dateProvider", "changeHandlers" })
+@JsonIgnoreProperties({"dateProvider", "changeHandlers"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
-@JsonPropertyOrder({ "homeTeam", "guestTeam", "result" })
-public class Game implements ChangeNotifier<Game>, ChangeHandler<GameResult>,
-		Serializable
+@JsonPropertyOrder({"homeTeam", "guestTeam", "result"})
+public class Game implements ChangeNotifier<Game>, ChangeHandler<GameResult>, Serializable
 {
-
 	private static final long serialVersionUID = 3400100364154057714L;
 
 	private final Provider<Date> dateProvider;
@@ -50,8 +48,7 @@ public class Game implements ChangeNotifier<Game>, ChangeHandler<GameResult>,
 
 	@Inject
 	@JsonCreator
-	Game(@JacksonInject("dateProvider") Provider<Date> dateProvider,
-			@JsonProperty("result") GameResult result,
+	Game(@JacksonInject("dateProvider") Provider<Date> dateProvider, @JsonProperty("result") GameResult result,
 			@Assisted("homeTeam") @JsonProperty("homeTeam") ITeam homeTeam,
 			@Assisted("guestTeam") @JsonProperty("guestTeam") ITeam guestTeam)
 	{
@@ -155,18 +152,15 @@ public class Game implements ChangeNotifier<Game>, ChangeHandler<GameResult>,
 	@Override
 	public String toString()
 	{
-		return String
-				.format(
-						"{Home Team: %s, Guest Team: %s, Result: %s, State: %s, Planned Start Time: %s, Real Start Time: %s}",
-						homeTeam, guestTeam, result, state, plannedStartTime,
-						realStartTime);
+		return String.format(
+				"{Home Team: %s, Guest Team: %s, Result: %s, State: %s, Planned Start Time: %s, Real Start Time: %s}",
+				homeTeam, guestTeam, result, state, plannedStartTime, realStartTime);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return new HashCodeBuilder().append(homeTeam).append(guestTeam)
-				.toHashCode();
+		return new HashCodeBuilder().append(homeTeam).append(guestTeam).toHashCode();
 	}
 
 	@Override
@@ -182,8 +176,6 @@ public class Game implements ChangeNotifier<Game>, ChangeHandler<GameResult>,
 			return false;
 		}
 		Game other = (Game) obj;
-		return new EqualsBuilder().append(homeTeam, other.homeTeam)
-				.append(guestTeam, other.guestTeam).isEquals();
+		return new EqualsBuilder().append(homeTeam, other.homeTeam).append(guestTeam, other.guestTeam).isEquals();
 	}
-
 }

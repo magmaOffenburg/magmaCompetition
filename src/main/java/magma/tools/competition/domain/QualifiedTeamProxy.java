@@ -15,7 +15,6 @@ import com.google.inject.assistedinject.Assisted;
 
 public class QualifiedTeamProxy extends TeamProxy
 {
-
 	private static final long serialVersionUID = -6253748894590560410L;
 
 	@JsonProperty
@@ -26,8 +25,8 @@ public class QualifiedTeamProxy extends TeamProxy
 
 	@Inject
 	@JsonCreator
-	QualifiedTeamProxy(@Assisted("group") @JsonProperty("group") Group group,
-			@Assisted("rank") @JsonProperty("rank") int rank)
+	QualifiedTeamProxy(
+			@Assisted("group") @JsonProperty("group") Group group, @Assisted("rank") @JsonProperty("rank") int rank)
 	{
 		checkGroup(group);
 		checkRank(rank, group);
@@ -70,11 +69,9 @@ public class QualifiedTeamProxy extends TeamProxy
 	private void checkRank(int rank, Group group)
 	{
 		checkArgument(rank > 0, "A rank must be non-negative.");
-		checkArgument(
-				rank <= group.getTeams().size(),
-				String.format(
-						"The rank '%s' cannot occur in the given group with only '%s' teams.",
-						rank, group.getTeams().size()));
+		checkArgument(rank <= group.getTeams().size(),
+				String.format("The rank '%s' cannot occur in the given group with only '%s' teams.", rank,
+						group.getTeams().size()));
 	}
 
 	@Override
@@ -102,8 +99,6 @@ public class QualifiedTeamProxy extends TeamProxy
 			return false;
 		}
 		QualifiedTeamProxy other = (QualifiedTeamProxy) obj;
-		return new EqualsBuilder().append(group, other.group)
-				.append(rank, other.rank).isEquals();
+		return new EqualsBuilder().append(group, other.group).append(rank, other.rank).isEquals();
 	}
-
 }

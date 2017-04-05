@@ -30,8 +30,7 @@ public class WizardPageThree extends WizardPage
 
 	private ConfigurationWizardModel model;
 
-	private String[] comboBoxClusterValue = { "1", "2", "3", "4", "5", "6", "7",
-			"8", "9", "10" };
+	private String[] comboBoxClusterValue = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
 	private JLabel label;
 
@@ -47,8 +46,7 @@ public class WizardPageThree extends WizardPage
 
 	private NumberFormat gameDurationEditFormat;
 
-	public WizardPageThree(String title, String description,
-			ConfigurationWizardModel model)
+	public WizardPageThree(String title, String description, ConfigurationWizardModel model)
 	{
 		super(title, description);
 
@@ -62,10 +60,9 @@ public class WizardPageThree extends WizardPage
 		gameDurationDisplayFormat = NumberFormat.getInstance();
 		gameDurationDisplayFormat.setMinimumFractionDigits(0);
 		gameDurationEditFormat = NumberFormat.getNumberInstance();
-		gameDuration = new JFormattedTextField(new DefaultFormatterFactory(
-				new NumberFormatter(gameDurationDisplayFormat),
-				new NumberFormatter(gameDurationDisplayFormat),
-				new NumberFormatter(gameDurationEditFormat)));
+		gameDuration =
+				new JFormattedTextField(new DefaultFormatterFactory(new NumberFormatter(gameDurationDisplayFormat),
+						new NumberFormatter(gameDurationDisplayFormat), new NumberFormatter(gameDurationEditFormat)));
 
 		createGui();
 	}
@@ -87,19 +84,17 @@ public class WizardPageThree extends WizardPage
 
 		gameDuration.setValue(new Integer(0));
 		gameDuration.setColumns(10);
-		gameDuration.addPropertyChangeListener("value",
-				new PropertyChangeListener() {
+		gameDuration.addPropertyChangeListener("value", new PropertyChangeListener() {
 
-					@Override
-					public void propertyChange(PropertyChangeEvent evt)
-					{
-						Object source = evt.getSource();
-						if (source == gameDuration) {
-							model.setGameDuration(((Number) gameDuration.getValue())
-									.doubleValue());
-						}
-					}
-				});
+			@Override
+			public void propertyChange(PropertyChangeEvent evt)
+			{
+				Object source = evt.getSource();
+				if (source == gameDuration) {
+					model.setGameDuration(((Number) gameDuration.getValue()).doubleValue());
+				}
+			}
+		});
 
 		gameDuration.addFocusListener(new FocusListener() {
 
@@ -108,8 +103,7 @@ public class WizardPageThree extends WizardPage
 			{
 				Object source = e.getSource();
 				if (source == gameDuration) {
-					model.setGameDuration(((Number) gameDuration.getValue())
-							.doubleValue());
+					model.setGameDuration(((Number) gameDuration.getValue()).doubleValue());
 				}
 			}
 

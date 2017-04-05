@@ -32,7 +32,6 @@ import com.google.common.collect.Sets;
 @RunWith(MockitoJUnitRunner.class)
 public class PhaseBuilderTest
 {
-
 	@Mock
 	private PhaseFactory phaseFactory;
 
@@ -76,13 +75,11 @@ public class PhaseBuilderTest
 		when(groupFactory.create("A", buckets.get(0))).thenReturn(groups.get(0));
 		when(groupFactory.create("B", buckets.get(1))).thenReturn(groups.get(1));
 		Phase mockPhase = mock(Phase.class);
-		when(
-				phaseFactory.createGroupPhase(Matchers.matches("groupphase"),
-						(LinkedHashSet<Group>) Matchers
-								.argThat(new CollectionArgumentMatcher<Group>(groups)),
-						Matchers.eq(2))).thenReturn(mockPhase);
-		Phase phase = builder.teams(teamSet).numberOfGroups(2)
-				.numberOfQualifyingTeams(2).buildGroupPhase("groupphase");
+		when(phaseFactory.createGroupPhase(Matchers.matches("groupphase"),
+					 (LinkedHashSet<Group>) Matchers.argThat(new CollectionArgumentMatcher<Group>(groups)),
+					 Matchers.eq(2)))
+				.thenReturn(mockPhase);
+		Phase phase = builder.teams(teamSet).numberOfGroups(2).numberOfQualifyingTeams(2).buildGroupPhase("groupphase");
 		assertSame(mockPhase, phase);
 	}
 
@@ -110,22 +107,18 @@ public class PhaseBuilderTest
 		teamsGroup2.add(teamList.get(0));
 		teamsGroup2.add(teamList.get(2));
 
-		when(groupFactory.create(Matchers.matches("A"), Matchers.anyObject()))
-				.thenReturn(newGroup1);
-		when(groupFactory.create(Matchers.matches("B"), Matchers.anyObject()))
-				.thenReturn(newGroup2);
+		when(groupFactory.create(Matchers.matches("A"), Matchers.anyObject())).thenReturn(newGroup1);
+		when(groupFactory.create(Matchers.matches("B"), Matchers.anyObject())).thenReturn(newGroup2);
 
 		builder.previousPhase(previousPhase);
 		builder.numberOfGroups(2);
 		builder.numberOfQualifyingTeams(1);
 
 		Phase mockPhase = mock(Phase.class);
-		when(
-				phaseFactory.createGroupPhase(
-						Matchers.matches("groupphase"),
-						(LinkedHashSet<Group>) Matchers
-								.argThat(new CollectionArgumentMatcher<Group>(newGroups)),
-						Matchers.eq(1))).thenReturn(mockPhase);
+		when(phaseFactory.createGroupPhase(Matchers.matches("groupphase"),
+					 (LinkedHashSet<Group>) Matchers.argThat(new CollectionArgumentMatcher<Group>(newGroups)),
+					 Matchers.eq(1)))
+				.thenReturn(mockPhase);
 		Phase phase = builder.buildGroupPhase("groupphase");
 		assertSame(mockPhase, phase);
 	}
@@ -150,11 +143,8 @@ public class PhaseBuilderTest
 		when(previousPhase.getQualifyingTeams()).thenReturn(teamList);
 
 		Phase mockPhase = mock(Phase.class);
-		when(
-				phaseFactory.createKoPhase(
-						Matchers.matches("kophase"),
-						(LinkedHashSet<ITeam>) Matchers
-								.argThat(new CollectionArgumentMatcher<ITeam>(teamList))))
+		when(phaseFactory.createKoPhase(Matchers.matches("kophase"),
+					 (LinkedHashSet<ITeam>) Matchers.argThat(new CollectionArgumentMatcher<ITeam>(teamList))))
 				.thenReturn(mockPhase);
 
 		builder.previousPhase(previousPhase);
@@ -168,11 +158,8 @@ public class PhaseBuilderTest
 		KoPhase previousPhase = mock(KoPhase.class);
 		when(previousPhase.getQualifyingTeams()).thenReturn(teamList);
 		Phase mockPhase = mock(Phase.class);
-		when(
-				phaseFactory.createKoPhase(
-						Matchers.matches("kophase"),
-						(LinkedHashSet<ITeam>) Matchers
-								.argThat(new CollectionArgumentMatcher<ITeam>(teamList))))
+		when(phaseFactory.createKoPhase(Matchers.matches("kophase"),
+					 (LinkedHashSet<ITeam>) Matchers.argThat(new CollectionArgumentMatcher<ITeam>(teamList))))
 				.thenReturn(mockPhase);
 
 		builder.previousPhase(previousPhase);
@@ -188,11 +175,8 @@ public class PhaseBuilderTest
 		KoPhase previousPhase = mock(KoPhase.class);
 		when(previousPhase.getRetiringTeams()).thenReturn(teamList);
 		Phase mockPhase = mock(Phase.class);
-		when(
-				phaseFactory.createKoPhase(
-						Matchers.matches("thirdplaceplayoff"),
-						(LinkedHashSet<ITeam>) Matchers
-								.argThat(new CollectionArgumentMatcher<ITeam>(teamList))))
+		when(phaseFactory.createKoPhase(Matchers.matches("thirdplaceplayoff"),
+					 (LinkedHashSet<ITeam>) Matchers.argThat(new CollectionArgumentMatcher<ITeam>(teamList))))
 				.thenReturn(mockPhase);
 
 		builder.previousPhase(previousPhase);
@@ -207,10 +191,8 @@ public class PhaseBuilderTest
 		builder.buildKoPhase("kophase");
 	}
 
-	private static class CollectionArgumentMatcher<T> extends
-			ArgumentMatcher<Collection<T>>
+	private static class CollectionArgumentMatcher<T> extends ArgumentMatcher<Collection<T>>
 	{
-
 		private List<T> toMatch;
 
 		CollectionArgumentMatcher(Collection<T> toMatch)
@@ -234,5 +216,4 @@ public class PhaseBuilderTest
 			return true;
 		}
 	}
-
 }

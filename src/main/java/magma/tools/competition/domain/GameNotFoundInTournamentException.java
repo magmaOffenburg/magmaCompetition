@@ -6,8 +6,7 @@ public class GameNotFoundInTournamentException extends Exception
 
 	public GameNotFoundInTournamentException(Game searchedGame)
 	{
-		super("The following game couldn't be found in the tournament: "
-				+ searchedGame.getHomeTeam().getName() + " : "
-				+ searchedGame.getGuestTeam().getName() + "!");
+		super("The following game couldn't be found in the tournament: " + searchedGame.getHomeTeam().getName() +
+				" : " + searchedGame.getGuestTeam().getName() + "!");
 	}
 }

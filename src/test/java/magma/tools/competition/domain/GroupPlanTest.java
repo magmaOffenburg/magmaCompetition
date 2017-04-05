@@ -21,7 +21,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class GroupPlanTest
 {
-
 	@Mock
 	private Game game1;
 
@@ -95,5 +94,4 @@ public class GroupPlanTest
 		plan.addGame(mock(Game.class));
 		verify(handler, times(0)).onChange(plan);
 	}
-
 }

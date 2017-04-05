@@ -12,7 +12,6 @@ import com.google.inject.assistedinject.Assisted;
 
 public class DrawingBowl
 {
-
 	private final Random random;
 
 	private final List<ITeam> items;
@@ -35,5 +34,4 @@ public class DrawingBowl
 		int randomIndex = (int) Math.floor(random.nextDouble() * items.size());
 		return items.remove(randomIndex);
 	}
-
 }

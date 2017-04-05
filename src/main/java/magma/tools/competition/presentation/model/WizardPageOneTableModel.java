@@ -38,8 +38,8 @@ public class WizardPageOneTableModel implements TableModel
 
 			int index = phasesNames.size();
 
-			TableModelEvent e = new TableModelEvent(this, index, index,
-					TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
+			TableModelEvent e =
+					new TableModelEvent(this, index, index, TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
 
 			for (int j = 0, n = listeners.size(); j < n; j++) {
 				((TableModelListener) listeners.get(j)).tableChanged(e);
@@ -127,8 +127,8 @@ public class WizardPageOneTableModel implements TableModel
 					numOfTeamsPassed.set(rowIndex, (String) aValue);
 				}
 
-				TableModelEvent e = new TableModelEvent(this, rowIndex, rowIndex,
-						TableModelEvent.ALL_COLUMNS, TableModelEvent.UPDATE);
+				TableModelEvent e = new TableModelEvent(
+						this, rowIndex, rowIndex, TableModelEvent.ALL_COLUMNS, TableModelEvent.UPDATE);
 
 				for (int i = 0, n = listeners.size(); i < n; i++) {
 					((TableModelListener) listeners.get(i)).tableChanged(e);

@@ -10,9 +10,9 @@ import java.net.SocketException;
 /**
  * Implementation of the monitor client. Contains the socket for the connection
  * to the monitor.
- * 
+ *
  * @author Simon Gutjahr
- * 
+ *
  */
 public class MonitorConnection
 {
@@ -101,7 +101,7 @@ public class MonitorConnection
 
 	/**
 	 * Send a message using the given stream
-	 * 
+	 *
 	 * @param msg Message in ASCII form
 	 * @throws IOException
 	 * @throws SocketException
@@ -131,7 +131,7 @@ public class MonitorConnection
 
 	/**
 	 * Receive a message from the given stream. Blocking call.
-	 * 
+	 *
 	 * @return the next message, or null if the connection was closed
 	 */
 	public byte[] receiveMessage()
@@ -160,7 +160,6 @@ public class MonitorConnection
 			} catch (IOException e) {
 				length = -1;
 			} catch (IndexOutOfBoundsException e) {
-
 			}
 		}
 

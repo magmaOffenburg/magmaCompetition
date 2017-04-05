@@ -8,9 +8,9 @@ import java.net.Socket;
 
 /**
  * Implementation of a monitor observer. Contains the socket connection.
- * 
+ *
  * @author Simon Gutjahr
- * 
+ *
  */
 public class MonitorObserver
 {
@@ -45,8 +45,7 @@ public class MonitorObserver
 	 * @param socket The socket for the specific observer
 	 * @throws IOException
 	 */
-	public MonitorObserver(Socket clientSocket,
-			MonitorConnection monitorConnection) throws IOException
+	public MonitorObserver(Socket clientSocket, MonitorConnection monitorConnection) throws IOException
 	{
 		if (clientSocket != null) {
 			_socket = clientSocket;
@@ -89,7 +88,7 @@ public class MonitorObserver
 
 	/**
 	 * Send a message to the monitor observer.
-	 * 
+	 *
 	 * @param msg - the message to send
 	 * @throws IOException
 	 */
@@ -118,7 +117,7 @@ public class MonitorObserver
 
 	/**
 	 * Return if the monitor observer is connected
-	 * 
+	 *
 	 * @return connection state
 	 */
 	public boolean isConnected()
@@ -128,7 +127,7 @@ public class MonitorObserver
 
 	/**
 	 * Receive a message from the client agent. Blocking call.
-	 * 
+	 *
 	 * @return the next, complete message received from the client agent
 	 */
 	private byte[] receiveClientMsg()
@@ -157,7 +156,6 @@ public class MonitorObserver
 			} catch (IOException e) {
 				length = -1;
 			} catch (IndexOutOfBoundsException e) {
-
 			}
 		}
 
@@ -171,8 +169,8 @@ public class MonitorObserver
 	}
 
 	/**
-	 * 
-	 * 
+	 *
+	 *
 	 */
 	private class ClientMessageForwarder extends Thread
 	{

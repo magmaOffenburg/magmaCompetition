@@ -24,7 +24,6 @@ import com.google.common.collect.Lists;
 @RunWith(MockitoJUnitRunner.class)
 public class QualifiedTeamProxyTest
 {
-
 	@Mock
 	private Group group;
 
@@ -52,8 +51,7 @@ public class QualifiedTeamProxyTest
 		when(team.getStartScriptFileName()).thenReturn("startscript");
 		when(teams.size()).thenReturn(4);
 		when(result.isFinal()).thenReturn(true);
-		when(result.getTeamsOnRank(1)).thenReturn(
-				Lists.asList(team, new ITeam[] {}));
+		when(result.getTeamsOnRank(1)).thenReturn(Lists.asList(team, new ITeam[] {}));
 		proxy = new QualifiedTeamProxy(group, 1);
 	}
 
@@ -180,8 +178,7 @@ public class QualifiedTeamProxyTest
 	@Test
 	public void testEqualsContract() throws Exception
 	{
-		EqualsVerifier.forClass(QualifiedTeamProxy.class).usingGetClass()
-				.verify();
+		EqualsVerifier.forClass(QualifiedTeamProxy.class).usingGetClass().verify();
 	}
 
 	@Test
@@ -239,5 +236,4 @@ public class QualifiedTeamProxyTest
 		when(result.isFinal()).thenReturn(false);
 		proxy.setPathToScriptFile("new-path");
 	}
-
 }

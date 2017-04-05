@@ -27,7 +27,6 @@ import com.google.common.collect.Lists;
 @RunWith(MockitoJUnitRunner.class)
 public class KoPhaseTest
 {
-
 	@Mock
 	private TeamFactory factory;
 
@@ -150,5 +149,4 @@ public class KoPhaseTest
 	{
 		EqualsVerifier.forClass(KoPhase.class).usingGetClass().verify();
 	}
-
 }

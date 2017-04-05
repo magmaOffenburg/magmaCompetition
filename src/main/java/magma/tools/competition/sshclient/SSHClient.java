@@ -13,12 +13,12 @@ import com.jcraft.jsch.Session;
 
 /**
  * SSH client for the JSha SSH implementation.
- * 
+ *
  * Implements {@link ISSHClient} Implements {@link Runnable} Extends
  * {@link Observable}
- * 
+ *
  * @author Simon Gutjahr
- * 
+ *
  */
 public class SSHClient extends Observable implements Runnable, ISSHClient
 {
@@ -42,15 +42,19 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 
 	/**
 	 * Enumeration for the connection states
-	 * 
+	 *
 	 */
 	private enum SSHClientConState {
-		SSHCLIENT_CON_STATE_INIT, SSHCLIENT_CON_STATE_CONNECTING, SSHCLIENT_CON_STATE_CONNECTED, SSHCLIENT_CON_STATE_CONNECTION_ERROR, SSHCLIENT_CON_STATE_IO_ERROR
+		SSHCLIENT_CON_STATE_INIT,
+		SSHCLIENT_CON_STATE_CONNECTING,
+		SSHCLIENT_CON_STATE_CONNECTED,
+		SSHCLIENT_CON_STATE_CONNECTION_ERROR,
+		SSHCLIENT_CON_STATE_IO_ERROR
 	}
 
 	/**
 	 * Constructor for the SSHClient.
-	 * 
+	 *
 	 * @param username Name for the login at the other ssh client
 	 * @param server DNS name or IP address of the other ssh client
 	 * @throws SSHClientException
@@ -79,14 +83,13 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 
 	/**
 	 * Sets the authentication methods which should be used.
-	 * 
+	 *
 	 * @param authenticationMethods Method for the authentication at the other
 	 *        SSH client. Currently supported authentication methods can be found
 	 *        at Enum {@link AuthenticationMethods}
 	 */
 	@Override
-	public void setPreferredAuthentication(
-			ISSHClient.AuthenticationMethods authenticationMethods)
+	public void setPreferredAuthentication(ISSHClient.AuthenticationMethods authenticationMethods)
 	{
 		if (_session != null) {
 			switch (authenticationMethods) {
@@ -109,7 +112,7 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 
 	/**
 	 * Sets the path to the known hosts file.
-	 * 
+	 *
 	 * @param path path to the known hosts file
 	 * @throws SSHClientException
 	 */
@@ -127,7 +130,7 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 
 	/**
 	 * Sets the own identity. In this case this is the rsa public key.
-	 * 
+	 *
 	 * @param path to the own rsa public key
 	 * @throws SSHClientException
 	 */
@@ -145,14 +148,13 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 
 	/**
 	 * Sets the own identity. In this case this is the rsa public key.
-	 * 
+	 *
 	 * @param path to the own rsa public key
 	 * @param password of the key
 	 * @throws SSHClientException
 	 */
 	@Override
-	public void setIdentity(String path, String password)
-			throws SSHClientException
+	public void setIdentity(String path, String password) throws SSHClientException
 	{
 		if (_jsch != null) {
 			try {
@@ -173,7 +175,7 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 
 	/**
 	 * Set the connection timeout.
-	 * 
+	 *
 	 * @param timeout Timeout for the connection
 	 */
 	@Override
@@ -184,7 +186,7 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 
 	/**
 	 * Send a command to the other SSH client.
-	 * 
+	 *
 	 * @param cmd The command to send to the other SSH client
 	 * @return True if the command was sent, false if not
 	 */
@@ -196,7 +198,6 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 		/* Check if connection is established */
 		if ((_channel != null) && (_printStream != null)) {
 			if (_channel.isConnected() == true) {
-
 				/* Send a command to the other ssh client */
 				_printStream.println(cmd);
 				_printStream.flush();
@@ -210,7 +211,7 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 
 	/**
 	 * Creates the thread which handles the incoming data and starts it.
-	 * 
+	 *
 	 * @return Returns the thread
 	 * @throws SSHClientException
 	 */
@@ -224,8 +225,8 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 		int timeout = (_timeout > 5000) ? _timeout : 5000;
 
 		long start = System.currentTimeMillis();
-		while (_conState == SSHClientConState.SSHCLIENT_CON_STATE_INIT
-				&& ((System.currentTimeMillis() - timeout) < start)) {
+		while (_conState == SSHClientConState.SSHCLIENT_CON_STATE_INIT &&
+				((System.currentTimeMillis() - timeout) < start)) {
 		}
 
 		switch (_conState) {
@@ -242,7 +243,7 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 
 	/**
 	 * Returns the connection status.
-	 * 
+	 *
 	 * @return True if a connection is established, if not false
 	 */
 	@Override
@@ -272,7 +273,7 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 
 	/**
 	 * Initialization of the SSH connection.
-	 * 
+	 *
 	 */
 	private void init()
 	{
@@ -300,8 +301,7 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 			/* Set input and output stream */
 			try {
 				_printStream = new PrintStream(_channel.getOutputStream(), true);
-				_bufferedReader = new BufferedReader(new InputStreamReader(
-						_channel.getInputStream()));
+				_bufferedReader = new BufferedReader(new InputStreamReader(_channel.getInputStream()));
 				_conState = SSHClientConState.SSHCLIENT_CON_STATE_CONNECTED;
 			} catch (IOException e) {
 				_conState = SSHClientConState.SSHCLIENT_CON_STATE_IO_ERROR;
@@ -318,7 +318,6 @@ public class SSHClient extends Observable implements Runnable, ISSHClient
 	public void run()
 	{
 		try {
-
 			/* Initialization */
 			init();
 

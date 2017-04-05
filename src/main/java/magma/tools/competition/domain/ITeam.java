@@ -10,13 +10,12 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
-@JsonSubTypes({ @Type(value = Team.class, name = "team"),
-		@Type(value = QualifiedTeamProxy.class, name = "qualifiedTeam"),
-		@Type(value = GameWinnerProxy.class, name = "winner"),
-		@Type(value = GameLooserProxy.class, name = "looser") })
-public interface ITeam extends Serializable
-{
-
+@JsonSubTypes({
+	@Type(value = Team.class, name = "team")
+	, @Type(value = QualifiedTeamProxy.class, name = "qualifiedTeam"),
+			@Type(value = GameWinnerProxy.class, name = "winner"), @Type(value = GameLooserProxy.class, name = "looser")
+})
+public interface ITeam extends Serializable {
 	String getName();
 
 	boolean isSetTeam();
@@ -29,12 +28,9 @@ public interface ITeam extends Serializable
 
 	String getStartScriptFileName();
 
-	void setStartScriptFileName(String startScriptFileName)
-			throws ProxyNotResolvableException;
+	void setStartScriptFileName(String startScriptFileName) throws ProxyNotResolvableException;
 
 	String getPathToScriptFile();
 
-	void setPathToScriptFile(String pathToScriptFile)
-			throws ProxyNotResolvableException;
-
+	void setPathToScriptFile(String pathToScriptFile) throws ProxyNotResolvableException;
 }

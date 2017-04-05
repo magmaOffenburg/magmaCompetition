@@ -2,7 +2,6 @@ package magma.tools.competition.domain;
 
 public class ProxyNotResolvableException extends Exception
 {
-
 	private static final long serialVersionUID = -4538423874055102215L;
 
 	public ProxyNotResolvableException()
@@ -10,8 +9,8 @@ public class ProxyNotResolvableException extends Exception
 		super();
 	}
 
-	public ProxyNotResolvableException(String message, Throwable cause,
-			boolean enableSuppression, boolean writableStackTrace)
+	public ProxyNotResolvableException(
+			String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
 	{
 		super(message, cause, enableSuppression, writableStackTrace);
 	}
@@ -30,5 +29,4 @@ public class ProxyNotResolvableException extends Exception
 	{
 		super(cause);
 	}
-
 }

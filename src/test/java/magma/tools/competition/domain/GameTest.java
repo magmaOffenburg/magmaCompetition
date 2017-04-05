@@ -28,7 +28,6 @@ import com.google.inject.Provider;
 @RunWith(MockitoJUnitRunner.class)
 public class GameTest
 {
-
 	@Mock
 	private Provider<Date> dateProvider;
 
@@ -134,5 +133,4 @@ public class GameTest
 	{
 		EqualsVerifier.forClass(Game.class).usingGetClass().verify();
 	}
-
 }

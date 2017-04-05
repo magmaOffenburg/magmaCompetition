@@ -6,7 +6,6 @@ import magma.util.connection.IServerConnection;
 
 public class MonitorAdapterConfiguration
 {
-
 	private String host = "127.0.0.1";
 
 	private int port = IServerConnection.MONITOR_PORT;
@@ -162,5 +161,4 @@ public class MonitorAdapterConfiguration
 	{
 		this.waitForConnectionTime = waitForConnectionTime;
 	}
-
 }

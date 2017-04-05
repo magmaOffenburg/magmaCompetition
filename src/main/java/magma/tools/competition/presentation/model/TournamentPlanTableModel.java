@@ -20,7 +20,7 @@ import magma.tools.competition.domain.Tournament;
 public class TournamentPlanTableModel extends AbstractTableModel
 {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1970106848379144550L;
 
@@ -120,9 +120,9 @@ public class TournamentPlanTableModel extends AbstractTableModel
 			}
 		}
 
-		if (((finished == true) && (planned == true))
-				|| ((finished == true) && (started == true) && (planned == true))
-				|| (finished == true && started == true)) {
+		if (((finished == true) && (planned == true)) ||
+				((finished == true) && (started == true) && (planned == true)) ||
+				(finished == true && started == true)) {
 			state = "Started";
 		} else if (finished == false && started == false) {
 			state = "Planned";
@@ -143,7 +143,6 @@ public class TournamentPlanTableModel extends AbstractTableModel
 		ArrayList<String> stateEntries = new ArrayList<String>();
 
 		if (tournament != null) {
-
 			List<Phase> phases = tournament.getPhases();
 
 			for (int i = 0; i < phases.size(); i++) {
@@ -165,10 +164,10 @@ public class TournamentPlanTableModel extends AbstractTableModel
 							homeTeamPoints = "-";
 							guestTeamPoints = "-";
 						} else {
-							homeTeamPoints = String.valueOf(((KoPhase) phase)
-									.getGames().get(j).getResult().getHomeTeamPoints());
-							guestTeamPoints = String.valueOf(((KoPhase) phase)
-									.getGames().get(j).getResult().getGuestTeamPoints());
+							homeTeamPoints =
+									String.valueOf(((KoPhase) phase).getGames().get(j).getResult().getHomeTeamPoints());
+							guestTeamPoints = String.valueOf(
+									((KoPhase) phase).getGames().get(j).getResult().getGuestTeamPoints());
 						}
 
 						stateEntries.add(homeTeamPoints + " : " + guestTeamPoints);
@@ -268,8 +267,8 @@ public class TournamentPlanTableModel extends AbstractTableModel
 		for (int i = 0; i < size; i++) {
 			int index = size;
 
-			TableModelEvent e = new TableModelEvent(this, 0, index,
-					TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
+			TableModelEvent e =
+					new TableModelEvent(this, 0, index, TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
 
 			for (int j = 0; j < listeners.size(); j++) {
 				listeners.get(j).tableChanged(e);

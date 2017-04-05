@@ -19,7 +19,6 @@ import org.slf4j.LoggerFactory;
 
 public class MonitorAdapter implements IMonitorRuntimeListener
 {
-
 	private static Logger logger = LoggerFactory.getLogger(MonitorAdapter.class);
 
 	private MonitorAdapterConfiguration configuration;
@@ -86,20 +85,17 @@ public class MonitorAdapter implements IMonitorRuntimeListener
 		return runtime.getWorldModel().getScoreRight();
 	}
 
-	public void setScore(int left, int right)
-			throws MonitorAdapterNotConnectedException
+	public void setScore(int left, int right) throws MonitorAdapterNotConnectedException
 	{
 		assertIsConnected();
 		runtime.getServerCommander().setScore(left, right);
 	}
 
-	public int getNumberOfPlayers(String teamName)
-			throws MonitorAdapterNotConnectedException
+	public int getNumberOfPlayers(String teamName) throws MonitorAdapterNotConnectedException
 	{
 		assertIsConnected();
 		int playersCounter = 0;
-		ArrayList<? extends ISoccerAgent> allPlayers = runtime.getWorldModel()
-				.getSoccerAgents();
+		ArrayList<? extends ISoccerAgent> allPlayers = runtime.getWorldModel().getSoccerAgents();
 
 		for (ISoccerAgent aPlayer : allPlayers) {
 			if (aPlayer.getTeamName().equals(teamName)) {
@@ -154,28 +150,22 @@ public class MonitorAdapter implements IMonitorRuntimeListener
 	}
 
 	private MonitorParameter createParameters(
-			MonitorAdapterConfiguration configuration,
-			MonitorComponentFactory factory)
+			MonitorAdapterConfiguration configuration, MonitorComponentFactory factory)
 	{
-		return new MonitorParameter(configuration.getHost(),
-				configuration.getPort(), configuration.getLevel(),
+		return new MonitorParameter(configuration.getHost(), configuration.getPort(), configuration.getLevel(),
 				configuration.getRefereeID(), factory);
 	}
 
-	private MonitorComponentFactory createComponentFactory(
-			MonitorAdapterConfiguration configuration)
+	private MonitorComponentFactory createComponentFactory(MonitorAdapterConfiguration configuration)
 	{
-		return new MonitorComponentFactory(new FactoryParameter(
-				configuration.getServerPid(), configuration.getHost(),
-				configuration.getAgentPort(), configuration.getTeam1Name(),
-				configuration.getTeam1Jar(), configuration.getTeam2Name(),
-				configuration.getTeam2Jar(), configuration.getPlayersPerTeam(),
+		return new MonitorComponentFactory(new FactoryParameter(configuration.getServerPid(), configuration.getHost(),
+				configuration.getAgentPort(), configuration.getTeam1Name(), configuration.getTeam1Jar(),
+				configuration.getTeam2Name(), configuration.getTeam2Jar(), configuration.getPlayersPerTeam(),
 				configuration.getDropHeight()));
 	}
 
 	private class MonitorThread extends Thread
 	{
-
 		private Exception exception;
 
 		@Override
@@ -192,7 +182,5 @@ public class MonitorAdapter implements IMonitorRuntimeListener
 		{
 			return exception;
 		}
-
 	}
-
 }

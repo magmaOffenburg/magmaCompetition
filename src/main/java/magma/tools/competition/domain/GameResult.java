@@ -11,10 +11,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 
-@JsonIgnoreProperties({ "changeHandlers" })
+@JsonIgnoreProperties({"changeHandlers"})
 public class GameResult implements ChangeNotifier<GameResult>, Serializable
 {
-
 	private static final long serialVersionUID = -2026172769669521418L;
 
 	private final List<ChangeHandler<GameResult>> changeHandlers;
@@ -32,8 +31,7 @@ public class GameResult implements ChangeNotifier<GameResult>, Serializable
 	}
 
 	@JsonCreator
-	GameResult(@JsonProperty("homeTeamPoints") int homeTeamPoints,
-			@JsonProperty("guestTeamPoints") int guestTeamPoints)
+	GameResult(@JsonProperty("homeTeamPoints") int homeTeamPoints, @JsonProperty("guestTeamPoints") int guestTeamPoints)
 	{
 		this.homeTeamPoints = homeTeamPoints;
 		this.guestTeamPoints = guestTeamPoints;
@@ -90,5 +88,4 @@ public class GameResult implements ChangeNotifier<GameResult>, Serializable
 	{
 		return String.format("%s : %s", homeTeamPoints, guestTeamPoints);
 	}
-
 }

@@ -24,10 +24,9 @@ import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
-@JsonIgnoreProperties({ "resultFactory", "result" })
+@JsonIgnoreProperties({"resultFactory", "result"})
 public class Group implements Serializable
 {
-
 	private static final long serialVersionUID = -736123873217880933L;
 
 	private final GroupResultFactory resultFactory;
@@ -39,9 +38,8 @@ public class Group implements Serializable
 	private final GroupPlan plan;
 
 	@Inject
-	Group(GameUtil gameUtil, GroupPlanFactory planFactory,
-			GroupResultFactory resultFactory, @Assisted("name") String name,
-			@Assisted("teams") LinkedHashSet<ITeam> teams)
+	Group(GameUtil gameUtil, GroupPlanFactory planFactory, GroupResultFactory resultFactory,
+			@Assisted("name") String name, @Assisted("teams") LinkedHashSet<ITeam> teams)
 	{
 		super();
 		checkName(name);
@@ -54,10 +52,8 @@ public class Group implements Serializable
 	}
 
 	@JsonCreator
-	Group(@JacksonInject("groupResultFactory") GroupResultFactory resultFactory,
-			@JsonProperty("name") String name,
-			@JsonProperty("teams") LinkedHashSet<ITeam> teams,
-			@JsonProperty("plan") GroupPlan plan)
+	Group(@JacksonInject("groupResultFactory") GroupResultFactory resultFactory, @JsonProperty("name") String name,
+			@JsonProperty("teams") LinkedHashSet<ITeam> teams, @JsonProperty("plan") GroupPlan plan)
 	{
 		super();
 		checkName(name);
@@ -98,8 +94,7 @@ public class Group implements Serializable
 		boolean isGroupFinished = true;
 
 		for (int k = 0; k < groupGames.size(); k++) {
-			if (groupGames.get(k).getState() != GameState.FINISHED
-					&& groupGames.get(k).isDecisionGame() == false) {
+			if (groupGames.get(k).getState() != GameState.FINISHED && groupGames.get(k).isDecisionGame() == false) {
 				isGroupFinished = false;
 			}
 		}
@@ -114,9 +109,7 @@ public class Group implements Serializable
 			}
 
 			if (isTieBreakGamesCreated == false) {
-
-				games = (ArrayList<Game>) resultFactory.create(plan.getGames())
-						.getTieBreakGames();
+				games = (ArrayList<Game>) resultFactory.create(plan.getGames()).getTieBreakGames();
 				if (games != null) {
 					for (int i = 0; i < games.size(); i++) {
 						plan.addGame(games.get(i));
@@ -131,15 +124,13 @@ public class Group implements Serializable
 	private void checkName(String name)
 	{
 		checkNotNull(name);
-		checkArgument(!name.trim().isEmpty(),
-				"A group must have an non-empty name.");
+		checkArgument(!name.trim().isEmpty(), "A group must have an non-empty name.");
 	}
 
 	private void checkTeams(LinkedHashSet<ITeam> teams)
 	{
 		checkNotNull(teams);
-		checkArgument(teams.size() > 1,
-				"There must be at least two teams in a group.");
+		checkArgument(teams.size() > 1, "There must be at least two teams in a group.");
 	}
 
 	private void checkPlan(GroupPlan plan)
@@ -174,5 +165,4 @@ public class Group implements Serializable
 		Group other = (Group) obj;
 		return new EqualsBuilder().append(name, other.name).isEquals();
 	}
-
 }

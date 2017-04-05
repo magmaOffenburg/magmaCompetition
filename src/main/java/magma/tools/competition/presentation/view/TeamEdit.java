@@ -47,11 +47,10 @@ public class TeamEdit extends JFrame
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[] { 0, 0, 0, 0 };
-		gbl_contentPane.rowHeights = new int[] { 0, 0, 0 };
-		gbl_contentPane.columnWeights = new double[] { 1.0, 0.0, 0.0,
-				Double.MIN_VALUE };
-		gbl_contentPane.rowWeights = new double[] { 1.0, 0.0, Double.MIN_VALUE };
+		gbl_contentPane.columnWidths = new int[] {0, 0, 0, 0};
+		gbl_contentPane.rowHeights = new int[] {0, 0, 0};
+		gbl_contentPane.columnWeights = new double[] {1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[] {1.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 
 		JScrollPane scrollPane = new JScrollPane();

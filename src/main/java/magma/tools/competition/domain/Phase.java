@@ -15,12 +15,13 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
-@JsonSubTypes({ @Type(value = GroupPhase.class, name = "groupPhase"),
-		@Type(value = KoPhase.class, name = "koPhase") })
-@JsonIgnoreProperties({ "teamFactory", "qualifyingTeams", "retiringTeams" })
+@JsonSubTypes({
+	@Type(value = GroupPhase.class, name = "groupPhase")
+	, @Type(value = KoPhase.class, name = "koPhase")
+})
+@JsonIgnoreProperties({"teamFactory", "qualifyingTeams", "retiringTeams"})
 public abstract class Phase implements Serializable
 {
-
 	private static final long serialVersionUID = -2952708493051846366L;
 
 	private final String name;
@@ -44,8 +45,7 @@ public abstract class Phase implements Serializable
 	private void checkName(String name)
 	{
 		checkNotNull(name);
-		checkArgument(!name.trim().isEmpty(),
-				"A phase must have an non-empty name.");
+		checkArgument(!name.trim().isEmpty(), "A phase must have an non-empty name.");
 	}
 
 	@Override
@@ -75,5 +75,4 @@ public abstract class Phase implements Serializable
 		Phase other = (Phase) obj;
 		return new EqualsBuilder().append(name, other.name).isEquals();
 	}
-
 }

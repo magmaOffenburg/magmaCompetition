@@ -24,12 +24,11 @@ package magma.tools.competition.util;
 /**
  * Basic subscribe interface for all applications which want to allow objects to
  * subscribe themselves to another object and be informed about changes
- * 
+ *
  * @author Klaus Dorer
  * @param <T> Data type transported in updates
  */
-public interface ISubscribe<T>
-{
+public interface ISubscribe<T> {
 	/**
 	 * Adds an observer to the list of observers if not already in the list
 	 * @param observer the observer that wants to be informed

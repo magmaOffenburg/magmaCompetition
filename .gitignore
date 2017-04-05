@@ -3,3 +3,8 @@ target
 assets/tournament.json
 tournament.json
 tournament.html
+.idea
+*.iml
+.clang-format
+*.TMP
+*.java-*

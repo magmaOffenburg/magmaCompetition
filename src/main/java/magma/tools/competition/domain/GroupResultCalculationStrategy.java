@@ -6,9 +6,9 @@ import java.util.List;
 
 /**
  * This class is responsible for the calculation of the result of a Group.
- * 
+ *
  * @author Simon Gutjahr
- * 
+ *
  */
 public class GroupResultCalculationStrategy
 {
@@ -29,9 +29,9 @@ public class GroupResultCalculationStrategy
 	/**
 	 * Calculate the standing of the teams included in the games of the given
 	 * list.
-	 * 
+	 *
 	 * @param games List of the games for the result calculation.
-	 * 
+	 *
 	 * @return An Array list with the teams in the order of there standing.
 	 *         Structure of the Object Array for each team: [0] = Team (Team
 	 *         Object), [1] = Position (int), [2] = Games (int), [3] = Goals
@@ -45,20 +45,17 @@ public class GroupResultCalculationStrategy
 		for (int i = 0; i < games.size(); i++) {
 			Game game = games.get(i);
 
-			if (game.getState() == GameState.FINISHED
-					&& (game.isDecisionGame() == false)) {
+			if (game.getState() == GameState.FINISHED && (game.isDecisionGame() == false)) {
 				this.games.add(game);
 			}
 
-			if (game.isDecisionGame() == true
-					&& game.getState() == GameState.FINISHED) {
+			if (game.isDecisionGame() == true && game.getState() == GameState.FINISHED) {
 				tieBreakGames.add(game);
 			}
 		}
 
 		if (this.games.size() > 0) {
-			ArrayList<Object[]> unsortetResult = teamResultCalculator
-					.getTeamData(this.games);
+			ArrayList<Object[]> unsortetResult = teamResultCalculator.getTeamData(this.games);
 
 			groupResult = unsortetResult;
 
@@ -134,7 +131,6 @@ public class GroupResultCalculationStrategy
 		int unsortedListPos = 0;
 
 		for (int i = 0; i < unsortedList.size() - 1; i++) {
-
 			/*
 			 * Search for identical teams. Identical means teams with the same
 			 * number of points and goals
@@ -148,8 +144,7 @@ public class GroupResultCalculationStrategy
 			 * Check if there are two teams with the same number of points and
 			 * goals
 			 */
-			if ((goalDifferenceTeamA == goalDifferenceTeamB)
-					&& ((int) a[5] == (int) b[5])) {
+			if ((goalDifferenceTeamA == goalDifferenceTeamB) && ((int) a[5] == (int) b[5])) {
 				/*
 				 * There are at least two teams with the same number of points and
 				 * goals
@@ -192,8 +187,7 @@ public class GroupResultCalculationStrategy
 				ArrayList<Game> newGroupGames = getGames(teamList);
 
 				/* Calculate the result based of the reduced game list */
-				ArrayList<Object[]> newGroupTeams = teamResultCalculator
-						.getTeamData(newGroupGames);
+				ArrayList<Object[]> newGroupTeams = teamResultCalculator.getTeamData(newGroupGames);
 
 				/* Check if there are more then two identical teams */
 				if (newGroupTeams.size() > 2) {
@@ -212,8 +206,7 @@ public class GroupResultCalculationStrategy
 
 						/* Set position for all teams */
 						for (int z = 0; z < newGroupTeams.size(); z++) {
-							int idx = getIndexFromObjectTeam(
-									(ITeam) newGroupTeams.get(z)[0], groupResult);
+							int idx = getIndexFromObjectTeam((ITeam) newGroupTeams.get(z)[0], groupResult);
 							groupResult.get(idx)[1] = teamPos;
 						}
 					}
@@ -238,8 +231,7 @@ public class GroupResultCalculationStrategy
 						 * teams
 						 */
 						for (int z = 0; z < tieBreakGames.size(); z++) {
-							if (areTeamsInGame(tieBreakGames.get(z), (ITeam) teamA[0],
-									(ITeam) teamB[0])) {
+							if (areTeamsInGame(tieBreakGames.get(z), (ITeam) teamA[0], (ITeam) teamB[0])) {
 								game = tieBreakGames.get(z);
 								break;
 							}
@@ -251,17 +243,14 @@ public class GroupResultCalculationStrategy
 							tempGames.add(game);
 
 							/* Get the winner */
-							ArrayList<Object[]> tempResult = teamResultCalculator
-									.getTeamData(tempGames);
+							ArrayList<Object[]> tempResult = teamResultCalculator.getTeamData(tempGames);
 
 							Object[] tieBreakTeamA = tempResult.get(0);
 							Object[] tieBreakTeamB = tempResult.get(1);
 
 							if ((int) tieBreakTeamA[5] == 3) {
-								int idxA = getIndexFromObjectTeam(
-										(ITeam) tieBreakTeamA[0], unsortedList);
-								int idxB = getIndexFromObjectTeam(
-										(ITeam) tieBreakTeamB[0], unsortedList);
+								int idxA = getIndexFromObjectTeam((ITeam) tieBreakTeamA[0], unsortedList);
+								int idxB = getIndexFromObjectTeam((ITeam) tieBreakTeamB[0], unsortedList);
 
 								if (idxB < idxA) {
 									Object[] temp = unsortedList.get(idxA);
@@ -273,10 +262,8 @@ public class GroupResultCalculationStrategy
 								unsortedList.get(idxB)[1] = idxB + 1;
 
 							} else if ((int) tieBreakTeamB[5] == 3) {
-								int idxA = getIndexFromObjectTeam(
-										(ITeam) tieBreakTeamA[0], unsortedList);
-								int idxB = getIndexFromObjectTeam(
-										(ITeam) tieBreakTeamB[0], unsortedList);
+								int idxA = getIndexFromObjectTeam((ITeam) tieBreakTeamA[0], unsortedList);
+								int idxB = getIndexFromObjectTeam((ITeam) tieBreakTeamB[0], unsortedList);
 
 								if (idxA < idxB) {
 									Object[] temp = unsortedList.get(idxA);
@@ -301,8 +288,7 @@ public class GroupResultCalculationStrategy
 		}
 	}
 
-	private int getPosBestTeam(ArrayList<Object[]> teamList,
-			ArrayList<Object[]> objectTeamList)
+	private int getPosBestTeam(ArrayList<Object[]> teamList, ArrayList<Object[]> objectTeamList)
 	{
 		int pos = 0xFFFF;
 		for (int i = 0; i < teamList.size(); i++) {
@@ -318,8 +304,7 @@ public class GroupResultCalculationStrategy
 		return pos;
 	}
 
-	private void swapVictoryTeamA(Object[] teamA, Object[] teamB,
-			ArrayList<Object[]> unsortedList)
+	private void swapVictoryTeamA(Object[] teamA, Object[] teamB, ArrayList<Object[]> unsortedList)
 	{
 		int indexA = getIndexFromObjectTeam((ITeam) teamA[0], unsortedList);
 		int indexB = getIndexFromObjectTeam((ITeam) teamB[0], unsortedList);
@@ -336,8 +321,7 @@ public class GroupResultCalculationStrategy
 		}
 	}
 
-	private void swapVictoryTeamB(Object[] teamA, Object[] teamB,
-			ArrayList<Object[]> unsortedList)
+	private void swapVictoryTeamB(Object[] teamA, Object[] teamB, ArrayList<Object[]> unsortedList)
 	{
 		int indexA = getIndexFromObjectTeam((ITeam) teamA[0], unsortedList);
 		int indexB = getIndexFromObjectTeam((ITeam) teamB[0], unsortedList);
@@ -354,8 +338,7 @@ public class GroupResultCalculationStrategy
 		}
 	}
 
-	private int getIndexFromObjectTeam(ITeam team,
-			ArrayList<Object[]> unsortedList)
+	private int getIndexFromObjectTeam(ITeam team, ArrayList<Object[]> unsortedList)
 	{
 		int ret = -1;
 
@@ -380,7 +363,6 @@ public class GroupResultCalculationStrategy
 				ITeam t2 = teamList.get(k);
 
 				for (int j = 0; j < games.size(); j++) {
-
 					Game game = games.get(j);
 
 					if (areTeamsInGame(game, t1, t2) == true) {
@@ -400,8 +382,8 @@ public class GroupResultCalculationStrategy
 	{
 		boolean ret = false;
 
-		if ((game.getHomeTeam().equals(a) && game.getGuestTeam().equals(b))
-				|| (game.getHomeTeam().equals(b) && game.getGuestTeam().equals(a))) {
+		if ((game.getHomeTeam().equals(a) && game.getGuestTeam().equals(b)) ||
+				(game.getHomeTeam().equals(b) && game.getGuestTeam().equals(a))) {
 			ret = true;
 		}
 

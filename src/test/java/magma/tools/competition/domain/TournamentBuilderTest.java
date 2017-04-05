@@ -30,7 +30,6 @@ import com.google.inject.Provider;
 @RunWith(MockitoJUnitRunner.class)
 public class TournamentBuilderTest
 {
-
 	@Mock
 	private TournamentFactory factory;
 
@@ -70,8 +69,8 @@ public class TournamentBuilderTest
 	@Test
 	public void testBuild() throws Exception
 	{
-		when(builderProvider.get()).thenReturn(builders.get(0), builders.get(1),
-				builders.get(2), builders.get(3), builders.get(4));
+		when(builderProvider.get())
+				.thenReturn(builders.get(0), builders.get(1), builders.get(2), builders.get(3), builders.get(4));
 		builder.numberOfClusters(2).gameDuration(5).withTeams(teams);
 		builder.addGroupPhase(2, 2);
 		verify(builders.get(0)).numberOfGroups(2);
@@ -79,26 +78,19 @@ public class TournamentBuilderTest
 		builder.addGroupPhase(1, 4);
 		verify(builders.get(1)).numberOfGroups(1);
 		verify(builders.get(1)).numberOfQualifyingTeams(4);
-		when(builders.get(0).buildGroupPhase("Group Phase 1")).thenReturn(
-				phases.get(0));
-		when(builders.get(1).buildGroupPhase("Group Phase 2")).thenReturn(
-				phases.get(1));
+		when(builders.get(0).buildGroupPhase("Group Phase 1")).thenReturn(phases.get(0));
+		when(builders.get(1).buildGroupPhase("Group Phase 2")).thenReturn(phases.get(1));
 		when(phases.get(1).getQualifyingTeams()).thenReturn(gp2QualifyingTeams);
 		when(gp2QualifyingTeams.size()).thenReturn(4);
-		when(builders.get(2).buildKoPhase("Semifinals"))
-				.thenReturn(phases.get(2));
+		when(builders.get(2).buildKoPhase("Semifinals")).thenReturn(phases.get(2));
 		when(semiFinalRetiringTeams.size()).thenReturn(2);
 		when(phases.get(2).getRetiringTeams()).thenReturn(semiFinalRetiringTeams);
-		when(builders.get(3).buildKoPhase("Third Place Play-Off")).thenReturn(
-				phases.get(3));
+		when(builders.get(3).buildKoPhase("Third Place Play-Off")).thenReturn(phases.get(3));
 		when(builders.get(4).buildKoPhase("Final")).thenReturn(phases.get(4));
 		Tournament mockTournament = mock(Tournament.class);
-		when(
-				factory.create(Matchers.matches("tournamentname"), Matchers.eq(2),
-						Matchers.eq(5.0), (LinkedHashSet<ITeam>) Matchers
-								.argThat(new CollectionArgumentMatcher<>(teams)),
-						(LinkedHashSet<Phase>) Matchers
-								.argThat(new CollectionArgumentMatcher<>(phases))))
+		when(factory.create(Matchers.matches("tournamentname"), Matchers.eq(2), Matchers.eq(5.0),
+					 (LinkedHashSet<ITeam>) Matchers.argThat(new CollectionArgumentMatcher<>(teams)),
+					 (LinkedHashSet<Phase>) Matchers.argThat(new CollectionArgumentMatcher<>(phases))))
 				.thenReturn(mockTournament);
 		Tournament tournament = builder.build("tournamentname");
 		verify(builders.get(0)).teams(Matchers.anyObject());
@@ -116,10 +108,8 @@ public class TournamentBuilderTest
 		builder.build("tournament");
 	}
 
-	private static class CollectionArgumentMatcher<T> extends
-			ArgumentMatcher<Collection<T>>
+	private static class CollectionArgumentMatcher<T> extends ArgumentMatcher<Collection<T>>
 	{
-
 		private List<T> toMatch;
 
 		CollectionArgumentMatcher(Collection<T> toMatch)
@@ -143,5 +133,4 @@ public class TournamentBuilderTest
 			return true;
 		}
 	}
-
 }

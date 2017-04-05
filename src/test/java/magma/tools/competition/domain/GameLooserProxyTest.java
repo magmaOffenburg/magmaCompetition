@@ -18,7 +18,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class GameLooserProxyTest
 {
-
 	@Mock
 	private Game game;
 
@@ -199,5 +198,4 @@ public class GameLooserProxyTest
 	{
 		EqualsVerifier.forClass(GameLooserProxy.class).usingGetClass().verify();
 	}
-
 }

@@ -15,7 +15,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class GameResultTest
 {
-
 	@Mock
 	private ChangeHandler<GameResult> handler;
 
@@ -74,5 +73,4 @@ public class GameResultTest
 		result.setHomeTeamPoints(4);
 		verify(handler, times(0)).onChange(result);
 	}
-
 }

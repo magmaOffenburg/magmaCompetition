@@ -23,7 +23,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class GroupResultTest
 {
-
 	@Mock
 	private List<Game> games;
 
@@ -31,24 +30,21 @@ public class GroupResultTest
 	private GroupResultCalculationStrategy strategy;
 
 	private Object[][] calculationResultNonFinal = {
-			{ mock(ITeam.class), 1, 3, 5, 3, 7 },
-			{ mock(ITeam.class), 1, 3, 5, 3, 7 },
-			{ mock(ITeam.class), 3, 3, 3, 5, 1 },
-			{ mock(ITeam.class), 3, 3, 3, 5, 1 }, };
+			{mock(ITeam.class), 1, 3, 5, 3, 7}, {mock(ITeam.class), 1, 3, 5, 3, 7}, {mock(ITeam.class), 3, 3, 3, 5, 1},
+			{mock(ITeam.class), 3, 3, 3, 5, 1},
+	};
 
 	private Object[][] calculationResultFinal = {
-			{ mock(ITeam.class), 1, 3, 7, 2, 7 },
-			{ mock(ITeam.class), 2, 3, 5, 4, 7 },
-			{ mock(ITeam.class), 3, 3, 3, 5, 1 },
-			{ mock(ITeam.class), 4, 3, 2, 7, 1 }, };
+			{mock(ITeam.class), 1, 3, 7, 2, 7}, {mock(ITeam.class), 2, 3, 5, 4, 7}, {mock(ITeam.class), 3, 3, 3, 5, 1},
+			{mock(ITeam.class), 4, 3, 2, 7, 1},
+	};
 
 	private GroupResult result;
 
 	@Before
 	public void setUp() throws Exception
 	{
-		when(strategy.calculateResult(games)).thenReturn(
-				Arrays.asList(calculationResultNonFinal));
+		when(strategy.calculateResult(games)).thenReturn(Arrays.asList(calculationResultNonFinal));
 		result = new GroupResult(strategy, games, null);
 	}
 
@@ -87,8 +83,7 @@ public class GroupResultTest
 	@Test
 	public void testGetRankOfTeam() throws Exception
 	{
-		assertEquals(1,
-				result.getRankOfTeam((ITeam) calculationResultNonFinal[0][0]));
+		assertEquals(1, result.getRankOfTeam((ITeam) calculationResultNonFinal[0][0]));
 		assertEquals(-1, result.getRankOfTeam(mock(ITeam.class)));
 	}
 
@@ -102,8 +97,7 @@ public class GroupResultTest
 	public void testIsFinal() throws Exception
 	{
 		assertEquals(false, result.isFinal());
-		when(strategy.calculateResult(games)).thenReturn(
-				Arrays.asList(calculationResultFinal));
+		when(strategy.calculateResult(games)).thenReturn(Arrays.asList(calculationResultFinal));
 		result = new GroupResult(strategy, games, null);
 		assertEquals(true, result.isFinal());
 	}
@@ -129,8 +123,7 @@ public class GroupResultTest
 	@Test
 	public void testGetGoalsAgainst() throws Exception
 	{
-		assertEquals(3,
-				result.getGoalsAgainst((ITeam) calculationResultNonFinal[0][0]));
+		assertEquals(3, result.getGoalsAgainst((ITeam) calculationResultNonFinal[0][0]));
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -138,5 +131,4 @@ public class GroupResultTest
 	{
 		result.getGoals(mock(ITeam.class));
 	}
-
 }

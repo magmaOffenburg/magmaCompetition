@@ -10,11 +10,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * Implementation of the MonitorProxyServer. Handles the incoming observer
  * connections.
- * 
+ *
  * Extends {@link Thread}
- * 
+ *
  * @author Simon Gutjahr
- * 
+ *
  */
 public class MonitorProxyServer extends Thread
 {
@@ -59,8 +59,7 @@ public class MonitorProxyServer extends Thread
 		try {
 			_monitorProxySocket = new ServerSocket(_monitorProxyPort);
 
-			System.out.println("Proxy server listening on port: "
-					+ _monitorProxyPort);
+			System.out.println("Proxy server listening on port: " + _monitorProxyPort);
 
 			while (this.isInterrupted() != true) {
 				Socket clientSocket = _monitorProxySocket.accept();
@@ -68,8 +67,7 @@ public class MonitorProxyServer extends Thread
 				try {
 					MonitorObserver monitorObserver;
 					if (_monitorObservers.size() == 0) {
-						monitorObserver = new MonitorObserver(clientSocket,
-								_monitorConnection);
+						monitorObserver = new MonitorObserver(clientSocket, _monitorConnection);
 					} else {
 						monitorObserver = new MonitorObserver(clientSocket);
 					}
@@ -104,7 +102,7 @@ public class MonitorProxyServer extends Thread
 
 	/**
 	 * Retrieve the current list of monitor observers.
-	 * 
+	 *
 	 * @return current list of monitor observers.
 	 */
 	public List<MonitorObserver> getMonitorObservers()
@@ -115,8 +113,7 @@ public class MonitorProxyServer extends Thread
 			}
 		}
 
-		return (List<MonitorObserver>) Collections
-				.unmodifiableList(_monitorObservers);
+		return (List<MonitorObserver>) Collections.unmodifiableList(_monitorObservers);
 	}
 
 	public void setMonitorConnection(MonitorConnection monitorConnection)

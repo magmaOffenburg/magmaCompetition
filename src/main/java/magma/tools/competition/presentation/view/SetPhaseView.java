@@ -23,8 +23,7 @@ import com.google.common.collect.Lists;
  *
  * @author simon
  */
-public class SetPhaseView extends javax.swing.JFrame implements
-		ChangeNotifier<Phase>
+public class SetPhaseView extends javax.swing.JFrame implements ChangeNotifier<Phase>
 {
 	private static final long serialVersionUID = -4421752243384524130L;
 
@@ -49,8 +48,7 @@ public class SetPhaseView extends javax.swing.JFrame implements
 		jFrame = this;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Set current phase");
-		SetPhaseComboBoxModel comboBoxModel = new SetPhaseComboBoxModel(
-				tournament);
+		SetPhaseComboBoxModel comboBoxModel = new SetPhaseComboBoxModel(tournament);
 		jLabel1 = new javax.swing.JLabel();
 		jComboBox1 = new javax.swing.JComboBox(comboBoxModel);
 		jButton1 = new javax.swing.JButton();
@@ -82,54 +80,44 @@ public class SetPhaseView extends javax.swing.JFrame implements
 			}
 		});
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(jLabel1)
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(jComboBox1,
-										javax.swing.GroupLayout.PREFERRED_SIZE, 282,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE))
-				.addGroup(
-						javax.swing.GroupLayout.Alignment.TRAILING,
-						layout.createSequentialGroup()
-								.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)
-								.addComponent(jButton2)
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(jButton1).addContainerGap()));
-		layout.setVerticalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup()
-						.addContainerGap()
+		layout.setHorizontalGroup(
+				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup()
+										  .addContainerGap()
+										  .addComponent(jLabel1)
+										  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										  .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 282,
+												  javax.swing.GroupLayout.PREFERRED_SIZE)
+										  .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+								layout.createSequentialGroup()
+										.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(jButton2)
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(jButton1)
+										.addContainerGap()));
+		layout.setVerticalGroup(
+				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(
-								layout.createParallelGroup(
-										javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(jLabel1)
-										.addComponent(jComboBox1,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(
-								javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47,
-								Short.MAX_VALUE)
-						.addGroup(
-								layout.createParallelGroup(
-										javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(jButton1).addComponent(jButton2))
-						.addContainerGap()));
+								layout.createSequentialGroup()
+										.addContainerGap()
+										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+														  .addComponent(jLabel1)
+														  .addComponent(jComboBox1,
+																  javax.swing.GroupLayout.PREFERRED_SIZE,
+																  javax.swing.GroupLayout.DEFAULT_SIZE,
+																  javax.swing.GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(
+												javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+														  .addComponent(jButton1)
+														  .addComponent(jButton2))
+										.addContainerGap()));
 
 		pack();
-	}// </editor-fold>//GEN-END:initComponents
+	} // </editor-fold>//GEN-END:initComponents
 
 	@Override
 	public void addChangeHandler(ChangeHandler<Phase> handler)
@@ -152,5 +140,4 @@ public class SetPhaseView extends javax.swing.JFrame implements
 
 	private javax.swing.JLabel jLabel1;
 	// End of variables declaration//GEN-END:variables
-
 }

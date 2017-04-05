@@ -22,7 +22,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class GroupResultCalculationStrategyTest
 {
-
 	private List<ITeam> teams;
 
 	private GroupResultCalculationStrategy calculator;
@@ -70,9 +69,10 @@ public class GroupResultCalculationStrategyTest
 		games.add(createGame(teams.get(1), teams.get(3), 1, 2));
 		games.add(createGame(teams.get(2), teams.get(3), 1, 2));
 		List<Object[]> result = calculator.calculateResult(games);
-		Object[][] expectedResults = { { teams.get(0), 1, 3, 5, 3, 7 },
-				{ teams.get(3), 1, 3, 5, 3, 7 }, { teams.get(1), 3, 3, 3, 5, 1 },
-				{ teams.get(2), 3, 3, 3, 5, 1 }, };
+		Object[][] expectedResults = {
+				{teams.get(0), 1, 3, 5, 3, 7}, {teams.get(3), 1, 3, 5, 3, 7}, {teams.get(1), 3, 3, 3, 5, 1},
+				{teams.get(2), 3, 3, 3, 5, 1},
+		};
 		for (int i = 0; i < 4; i++) {
 			Object[] arr = result.get(i);
 			assertSame(expectedResults[i][0], arr[0]);
@@ -95,9 +95,8 @@ public class GroupResultCalculationStrategyTest
 		games.add(createGame(teams.get(1), teams.get(3), 1, 2));
 		games.add(createGame(teams.get(2), teams.get(3), 1, 2));
 		List<Object[]> result = calculator.calculateResult(games);
-		Object[][] expectedResults = { { teams.get(0), 1, 3, 6, 3, 7 },
-				{ teams.get(3), 2, 3, 5, 3, 7 }, { teams.get(2), 3, 3, 3, 5, 1 },
-				{ teams.get(1), 4, 3, 3, 6, 1 } };
+		Object[][] expectedResults = {{teams.get(0), 1, 3, 6, 3, 7}, {teams.get(3), 2, 3, 5, 3, 7},
+				{teams.get(2), 3, 3, 3, 5, 1}, {teams.get(1), 4, 3, 3, 6, 1}};
 
 		for (int i = 0; i < 4; i++) {
 			Object[] arr = result.get(i);
@@ -121,9 +120,8 @@ public class GroupResultCalculationStrategyTest
 		games.add(createGame(teams.get(1), teams.get(3), 4, 0));
 		games.add(createGame(teams.get(2), teams.get(3), 1, 2));
 		List<Object[]> result = calculator.calculateResult(games);
-		Object[][] expectedResults = { { teams.get(3), 1, 3, 4, 5, 6 },
-				{ teams.get(0), 2, 3, 3, 2, 4 }, { teams.get(1), 3, 3, 4, 3, 4 },
-				{ teams.get(2), 4, 3, 1, 2, 2 } };
+		Object[][] expectedResults = {{teams.get(3), 1, 3, 4, 5, 6}, {teams.get(0), 2, 3, 3, 2, 4},
+				{teams.get(1), 3, 3, 4, 3, 4}, {teams.get(2), 4, 3, 1, 2, 2}};
 
 		for (int i = 0; i < 4; i++) {
 			Object[] arr = result.get(i);
@@ -136,8 +134,7 @@ public class GroupResultCalculationStrategyTest
 		}
 	}
 
-	private Game createGame(ITeam homeTeam, ITeam guestTeam, int homePoints,
-			int guestPoints)
+	private Game createGame(ITeam homeTeam, ITeam guestTeam, int homePoints, int guestPoints)
 	{
 		GameResult result = mock(GameResult.class);
 		when(result.getHomeTeamPoints()).thenReturn(homePoints);
@@ -149,5 +146,4 @@ public class GroupResultCalculationStrategyTest
 		when(game.getGuestTeam()).thenReturn(guestTeam);
 		return game;
 	}
-
 }

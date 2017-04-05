@@ -25,8 +25,7 @@ public class WizardPageOne extends WizardPage
 
 	private ConfigurationWizardModel model;
 
-	public WizardPageOne(String title, String description,
-			ConfigurationWizardModel model)
+	public WizardPageOne(String title, String description, ConfigurationWizardModel model)
 	{
 		super(title, description);
 
@@ -37,14 +36,11 @@ public class WizardPageOne extends WizardPage
 
 	private void createGui()
 	{
-		String[] comboBoxGroupePhasesValues = { "1", "2", "3", "4", "5", "6",
-				"7", "8", "9", "10" };
+		String[] comboBoxGroupePhasesValues = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
-		String[] comboBoxNumGroups = { "1", "2", "3", "4", "5", "6", "7", "8",
-				"9", "10" };
+		String[] comboBoxNumGroups = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
-		String[] comboBoxTerminatedTeams = { "1", "2", "3", "4", "5", "6", "7",
-				"8", "9", "10" };
+		String[] comboBoxTerminatedTeams = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
 		JTable table = new JTable(model.getPageOneTableModel());
 		TableColumn col = table.getColumnModel().getColumn(1);

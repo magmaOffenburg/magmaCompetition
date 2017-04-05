@@ -25,29 +25,23 @@ public class SimManager
 	 */
 	public static void main(String[] args)
 	{
-		Injector injector = Guice.createInjector(new DomainModule(),
-				new CsvReaderModule(), new JsonHandlerModule());
+		Injector injector = Guice.createInjector(new DomainModule(), new CsvReaderModule(), new JsonHandlerModule());
 
 		try {
-			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
-					.getInstalledLookAndFeels()) {
+			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
 				if ("Nimbus".equals(info.getName())) {
 					javax.swing.UIManager.setLookAndFeel(info.getClassName());
 					break;
 				}
 			}
 		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
 
 		EventQueue.invokeLater(new Runnable() {
@@ -55,10 +49,8 @@ public class SimManager
 			public void run()
 			{
 				try {
-					Provider<TournamentBuilder> tournamentBuilder = injector
-							.getInstance(Key
-									.get(new TypeLiteral<Provider<TournamentBuilder>>() {
-									}));
+					Provider<TournamentBuilder> tournamentBuilder =
+							injector.getInstance(Key.get(new TypeLiteral<Provider<TournamentBuilder>>() {}));
 					if (verifyClusterConfiguration()) {
 						MainFrame frame = new MainFrame(tournamentBuilder);
 						frame.setVisible(true);
@@ -77,17 +69,14 @@ public class SimManager
 
 			String result = configuration.checkValid();
 			if (result.length() > 0) {
-				JOptionPane.showMessageDialog(null,
-						"Invalid cluster configuration. Please check the following settings:\n\n"
-								+ result);
+				JOptionPane.showMessageDialog(
+						null, "Invalid cluster configuration. Please check the following settings:\n\n" + result);
 				return false;
 			}
 			return true;
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null,
-					"Cluster configuration missing or unreadable.");
+			JOptionPane.showMessageDialog(null, "Cluster configuration missing or unreadable.");
 			return false;
 		}
 	}
-
 }

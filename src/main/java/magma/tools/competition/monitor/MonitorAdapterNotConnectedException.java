@@ -2,7 +2,6 @@ package magma.tools.competition.monitor;
 
 public class MonitorAdapterNotConnectedException extends Exception
 {
-
 	private static final long serialVersionUID = -3945141970240832125L;
 
 	public MonitorAdapterNotConnectedException()
@@ -10,8 +9,8 @@ public class MonitorAdapterNotConnectedException extends Exception
 		super();
 	}
 
-	public MonitorAdapterNotConnectedException(String message, Throwable cause,
-			boolean enableSuppression, boolean writableStackTrace)
+	public MonitorAdapterNotConnectedException(
+			String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
 	{
 		super(message, cause, enableSuppression, writableStackTrace);
 	}
@@ -30,5 +29,4 @@ public class MonitorAdapterNotConnectedException extends Exception
 	{
 		super(cause);
 	}
-
 }

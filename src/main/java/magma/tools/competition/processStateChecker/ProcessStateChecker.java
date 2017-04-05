@@ -9,15 +9,13 @@ import magma.tools.competition.sshclient.SSHClient;
 /**
  * Implementation of the Interface IProcessStateChecker. Can be used to
  * determine if a process is running or not.
- * 
+ *
  * @author Simon Gutjahr
- * 
+ *
  */
 public class ProcessStateChecker implements Observer, IProcessStateChecker
 {
-	private enum ProcessStateCheckerAction {
-		ACTION_CHECK, ACTION_TERMINATE
-	}
+	private enum ProcessStateCheckerAction { ACTION_CHECK, ACTION_TERMINATE }
 
 	private ISSHClient _sshClient;
 
@@ -31,7 +29,7 @@ public class ProcessStateChecker implements Observer, IProcessStateChecker
 
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * @param sshClient The ssh connection to work with.
 	 */
 	public ProcessStateChecker(ISSHClient sshClient)
@@ -46,7 +44,7 @@ public class ProcessStateChecker implements Observer, IProcessStateChecker
 	/**
 	 * Checks if a process is terminated on a remote computer via a ssh
 	 * connection.
-	 * 
+	 *
 	 * @param processName The name of the process
 	 * @return True if the process is not running, false if the process is
 	 *         running
@@ -62,8 +60,7 @@ public class ProcessStateChecker implements Observer, IProcessStateChecker
 		_sshClient.sendCmd(cmd);
 
 		long start = System.currentTimeMillis();
-		while (_isTerminated == false
-				&& ((System.currentTimeMillis() - _responseTimeout) < start)) {
+		while (_isTerminated == false && ((System.currentTimeMillis() - _responseTimeout) < start)) {
 		}
 
 		_processName = "none";
@@ -81,8 +78,7 @@ public class ProcessStateChecker implements Observer, IProcessStateChecker
 		_sshClient.sendCmd(cmd);
 
 		long start = System.currentTimeMillis();
-		while (_isTerminated == false
-				&& ((System.currentTimeMillis() - _responseTimeout) < start)) {
+		while (_isTerminated == false && ((System.currentTimeMillis() - _responseTimeout) < start)) {
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {

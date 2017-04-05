@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 public class ShiftableMatrix<T>
 {
-
 	private Object[][] elements;
 
 	public ShiftableMatrix(int width, int height)
@@ -107,7 +106,6 @@ public class ShiftableMatrix<T>
 
 	private static class ShiftableMatrixIterator<T> implements Iterator<T>
 	{
-
 		private ShiftableMatrix<T> matrix;
 
 		private boolean columnsFirst;
@@ -116,8 +114,7 @@ public class ShiftableMatrix<T>
 
 		private int yPos;
 
-		public ShiftableMatrixIterator(ShiftableMatrix<T> matrix,
-				boolean columnsFirst)
+		public ShiftableMatrixIterator(ShiftableMatrix<T> matrix, boolean columnsFirst)
 		{
 			this.matrix = matrix;
 			this.columnsFirst = columnsFirst;
@@ -129,11 +126,11 @@ public class ShiftableMatrix<T>
 		public boolean hasNext()
 		{
 			if (columnsFirst) {
-				return (xPos < matrix.getWidth() && yPos < matrix.getHeight())
-						|| (yPos == matrix.getHeight() && xPos < matrix.getWidth());
+				return (xPos < matrix.getWidth() && yPos < matrix.getHeight()) ||
+						(yPos == matrix.getHeight() && xPos < matrix.getWidth());
 			} else {
-				return (xPos < matrix.getWidth() && yPos < matrix.getHeight())
-						|| (xPos == matrix.getWidth() && yPos < matrix.getHeight());
+				return (xPos < matrix.getWidth() && yPos < matrix.getHeight()) ||
+						(xPos == matrix.getWidth() && yPos < matrix.getHeight());
 			}
 		}
 
@@ -165,7 +162,5 @@ public class ShiftableMatrix<T>
 				}
 			}
 		}
-
 	}
-
 }

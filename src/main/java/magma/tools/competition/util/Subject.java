@@ -29,7 +29,7 @@ import java.util.List;
  * simplified design. Model classes would not inherit from this class but use a
  * mediator. The name was chosen to comply with Gamma et all's book, but is a
  * rather general name
- * 
+ *
  * @param <T> Data type transported in updates
  */
 public class Subject<T> implements IPublishSubscribe<T>

@@ -23,7 +23,6 @@ import com.google.common.collect.Sets;
 @RunWith(MockitoJUnitRunner.class)
 public class DrawingBowlTest
 {
-
 	@Mock
 	private Random random;
 
@@ -68,5 +67,4 @@ public class DrawingBowlTest
 		}
 		bowl.draw();
 	}
-
 }

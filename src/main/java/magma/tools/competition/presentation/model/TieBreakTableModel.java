@@ -13,7 +13,7 @@ import magma.tools.competition.domain.Group;
 public class TieBreakTableModel extends AbstractTableModel
 {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1970106848379144550L;
 
@@ -150,8 +150,8 @@ public class TieBreakTableModel extends AbstractTableModel
 		for (int i = 0; i < size; i++) {
 			int index = size;
 
-			TableModelEvent e = new TableModelEvent(this, 0, index,
-					TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
+			TableModelEvent e =
+					new TableModelEvent(this, 0, index, TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
 
 			for (int j = 0, n = listeners.size(); j < n; j++) {
 				listeners.get(j).tableChanged(e);

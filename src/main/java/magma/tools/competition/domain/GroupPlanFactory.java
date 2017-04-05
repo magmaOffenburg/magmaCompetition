@@ -4,9 +4,6 @@ import java.util.List;
 
 import com.google.inject.assistedinject.Assisted;
 
-public interface GroupPlanFactory
-{
-
+public interface GroupPlanFactory {
 	GroupPlan create(@Assisted("games") List<Game> games);
-
 }

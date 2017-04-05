@@ -24,7 +24,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class GameUtilTest
 {
-
 	@Mock
 	private GameFactory factory;
 
@@ -55,8 +54,7 @@ public class GameUtilTest
 		when(factory.create(teams.get(2), teams.get(3))).thenReturn(games.get(1));
 		when(factory.create(teams.get(4), teams.get(5))).thenReturn(games.get(2));
 		when(factory.create(teams.get(6), teams.get(7))).thenReturn(games.get(3));
-		List<Game> createdGames = gameUtil
-				.createKoPhaseGames(new LinkedHashSet<>(teams));
+		List<Game> createdGames = gameUtil.createKoPhaseGames(new LinkedHashSet<>(teams));
 		verify(factory).create(teams.get(0), teams.get(1));
 		verify(factory).create(teams.get(2), teams.get(3));
 		verify(factory).create(teams.get(4), teams.get(5));
@@ -105,5 +103,4 @@ public class GameUtilTest
 		teams.remove(0); // 6 Elements
 		gameUtil.createKoPhaseGames(new LinkedHashSet<>(teams));
 	}
-
 }

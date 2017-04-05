@@ -17,7 +17,6 @@ import com.google.inject.assistedinject.Assisted;
 
 public class GroupPhase extends Phase
 {
-
 	private static final long serialVersionUID = 1973258013283590086L;
 
 	private final TeamFactory teamFactory;
@@ -28,8 +27,7 @@ public class GroupPhase extends Phase
 
 	@Inject
 	@JsonCreator
-	GroupPhase(
-			@JacksonInject("teamFactory") TeamFactory teamFactory,
+	GroupPhase(@JacksonInject("teamFactory") TeamFactory teamFactory,
 			@Assisted("name") @JsonProperty("name") String name,
 			@Assisted("groups") @JsonProperty("groups") LinkedHashSet<Group> groups,
 			@Assisted("numberOfQualifyingTeams") @JsonProperty("numberOfQualifyingTeams") int numberOfQualifyingTeams)
@@ -92,14 +90,11 @@ public class GroupPhase extends Phase
 	private void checkGroups(LinkedHashSet<Group> groups)
 	{
 		checkNotNull(groups);
-		checkArgument(!groups.isEmpty(),
-				"There must be at least a single group in a group phase.");
+		checkArgument(!groups.isEmpty(), "There must be at least a single group in a group phase.");
 	}
 
 	private void checkNumberOfQualifyingTeams(int numberOfQualifyingTeams)
 	{
-		checkArgument(numberOfQualifyingTeams > 0,
-				"The number of qualifying teams must be > 0.");
+		checkArgument(numberOfQualifyingTeams > 0, "The number of qualifying teams must be > 0.");
 	}
-
 }

@@ -15,7 +15,6 @@ import com.google.inject.assistedinject.Assisted;
 
 public class GroupPlan implements ChangeNotifier<GroupPlan>, Serializable
 {
-
 	private static final long serialVersionUID = 8616937031552404724L;
 
 	private final List<ChangeHandler<GroupPlan>> changeHandlers;
@@ -27,8 +26,7 @@ public class GroupPlan implements ChangeNotifier<GroupPlan>, Serializable
 	GroupPlan(@Assisted("games") @JsonProperty("games") List<Game> games)
 	{
 		checkNotNull(games);
-		checkArgument(games.size() >= 1,
-				"There must be at least a single game in a group plan.");
+		checkArgument(games.size() >= 1, "There must be at least a single game in a group plan.");
 		this.games = games;
 		this.changeHandlers = Lists.newLinkedList();
 	}
@@ -73,5 +71,4 @@ public class GroupPlan implements ChangeNotifier<GroupPlan>, Serializable
 	{
 		return games.toString();
 	}
-
 }

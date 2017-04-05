@@ -4,10 +4,6 @@ import java.util.LinkedHashSet;
 
 import com.google.inject.assistedinject.Assisted;
 
-public interface GroupFactory
-{
-
-	Group create(@Assisted("name") String name,
-			@Assisted("teams") LinkedHashSet<ITeam> teams);
-
+public interface GroupFactory {
+	Group create(@Assisted("name") String name, @Assisted("teams") LinkedHashSet<ITeam> teams);
 }

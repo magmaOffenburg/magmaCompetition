@@ -15,7 +15,6 @@ import magma.tools.competition.util.ClusterConfiguration;
 
 public class LogManager implements Observer
 {
-
 	private static String LOG_FILE_PATH = "~/rcssserver-logs";
 
 	private static String SPARKMONITOR_LOG = "sparkmonitor.log";
@@ -30,8 +29,7 @@ public class LogManager implements Observer
 
 	public LogManager(SSHClient serverConnection)
 	{
-		checkArgument(serverConnection.isConnected(),
-				"The SSH Connection must already be established.");
+		checkArgument(serverConnection.isConnected(), "The SSH Connection must already be established.");
 		this.serverConnection = serverConnection;
 	}
 
@@ -45,13 +43,9 @@ public class LogManager implements Observer
 		}
 
 		try {
-			this.serverConnection = new SSHClient(
-					configuration.getServerUserName(),
-					configuration.getServerAddress());
-			this.serverConnection
-					.setPreferredAuthentication(AuthenticationMethods.PASSWORD);
-			this.serverConnection.setPassword(configuration
-					.getServerUserPassword());
+			this.serverConnection = new SSHClient(configuration.getServerUserName(), configuration.getServerAddress());
+			this.serverConnection.setPreferredAuthentication(AuthenticationMethods.PASSWORD);
+			this.serverConnection.setPassword(configuration.getServerUserPassword());
 			this.serverConnection.setKnownHosts(configuration.getKnownHostPath());
 			this.serverConnection.connect();
 
@@ -60,42 +54,33 @@ public class LogManager implements Observer
 		}
 	}
 
-	public void storeLogFiles(String phaseName, Game game)
-			throws InterruptedException
+	public void storeLogFiles(String phaseName, Game game) throws InterruptedException
 	{
 		String path = getLogFilePath(phaseName, game);
 		path = String.format("%s/%s", path, String.valueOf(new Date().getTime()));
 		serverConnection.sendCmd(String.format("mkdir -p %s/", path));
-		serverConnection.sendCmd(String.format("cp %s %s/", SPARKMONITOR_LOG,
-				path));
-		serverConnection.sendCmd(String.format("cp %s %s/", RCSSSERVER3D_LOG,
-				path));
+		serverConnection.sendCmd(String.format("cp %s %s/", SPARKMONITOR_LOG, path));
+		serverConnection.sendCmd(String.format("cp %s %s/", RCSSSERVER3D_LOG, path));
 
 		serverConnection.addObserver(this);
-		serverConnection.sendCmd("du " + SPARKMONITOR_LOG + " " + path + "/"
-				+ SPARKMONITOR_LOG + " | cut -f -1");
+		serverConnection.sendCmd("du " + SPARKMONITOR_LOG + " " + path + "/" + SPARKMONITOR_LOG + " | cut -f -1");
 
 		long start = System.currentTimeMillis();
-		while (((sizeFile1 == 0) && (sizeFile2 == 0) || (sizeFile1 != sizeFile2))
-				&& ((System.currentTimeMillis() - start) < 60000)) {
+		while (((sizeFile1 == 0) && (sizeFile2 == 0) || (sizeFile1 != sizeFile2)) &&
+				((System.currentTimeMillis() - start) < 60000)) {
 			Thread.sleep(1000);
-			serverConnection.sendCmd("du " + SPARKMONITOR_LOG + " " + path + "/"
-					+ SPARKMONITOR_LOG + " | cut -f -1");
+			serverConnection.sendCmd("du " + SPARKMONITOR_LOG + " " + path + "/" + SPARKMONITOR_LOG + " | cut -f -1");
 		}
 
 		serverConnection.deleteObserver(this);
 	}
 
-	public void restoreFromLogFiles(String phaseName, Game game)
-			throws IOException
+	public void restoreFromLogFiles(String phaseName, Game game) throws IOException
 	{
 		ClusterConfiguration configuration = ClusterConfiguration.get();
 		String path = getLogFilePath(phaseName, game);
-		String cmd = String
-				.format(
-						"find %s/*/%s | sort | tail -n 1 | xargs -i python restore.py {} %s %s",
-						path, SPARKMONITOR_LOG, configuration.getServerAddress(),
-						configuration.getServerPort());
+		String cmd = String.format("find %s/*/%s | sort | tail -n 1 | xargs -i python restore.py {} %s %s", path,
+				SPARKMONITOR_LOG, configuration.getServerAddress(), configuration.getServerPort());
 		System.out.println(cmd);
 		serverConnection.sendCmd(cmd);
 	}
@@ -105,8 +90,7 @@ public class LogManager implements Observer
 		String homeTeamName = game.getHomeTeam().getName().replace(" ", "");
 		String guestTeamName = game.getGuestTeam().getName().replace(" ", "");
 		phaseName = phaseName.replace(" ", "");
-		return String.format("%s/%s/%s_%s", LOG_FILE_PATH, phaseName,
-				homeTeamName, guestTeamName);
+		return String.format("%s/%s/%s_%s", LOG_FILE_PATH, phaseName, homeTeamName, guestTeamName);
 	}
 
 	@Override

@@ -18,8 +18,7 @@ public class GroupPlanGamesComboBoxModel implements ComboBoxModel
 
 	int index = -1;
 
-	public GroupPlanGamesComboBoxModel(TableModel tmGames,
-			TableModel tmGroupResult)
+	public GroupPlanGamesComboBoxModel(TableModel tmGames, TableModel tmGroupResult)
 	{
 		this.tmGames = tmGames;
 		this.tmGroupResult = tmGroupResult;
@@ -55,8 +54,7 @@ public class GroupPlanGamesComboBoxModel implements ComboBoxModel
 	{
 		if ((phase != null) && (phase instanceof GroupPhase)) {
 			for (int i = 0; i < ((GroupPhase) phase).getGroups().size(); i++) {
-				String groupName = new String(((GroupPhase) phase).getGroups()
-						.get(i).getName());
+				String groupName = new String(((GroupPhase) phase).getGroups().get(i).getName());
 
 				if (anItem != null) {
 					String compTo = new String(anItem.toString());

@@ -10,8 +10,7 @@ import magma.tools.competition.domain.ITeam;
 
 public class CSVWriter
 {
-	public static void write(String pathToCSVFile, String separator,
-			LinkedList<ITeam> teams)
+	public static void write(String pathToCSVFile, String separator, LinkedList<ITeam> teams)
 	{
 		BufferedWriter writer;
 
@@ -23,9 +22,9 @@ public class CSVWriter
 			writer.newLine();
 
 			for (ITeam team : teams) {
-				writer.write(new String(team.getName() + ";" + team.getUsername()
-						+ ";" + team.getStartScriptFileName() + ";"
-						+ team.getPathToScriptFile() + ";" + team.isSetTeam()));
+				writer.write(
+						new String(team.getName() + ";" + team.getUsername() + ";" + team.getStartScriptFileName() +
+								   ";" + team.getPathToScriptFile() + ";" + team.isSetTeam()));
 				writer.newLine();
 			}
 

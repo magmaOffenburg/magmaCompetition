@@ -29,7 +29,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class GroupTest
 {
-
 	@Mock
 	private GameUtil gameUtil;
 
@@ -66,8 +65,7 @@ public class GroupTest
 	@Test
 	public void testConstructor() throws Exception
 	{
-		Group group = new Group(gameUtil, planFactory, resultFactory, "group",
-				teams);
+		Group group = new Group(gameUtil, planFactory, resultFactory, "group", teams);
 		assertEquals("group", group.getName());
 		assertNotNull(group.getTeams());
 		assertSame(group.getTeams().get(0), team1);
@@ -134,12 +132,9 @@ public class GroupTest
 	@Test
 	public void testGetResult() throws Exception
 	{
-		Group group = new Group(gameUtil, planFactory, resultFactory, "group",
-				teams);
+		Group group = new Group(gameUtil, planFactory, resultFactory, "group", teams);
 		GroupResult result = mock(GroupResult.class);
-		when(resultFactory.create(Matchers.anyListOf(Game.class))).thenReturn(
-				result);
+		when(resultFactory.create(Matchers.anyListOf(Game.class))).thenReturn(result);
 		assertSame(result, group.getResult());
 	}
-
 }

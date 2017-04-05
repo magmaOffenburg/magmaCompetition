@@ -11,7 +11,6 @@ import magma.tools.competition.runner.SimulationEvent;
 
 public class TournamentRunner extends Thread implements ITournamentRunner
 {
-
 	AbstractGameRunner gameRunner;
 
 	private String phaseName;
@@ -39,13 +38,12 @@ public class TournamentRunner extends Thread implements ITournamentRunner
 		if (games != null && duration > 0) {
 			for (int i = 0; i < games.size() && isFinished() == false; i++) {
 				if (games.get(i).getState() != GameState.FINISHED) {
-					gameRunner = new GameRunner(games.get(i), phaseName,
-							errorHandler);
+					gameRunner = new GameRunner(games.get(i), phaseName, errorHandler);
 					gameRunner.start();
 					try {
 						gameRunner.join();
-						if (gameRunner.getSimulationEvent() == SimulationEvent.GAME_STOPPED
-								|| gameRunner.getSimulationEvent() == SimulationEvent.SERVER_ERROR) {
+						if (gameRunner.getSimulationEvent() == SimulationEvent.GAME_STOPPED ||
+								gameRunner.getSimulationEvent() == SimulationEvent.SERVER_ERROR) {
 							games.get(i).setState(GameState.PLANNED);
 							games.get(i).getResult().setGuestTeamPoints(0);
 							games.get(i).getResult().setGuestTeamPoints(0);
@@ -67,27 +65,24 @@ public class TournamentRunner extends Thread implements ITournamentRunner
 			}
 
 			if (allFinished == true) {
-				errorHandler.handleSimulationEvent(SimulationEvent.GAMES_FINISHED,
-						"All Selected Games finished. Select next.");
+				errorHandler.handleSimulationEvent(
+						SimulationEvent.GAMES_FINISHED, "All Selected Games finished. Select next.");
 
 			} else {
 				if (gameRunner.getSimulationEvent() != null) {
 					switch (gameRunner.getSimulationEvent()) {
 					case GAME_STOPPED:
-						errorHandler.handleSimulationEvent(
-								SimulationEvent.GAME_STOPPED, "Stopped successfully.");
+						errorHandler.handleSimulationEvent(SimulationEvent.GAME_STOPPED, "Stopped successfully.");
 						break;
 					default:
-						errorHandler
-								.handleSimulationEvent(SimulationEvent.GAME_STOPPED,
-										"Stopped with errors. Maybe not all games have been played.");
+						errorHandler.handleSimulationEvent(SimulationEvent.GAME_STOPPED,
+								"Stopped with errors. Maybe not all games have been played.");
 						break;
 					}
 				}
 			}
 		} else {
-			errorHandler.handleSimulationEvent(
-					SimulationEvent.INVALID_CONFIGURATION, "Invalid configuration");
+			errorHandler.handleSimulationEvent(SimulationEvent.INVALID_CONFIGURATION, "Invalid configuration");
 		}
 	}
 
@@ -143,5 +138,4 @@ public class TournamentRunner extends Thread implements ITournamentRunner
 	{
 		this.finished = finished;
 	}
-
 }

@@ -16,7 +16,6 @@ import com.google.inject.assistedinject.Assisted;
 
 public class KoPhase extends Phase
 {
-
 	private static final long serialVersionUID = 5730353021174883685L;
 
 	private final TeamFactory teamFactory;
@@ -24,8 +23,7 @@ public class KoPhase extends Phase
 	private List<Game> games;
 
 	@Inject
-	KoPhase(TeamFactory teamFactory, GameUtil gameUtil,
-			@Assisted("name") String name,
+	KoPhase(TeamFactory teamFactory, GameUtil gameUtil, @Assisted("name") String name,
 			@Assisted("teams") LinkedHashSet<ITeam> teams)
 	{
 		super(name);
@@ -35,8 +33,7 @@ public class KoPhase extends Phase
 	}
 
 	@JsonCreator
-	KoPhase(@JacksonInject("teamFactory") TeamFactory teamFactory,
-			@JsonProperty("name") String name,
+	KoPhase(@JacksonInject("teamFactory") TeamFactory teamFactory, @JsonProperty("name") String name,
 			@JsonProperty("games") List<Game> games)
 	{
 		super(name);
@@ -80,8 +77,6 @@ public class KoPhase extends Phase
 	private void checkGames(List<Game> games)
 	{
 		checkNotNull(games);
-		checkArgument(games.size() >= 1,
-				"There must be at least one game in a Ko-Phase.");
+		checkArgument(games.size() >= 1, "There must be at least one game in a Ko-Phase.");
 	}
-
 }

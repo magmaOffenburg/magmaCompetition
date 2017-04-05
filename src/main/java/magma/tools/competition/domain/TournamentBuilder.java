@@ -11,9 +11,9 @@ import com.google.inject.Provider;
 
 public class TournamentBuilder
 {
-
-	private static final String[] KO_PHASE_NAMES = { "Final", "Semifinals",
-			"Quarterfinals", "Round of last 16", "Round of last 32", };
+	private static final String[] KO_PHASE_NAMES = {
+			"Final", "Semifinals", "Quarterfinals", "Round of last 16", "Round of last 32",
+	};
 
 	private static final String THIRD_PLACE_PLAYOFF_NAME = "Third Place Play-Off";
 
@@ -30,8 +30,7 @@ public class TournamentBuilder
 	private List<PhaseBuilder> builders;
 
 	@Inject
-	public TournamentBuilder(TournamentFactory tournamentFactory,
-			Provider<PhaseBuilder> builderProvider)
+	public TournamentBuilder(TournamentFactory tournamentFactory, Provider<PhaseBuilder> builderProvider)
 	{
 		this.factory = tournamentFactory;
 		this.builderProvider = builderProvider;
@@ -69,8 +68,7 @@ public class TournamentBuilder
 		LinkedHashSet<ITeam> uniqueTeams = getUniqueTeams();
 		List<Phase> phases = createGroupPhases(uniqueTeams);
 		addKoPhases(phases);
-		return factory.create(name, numberOfClusters, gameDuration, uniqueTeams,
-				Sets.newLinkedHashSet(phases));
+		return factory.create(name, numberOfClusters, gameDuration, uniqueTeams, Sets.newLinkedHashSet(phases));
 	}
 
 	private List<Phase> createGroupPhases(LinkedHashSet<ITeam> uniqueTeams)
@@ -119,11 +117,9 @@ public class TournamentBuilder
 			if (!uniqueTeams.contains(team)) {
 				uniqueTeams.add(team);
 			} else {
-				throw new IllegalStateException(
-						"The team name must be unique in a tournament.");
+				throw new IllegalStateException("The team name must be unique in a tournament.");
 			}
 		}
 		return uniqueTeams;
 	}
-
 }

@@ -23,9 +23,7 @@ import org.slf4j.LoggerFactory;
 
 public class GameRunner extends AbstractGameRunner implements IMonitorListener
 {
-
-	private static final Logger logger = LoggerFactory
-			.getLogger(GameRunner.class);
+	private static final Logger logger = LoggerFactory.getLogger(GameRunner.class);
 
 	private SSHClient server;
 
@@ -61,8 +59,7 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 
 	private boolean restore;
 
-	public GameRunner(Game gameToReplay, String phaseName,
-			ISimulationEventHandler eventHandler)
+	public GameRunner(Game gameToReplay, String phaseName, ISimulationEventHandler eventHandler)
 	{
 		try {
 			this.eventHandler = eventHandler;
@@ -141,7 +138,6 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 				break;
 			}
 			default:
-
 			}
 		}
 	}
@@ -160,8 +156,7 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 	private void connect(GameRunnerConfig conf)
 	{
 		logger.debug("Connecting to the server.");
-		server = createConnection(conf.serverIP, conf.serverUsername,
-				conf.serverPassword);
+		server = createConnection(conf.serverIP, conf.serverUsername, conf.serverPassword);
 
 		if (isFinished()) {
 			event = SimulationEvent.GAME_STOPPED;
@@ -169,16 +164,14 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 			return;
 		}
 
-		serverStateCheckerConnection = createConnection(conf.serverIP,
-				conf.serverUsername, conf.serverPassword);
+		serverStateCheckerConnection = createConnection(conf.serverIP, conf.serverUsername, conf.serverPassword);
 
 		if (isFinished()) {
 			event = SimulationEvent.GAME_STOPPED;
 			cleanUp();
 			return;
 		}
-		processStateChecker = new ProcessStateChecker(
-				serverStateCheckerConnection);
+		processStateChecker = new ProcessStateChecker(serverStateCheckerConnection);
 		// logManager = new LogManager(server);
 		logManager = new LogManager();
 
@@ -190,8 +183,7 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 
 		if (server != null) {
 			logger.debug("Connecting to team 1.");
-			conTeam1 = createConnection(conf.teamLeftIP, conf.serverUsername,
-					conf.serverPassword);
+			conTeam1 = createConnection(conf.teamLeftIP, conf.serverUsername, conf.serverPassword);
 
 			if (isFinished()) {
 				event = SimulationEvent.GAME_STOPPED;
@@ -200,8 +192,7 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 			}
 
 			logger.debug("Connecting to team 2.");
-			conTeam2 = createConnection(conf.teamRightIP, conf.serverUsername,
-					conf.serverPassword);
+			conTeam2 = createConnection(conf.teamRightIP, conf.serverUsername, conf.serverPassword);
 
 			if (isFinished()) {
 				event = SimulationEvent.GAME_STOPPED;
@@ -248,8 +239,7 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 	private void startMonitorAdapter() throws MonitorException
 	{
 		monitorAdapterConfiguration = new MonitorAdapterConfiguration();
-		monitorAdapterConfiguration
-				.setHost(this.configuration.getServerAddress());
+		monitorAdapterConfiguration.setHost(this.configuration.getServerAddress());
 		monitorAdapter = new MonitorAdapter(monitorAdapterConfiguration);
 		monitorAdapter.startMonitor();
 		monitorAdapter.addMonitorListener(this);
@@ -267,12 +257,11 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 			}
 			logger.debug("Starting team '{}'.", team1.getName());
 			String scriptName = "start.sh";
-			SimulationEventResponse response = startTeam(team1, conTeam1,
-					conf.serverPassword, conf.serverIP, 11, scriptName);
+			SimulationEventResponse response =
+					startTeam(team1, conTeam1, conf.serverPassword, conf.serverIP, 11, scriptName);
 			if (response == null || response == SimulationEventResponse.PLAY) {
 				logger.debug("Starting team '{}'.", team2.getName());
-				response = startTeam(team2, conTeam2, conf.serverPassword,
-						conf.serverIP, 11, scriptName);
+				response = startTeam(team2, conTeam2, conf.serverPassword, conf.serverIP, 11, scriptName);
 			}
 			if (response == SimulationEventResponse.CANCEL) {
 				event = SimulationEvent.GAME_STOPPED;
@@ -326,8 +315,7 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 				conf.gameDuration = 150.0f;
 			}
 
-			while ((monitorAdapter.getTime() < conf.gameDuration)
-					&& (isFinished() == false)) {
+			while ((monitorAdapter.getTime() < conf.gameDuration) && (isFinished() == false)) {
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
@@ -338,11 +326,9 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 				event = SimulationEvent.GAME_STOPPED;
 				cleanUp();
 			} else {
-
 				if (conf.secondHalf) {
-					if ((game.isDecisionGame() == true)
-							&& (game.getResult().getHomeTeamPoints() == game
-									.getResult().getGuestTeamPoints())) {
+					if ((game.isDecisionGame() == true) &&
+							(game.getResult().getHomeTeamPoints() == game.getResult().getGuestTeamPoints())) {
 						this.state = GameRunnerState.GAME_RUNNER_STATE_RESTART;
 
 						if (conf.extraTime == true) {
@@ -394,12 +380,10 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 					e1.printStackTrace();
 				}
 
-				response = startTeam(team1, conTeam1, conf.serverPassword,
-						conf.serverIP, 1, scriptTeam1);
+				response = startTeam(team1, conTeam1, conf.serverPassword, conf.serverIP, 1, scriptTeam1);
 
 				if (response == null || response == SimulationEventResponse.PLAY) {
-					response = startTeam(team2, conTeam2, conf.serverPassword,
-							conf.serverIP, 1, scriptTeam2);
+					response = startTeam(team2, conTeam2, conf.serverPassword, conf.serverIP, 1, scriptTeam2);
 
 					/*
 					 * FIXME: Workaround for team detection for first penalty after
@@ -407,8 +391,7 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 					 */
 					killTeam(team2, conTeam2, conf.serverPassword);
 
-					response = startTeam(team2, conTeam2, conf.serverPassword,
-							conf.serverIP, 1, scriptTeam2);
+					response = startTeam(team2, conTeam2, conf.serverPassword, conf.serverIP, 1, scriptTeam2);
 					/* End FIXME */
 				}
 
@@ -437,10 +420,9 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 
 			int timeout = 60000;
 			long startTime = System.currentTimeMillis();
-			while (((System.currentTimeMillis() - startTime) < timeout)
-					&& (guestTeamPoints == game.getResult().getGuestTeamPoints())
-					&& (homeTeamPoints == game.getResult().getHomeTeamPoints())
-					&& (isFinished() == false)) {
+			while (((System.currentTimeMillis() - startTime) < timeout) &&
+					(guestTeamPoints == game.getResult().getGuestTeamPoints()) &&
+					(homeTeamPoints == game.getResult().getHomeTeamPoints()) && (isFinished() == false)) {
 				try {
 					Thread.sleep(2000);
 				} catch (InterruptedException e) {
@@ -455,19 +437,16 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 					logger.debug("Round: {}; Shoots remaining: {}", i, shoots);
 
 					int penaltyGoalsHomeTeam = game.getResult().getHomeTeamPoints();
-					int penaltyGoalsGuestTeam = game.getResult()
-							.getGuestTeamPoints();
+					int penaltyGoalsGuestTeam = game.getResult().getGuestTeamPoints();
 
 					if ((Math.abs(penaltyGoalsHomeTeam - penaltyGoalsGuestTeam)) > shoots) {
 						break;
 					}
 				} else {
 					int penaltyGoalsHomeTeam = game.getResult().getHomeTeamPoints();
-					int penaltyGoalsGuestTeam = game.getResult()
-							.getGuestTeamPoints();
+					int penaltyGoalsGuestTeam = game.getResult().getGuestTeamPoints();
 
-					if (penaltyGoalsHomeTeam != penaltyGoalsGuestTeam
-							&& ((i % 2) != 0)) {
+					if (penaltyGoalsHomeTeam != penaltyGoalsGuestTeam && ((i % 2) != 0)) {
 						break;
 					}
 				}
@@ -523,9 +502,8 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 	private void errorServer()
 	{
 		cleanUp();
-		SimulationEventResponse response = SimulationEventResponse.values()[eventHandler
-				.handleSimulationEvent(SimulationEvent.SERVER_ERROR,
-						"Server Error: Do you want to restart the game?")];
+		SimulationEventResponse response = SimulationEventResponse.values()[eventHandler.handleSimulationEvent(
+				SimulationEvent.SERVER_ERROR, "Server Error: Do you want to restart the game?")];
 		if (response == SimulationEventResponse.RESTART_GAME) {
 			restore = true;
 			this.state = GameRunnerState.GAME_RUNNER_STATE_RESTART;
@@ -613,13 +591,11 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 		return connection;
 	}
 
-	private SimulationEventResponse startTeam(ITeam team, SSHClient connection,
-			String serverPassword, String serverIP, int numOfPlayers,
-			String scriptName) throws MonitorAdapterNotConnectedException
+	private SimulationEventResponse startTeam(ITeam team, SSHClient connection, String serverPassword, String serverIP,
+			int numOfPlayers, String scriptName) throws MonitorAdapterNotConnectedException
 	{
-		String cmd = "echo -e '" + serverPassword + "\n' | sudo -k -S su "
-				+ team.getUsername() + " -c 'cd " + team.getPathToScriptFile()
-				+ " && ./" + scriptName + " " + serverIP + "'";
+		String cmd = "echo -e '" + serverPassword + "\n' | sudo -k -S su " + team.getUsername() + " -c 'cd " +
+					 team.getPathToScriptFile() + " && ./" + scriptName + " " + serverIP + "'";
 
 		if (connection.isConnected()) {
 			connection.sendCmd(cmd);
@@ -630,14 +606,11 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 			while (response == SimulationEventResponse.WAIT) {
 				long startTime = System.currentTimeMillis();
 				int players = 0;
-				while (((players = monitorAdapter
-						.getNumberOfPlayers(team.getName())) != numOfPlayers)
-						&& ((System.currentTimeMillis() - startTime) < timeout)) {
+				while (((players = monitorAdapter.getNumberOfPlayers(team.getName())) != numOfPlayers) &&
+						((System.currentTimeMillis() - startTime) < timeout)) {
 				}
-				logger.debug("Team '{}' currently has {} players.", team.getName(),
-						players);
+				logger.debug("Team '{}' currently has {} players.", team.getName(), players);
 				if (players != numOfPlayers) {
-
 					try {
 						monitorAdapter.stopMonitor();
 
@@ -648,12 +621,11 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 
 					players = monitorAdapter.getNumberOfPlayers(team.getName());
 					if (players != numOfPlayers) {
-						response = SimulationEventResponse.values()[eventHandler
-								.handleSimulationEvent(
-										SimulationEvent.NOT_ALL_PLAYERS_ON_FILED,
-										String.format(
-												"Team '%s' is missing players. Do you want to wait, restart or stop the game?",
-												team.getName()))];
+						response = SimulationEventResponse.values()[eventHandler.handleSimulationEvent(
+								SimulationEvent.NOT_ALL_PLAYERS_ON_FILED,
+								String.format(
+										"Team '%s' is missing players. Do you want to wait, restart or stop the game?",
+										team.getName()))];
 					}
 				} else {
 					response = null;
@@ -666,9 +638,8 @@ public class GameRunner extends AbstractGameRunner implements IMonitorListener
 
 	private void killTeam(ITeam team, SSHClient connection, String serverPassword)
 	{
-		String cmd = "echo -e '" + serverPassword + "\n' | sudo -k -S su "
-				+ team.getUsername() + " -c 'cd " + team.getPathToScriptFile()
-				+ " && ./kill.sh'";
+		String cmd = "echo -e '" + serverPassword + "\n' | sudo -k -S su " + team.getUsername() + " -c 'cd " +
+					 team.getPathToScriptFile() + " && ./kill.sh'";
 
 		if (connection.isConnected()) {
 			connection.sendCmd(cmd);

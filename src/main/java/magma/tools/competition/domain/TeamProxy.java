@@ -4,11 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties({ "username", "setTeam", "pathToScriptFile",
-		"startScriptFileName" })
+@JsonIgnoreProperties({"username", "setTeam", "pathToScriptFile", "startScriptFileName"})
 public abstract class TeamProxy implements ITeam
 {
-
 	private static final long serialVersionUID = -3293520587522505461L;
 
 	TeamProxy()
@@ -85,8 +83,7 @@ public abstract class TeamProxy implements ITeam
 	}
 
 	@Override
-	public void setStartScriptFileName(String startScriptFileName)
-			throws ProxyNotResolvableException
+	public void setStartScriptFileName(String startScriptFileName) throws ProxyNotResolvableException
 	{
 		ITeam team = resolveOrFail();
 		team.setStartScriptFileName(startScriptFileName);
@@ -104,8 +101,7 @@ public abstract class TeamProxy implements ITeam
 	}
 
 	@Override
-	public void setPathToScriptFile(String pathToScriptFile)
-			throws ProxyNotResolvableException
+	public void setPathToScriptFile(String pathToScriptFile) throws ProxyNotResolvableException
 	{
 		ITeam team = resolveOrFail();
 		team.setPathToScriptFile(pathToScriptFile);
@@ -123,5 +119,4 @@ public abstract class TeamProxy implements ITeam
 	protected abstract ITeam resolve();
 
 	protected abstract String getProxiedName();
-
 }

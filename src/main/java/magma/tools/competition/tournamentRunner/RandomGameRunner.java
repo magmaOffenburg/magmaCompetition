@@ -29,8 +29,7 @@ public class RandomGameRunner extends Thread
 
 			game.getResult().setGuestTeamPoints(random.nextInt(6));
 			game.getResult().setHomeTeamPoints(random.nextInt(6));
-		} while (game.getResult().getGuestTeamPoints() == game.getResult()
-				.getHomeTeamPoints());
+		} while (game.getResult().getGuestTeamPoints() == game.getResult().getHomeTeamPoints());
 
 		game.setState(GameState.FINISHED);
 	}

@@ -20,7 +20,6 @@ import com.google.inject.assistedinject.Assisted;
 
 public class Tournament implements Serializable
 {
-
 	private static final long serialVersionUID = 8406424837295144630L;
 
 	private final String name;
@@ -35,8 +34,7 @@ public class Tournament implements Serializable
 
 	@Inject
 	@JsonCreator
-	Tournament(
-			@Assisted("name") @JsonProperty("name") String name,
+	Tournament(@Assisted("name") @JsonProperty("name") String name,
 			@Assisted("numberOfClusters") @JsonProperty("numberOfClusters") int numberOfClusters,
 			@Assisted("gameDuration") @JsonProperty("gameDuration") double gameDuration,
 			@Assisted("teams") @JsonProperty("teams") LinkedHashSet<ITeam> teams,
@@ -83,52 +81,49 @@ public class Tournament implements Serializable
 	private void checkName(String tournamentName)
 	{
 		checkNotNull(tournamentName);
-		checkArgument(tournamentName.trim().length() > 0,
-				"A Tournament's name must not be empty.");
+		checkArgument(tournamentName.trim().length() > 0, "A Tournament's name must not be empty.");
 	}
 
 	private void checkNumberOfClusters(int numberOfClusters)
 	{
-		checkArgument(numberOfClusters > 0, String.format(
-				"There must be at least a single cluster, given: '%s').",
-				numberOfClusters));
+		checkArgument(numberOfClusters > 0,
+				String.format("There must be at least a single cluster, given: '%s').", numberOfClusters));
 	}
 
 	private void checkGameDuration(double gameDuration)
 	{
-		checkArgument(gameDuration > 0, String.format(
-				"A games duration must be > 0, given: '%s'", gameDuration));
+		checkArgument(gameDuration > 0, String.format("A games duration must be > 0, given: '%s'", gameDuration));
 	}
 
 	private void checkTeams(Set<ITeam> teams)
 	{
 		checkNotNull(teams);
-		checkArgument(teams.size() > 1, String.format(
-				"There must be at least two teams in a tournament, given '%s'",
-				teams.size()));
+		checkArgument(teams.size() > 1,
+				String.format("There must be at least two teams in a tournament, given '%s'", teams.size()));
 	}
 
 	private void checkPhases(LinkedHashSet<Phase> phases)
 	{
 		checkNotNull(phases);
-		checkArgument(!phases.isEmpty(),
-				"There must be at least a single phase in a tournament.");
+		checkArgument(!phases.isEmpty(), "There must be at least a single phase in a tournament.");
 	}
 
 	@Override
 	public String toString()
 	{
-		return String
-				.format(
-						"{Name: %s, Number of Clusters: %s, Game Duration: %s, Teams: %s, Phases: %s}",
-						name, numberOfClusters, gameDuration, teams, phases);
+		return String.format("{Name: %s, Number of Clusters: %s, Game Duration: %s, Teams: %s, Phases: %s}", name,
+				numberOfClusters, gameDuration, teams, phases);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return new HashCodeBuilder(19, 23).append(name).append(numberOfClusters)
-				.append(gameDuration).append(teams).toHashCode();
+		return new HashCodeBuilder(19, 23)
+				.append(name)
+				.append(numberOfClusters)
+				.append(gameDuration)
+				.append(teams)
+				.toHashCode();
 	}
 
 	@Override
@@ -144,10 +139,11 @@ public class Tournament implements Serializable
 			return false;
 		}
 		Tournament other = (Tournament) obj;
-		return new EqualsBuilder().append(name, other.name)
+		return new EqualsBuilder()
+				.append(name, other.name)
 				.append(numberOfClusters, other.numberOfClusters)
 				.append(gameDuration, other.gameDuration)
-				.append(teams, other.teams).isEquals();
+				.append(teams, other.teams)
+				.isEquals();
 	}
-
 }

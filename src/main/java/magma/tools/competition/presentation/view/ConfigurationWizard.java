@@ -37,8 +37,7 @@ public class ConfigurationWizard extends JDialog
 
 	private Provider<TournamentBuilder> builderProvider;
 
-	public ConfigurationWizard(Provider<TournamentBuilder> tournamentBuilder,
-			LinkedList<ITeam> teams)
+	public ConfigurationWizard(Provider<TournamentBuilder> tournamentBuilder, LinkedList<ITeam> teams)
 	{
 		this.builderProvider = tournamentBuilder;
 		this.teams = teams;
@@ -62,15 +61,12 @@ public class ConfigurationWizard extends JDialog
 					builder.numberOfClusters(model.getNumOfCluster());
 					builder.gameDuration(model.getGameDuration());
 
-					Vector<String> numOfPassedTeams = model.getPageOneTableModel()
-							.getNumOfPassedTeams();
-					Vector<String> groupsInPhase = model.getPageOneTableModel()
-							.getNumOfGroupsInPhases();
+					Vector<String> numOfPassedTeams = model.getPageOneTableModel().getNumOfPassedTeams();
+					Vector<String> groupsInPhase = model.getPageOneTableModel().getNumOfGroupsInPhases();
 
 					for (int i = 0; i < numOfPassedTeams.size(); i++) {
 						int inumberOfGroups = Integer.parseInt(groupsInPhase.get(i));
-						int inumOfPassedTeams = Integer.parseInt(numOfPassedTeams
-								.get(i));
+						int inumOfPassedTeams = Integer.parseInt(numOfPassedTeams.get(i));
 						builder.addGroupPhase(inumberOfGroups, inumOfPassedTeams);
 					}
 

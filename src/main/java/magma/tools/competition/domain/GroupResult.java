@@ -10,14 +10,12 @@ import com.google.inject.assistedinject.Assisted;
 
 public class GroupResult
 {
-
 	private List<Object[]> result;
 
 	private GameFactory factory;
 
 	@Inject
-	GroupResult(GroupResultCalculationStrategy strategy,
-			@Assisted("games") List<Game> games, GameFactory factory)
+	GroupResult(GroupResultCalculationStrategy strategy, @Assisted("games") List<Game> games, GameFactory factory)
 	{
 		result = strategy.calculateResult(games);
 		this.factory = factory;
@@ -96,8 +94,7 @@ public class GroupResult
 				return i;
 			}
 		}
-		throw new IllegalArgumentException(
-				"Given team not found in group results.");
+		throw new IllegalArgumentException("Given team not found in group results.");
 	}
 
 	public List<Game> getTieBreakGames()
@@ -131,5 +128,4 @@ public class GroupResult
 
 		return ret;
 	}
-
 }

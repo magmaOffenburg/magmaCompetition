@@ -23,7 +23,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class TournamentTest
 {
-
 	private List<ITeam> teams;
 
 	private List<Phase> phases;
@@ -140,5 +139,4 @@ public class TournamentTest
 	{
 		EqualsVerifier.forClass(Tournament.class).usingGetClass().verify();
 	}
-
 }

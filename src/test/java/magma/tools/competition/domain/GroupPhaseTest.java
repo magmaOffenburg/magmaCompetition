@@ -26,7 +26,6 @@ import com.google.common.collect.Sets;
 @RunWith(MockitoJUnitRunner.class)
 public class GroupPhaseTest
 {
-
 	@Mock
 	private TeamFactory factory;
 
@@ -142,5 +141,4 @@ public class GroupPhaseTest
 	{
 		EqualsVerifier.forClass(GroupPhase.class).usingGetClass().verify();
 	}
-
 }

@@ -54,8 +54,7 @@ import com.google.inject.Provider;
  *
  * @author sgutjahr
  */
-public class MainFrame extends javax.swing.JFrame implements
-		ChangeHandler<Game>, ISimulationEventHandler
+public class MainFrame extends javax.swing.JFrame implements ChangeHandler<Game>, ISimulationEventHandler
 {
 	private static final long serialVersionUID = -7521014059917069119L;
 
@@ -123,7 +122,7 @@ public class MainFrame extends javax.swing.JFrame implements
 
 	/**
 	 * Creates new form MAinFrame
-	 * 
+	 *
 	 * @param tournamentBuilder
 	 */
 	public MainFrame(Provider<TournamentBuilder> tournamentBuilder)
@@ -187,8 +186,7 @@ public class MainFrame extends javax.swing.JFrame implements
 						}
 					}
 				} else {
-					for (int j = 0; j < ((GroupPhase) phaseBefore).getGroups()
-							.size(); j++) {
+					for (int j = 0; j < ((GroupPhase) phaseBefore).getGroups().size(); j++) {
 						Group group = ((GroupPhase) phaseBefore).getGroups().get(j);
 						List<Game> games = group.getPlan().getGames();
 
@@ -238,9 +236,7 @@ public class MainFrame extends javax.swing.JFrame implements
 
 	private void refreshWithOutTournamentPlan()
 	{
-		if ((tournamentPlanTableModel != null)
-				&& (grouPlanGamesTableModel != null) && (tmstanding != null)) {
-
+		if ((tournamentPlanTableModel != null) && (grouPlanGamesTableModel != null) && (tmstanding != null)) {
 			grouPlanGamesTableModel.refresh();
 			tmstanding.refresh();
 			jComboBoxGroupPlanGroup.repaint();
@@ -257,9 +253,8 @@ public class MainFrame extends javax.swing.JFrame implements
 	private void saveTournamentToJsonFile()
 	{
 		try {
-			JsonHandler.exportToFile(this._tournament, new File(
-					ClusterConfiguration.get().getFileStartPath()
-							+ "/tournament.json"));
+			JsonHandler.exportToFile(
+					this._tournament, new File(ClusterConfiguration.get().getFileStartPath() + "/tournament.json"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -278,15 +273,15 @@ public class MainFrame extends javax.swing.JFrame implements
 			break;
 		}
 		case NOT_ALL_PLAYERS_ON_FILED: {
-			String[] buttons = { "Wait", "Restart Game", "Play", "Cancel" };
-			int result = JOptionPane.showOptionDialog(this, message, "SimManager",
-					JOptionPane.DEFAULT_OPTION, 0, null, buttons, buttons[0]);
+			String[] buttons = {"Wait", "Restart Game", "Play", "Cancel"};
+			int result = JOptionPane.showOptionDialog(
+					this, message, "SimManager", JOptionPane.DEFAULT_OPTION, 0, null, buttons, buttons[0]);
 			return result;
 		}
 		case SERVER_ERROR: {
-			String[] buttons = { "Continue with next Game", "Restart Game" };
-			int result = JOptionPane.showOptionDialog(this, message, "SimManager",
-					JOptionPane.DEFAULT_OPTION, 0, null, buttons, buttons[0]);
+			String[] buttons = {"Continue with next Game", "Restart Game"};
+			int result = JOptionPane.showOptionDialog(
+					this, message, "SimManager", JOptionPane.DEFAULT_OPTION, 0, null, buttons, buttons[0]);
 			return result;
 		}
 		default: {
@@ -307,8 +302,7 @@ public class MainFrame extends javax.swing.JFrame implements
 				return new Dimension(600, 320);
 			}
 		};
-		JOptionPane.showMessageDialog(this, jsp, "Message",
-				JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, jsp, "Message", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	private void initComponents()
@@ -316,8 +310,7 @@ public class MainFrame extends javax.swing.JFrame implements
 		tournamentPlanTableModel = new TournamentPlanTableModel();
 		grouPlanGamesTableModel = new GroupPlanGamesTableModel();
 		tmstanding = new GroupPlanStandingTableModel();
-		comboBoxModel = new GroupPlanGamesComboBoxModel(grouPlanGamesTableModel,
-				tmstanding);
+		comboBoxModel = new GroupPlanGamesComboBoxModel(grouPlanGamesTableModel, tmstanding);
 		jPanelTournamentPlan = new javax.swing.JPanel();
 		jScrollPaneTournamentPlanPlan = new javax.swing.JScrollPane();
 		jtTournamentPlanPlan = new javax.swing.JTable(tournamentPlanTableModel);
@@ -331,8 +324,7 @@ public class MainFrame extends javax.swing.JFrame implements
 		jScrollPaneGroupPlanStanding = new javax.swing.JScrollPane();
 		jTableGroupPlanStanding = new javax.swing.JTable(tmstanding);
 
-		jtTournamentPlanPlan.getSelectionModel().setSelectionMode(
-				javax.swing.ListSelectionModel.SINGLE_SELECTION);
+		jtTournamentPlanPlan.getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
 		tournamentTableListener = new ListSelectionListener() {
 			@Override
@@ -342,8 +334,7 @@ public class MainFrame extends javax.swing.JFrame implements
 			}
 		};
 
-		jtTournamentPlanPlan.getSelectionModel().addListSelectionListener(
-				tournamentTableListener);
+		jtTournamentPlanPlan.getSelectionModel().addListSelectionListener(tournamentTableListener);
 
 		jComboBoxGroupPlanGroup.addActionListener(new ActionListener() {
 			private Group currentGroup;
@@ -355,31 +346,24 @@ public class MainFrame extends javax.swing.JFrame implements
 			}
 		});
 
-		jPanelTournamentPlan.setBorder(javax.swing.BorderFactory
-				.createTitledBorder("Tournament plan"));
+		jPanelTournamentPlan.setBorder(javax.swing.BorderFactory.createTitledBorder("Tournament plan"));
 
 		jScrollPaneTournamentPlanPlan.setViewportView(jtTournamentPlanPlan);
 
-		GroupLayout jPanelTournamentPlanLayout = new GroupLayout(
-				jPanelTournamentPlan);
+		GroupLayout jPanelTournamentPlanLayout = new GroupLayout(jPanelTournamentPlan);
 		jPanelTournamentPlan.setLayout(jPanelTournamentPlanLayout);
-		jPanelTournamentPlanLayout.setHorizontalGroup(jPanelTournamentPlanLayout
-				.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
-						jPanelTournamentPlanLayout
-								.createSequentialGroup()
-								.addComponent(jScrollPaneTournamentPlanPlan,
-										GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
-								.addGap(0, 0, 0)));
-		jPanelTournamentPlanLayout.setVerticalGroup(jPanelTournamentPlanLayout
-				.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
-						jPanelTournamentPlanLayout
-								.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(jScrollPaneTournamentPlanPlan,
-										GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)));
+		jPanelTournamentPlanLayout.setHorizontalGroup(
+				jPanelTournamentPlanLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(jPanelTournamentPlanLayout.createSequentialGroup()
+										  .addComponent(jScrollPaneTournamentPlanPlan, GroupLayout.DEFAULT_SIZE, 463,
+												  Short.MAX_VALUE)
+										  .addGap(0, 0, 0)));
+		jPanelTournamentPlanLayout.setVerticalGroup(
+				jPanelTournamentPlanLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(jPanelTournamentPlanLayout.createSequentialGroup().addContainerGap().addComponent(
+								jScrollPaneTournamentPlanPlan, GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)));
 
-		jPanelGroupPlan.setBorder(javax.swing.BorderFactory
-				.createTitledBorder("Group plan"));
+		jPanelGroupPlan.setBorder(javax.swing.BorderFactory.createTitledBorder("Group plan"));
 
 		jLabelGroupPlanGroup.setText("Group");
 
@@ -392,71 +376,47 @@ public class MainFrame extends javax.swing.JFrame implements
 		jScrollPaneGroupPlanStanding.setViewportView(jTableGroupPlanStanding);
 		GroupLayout jPanelGroupPlanLayout = new GroupLayout(jPanelGroupPlan);
 		jPanelGroupPlan.setLayout(jPanelGroupPlanLayout);
-		jPanelGroupPlanLayout
-				.setHorizontalGroup(jPanelGroupPlanLayout
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(jScrollPaneGroupPlanGames,
-								GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+		jPanelGroupPlanLayout.setHorizontalGroup(
+				jPanelGroupPlanLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(jScrollPaneGroupPlanGames, GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
 						.addComponent(jScrollPaneGroupPlanStanding)
+						.addGroup(jPanelGroupPlanLayout.createSequentialGroup()
+										  .addGroup(jPanelGroupPlanLayout
+															.createParallelGroup(GroupLayout.Alignment.LEADING)
+															.addGroup(jPanelGroupPlanLayout.createSequentialGroup()
+																			  .addComponent(jLabelGroupPlanGroup,
+																					  GroupLayout.PREFERRED_SIZE, 59,
+																					  GroupLayout.PREFERRED_SIZE)
+																			  .addGap(24, 24, 24)
+																			  .addComponent(jComboBoxGroupPlanGroup,
+																					  GroupLayout.PREFERRED_SIZE, 232,
+																					  GroupLayout.PREFERRED_SIZE))
+															.addComponent(jLabelGroupPlanStanding)
+															.addComponent(jLabelGroupPlanGames))
+										  .addGap(0, 0, Short.MAX_VALUE)));
+		jPanelGroupPlanLayout.setVerticalGroup(
+				jPanelGroupPlanLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(
-								jPanelGroupPlanLayout
-										.createSequentialGroup()
-										.addGroup(
-												jPanelGroupPlanLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanelGroupPlanLayout
-																		.createSequentialGroup()
-																		.addComponent(
-																				jLabelGroupPlanGroup,
-																				GroupLayout.PREFERRED_SIZE,
-																				59,
-																				GroupLayout.PREFERRED_SIZE)
-																		.addGap(24, 24, 24)
-																		.addComponent(
-																				jComboBoxGroupPlanGroup,
-																				GroupLayout.PREFERRED_SIZE,
-																				232,
-																				GroupLayout.PREFERRED_SIZE))
-														.addComponent(jLabelGroupPlanStanding)
-														.addComponent(jLabelGroupPlanGames))
-										.addGap(0, 0, Short.MAX_VALUE)));
-		jPanelGroupPlanLayout
-				.setVerticalGroup(jPanelGroupPlanLayout
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanelGroupPlanLayout
-										.createSequentialGroup()
+								jPanelGroupPlanLayout.createSequentialGroup()
 										.addGap(17, 17, 17)
 										.addGroup(
 												jPanelGroupPlanLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(jLabelGroupPlanGroup,
-																GroupLayout.PREFERRED_SIZE, 22,
-																GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																jComboBoxGroupPlanGroup,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
+														.createParallelGroup(GroupLayout.Alignment.BASELINE)
+														.addComponent(jLabelGroupPlanGroup, GroupLayout.PREFERRED_SIZE,
+																22, GroupLayout.PREFERRED_SIZE)
+														.addComponent(jComboBoxGroupPlanGroup,
+																GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 																GroupLayout.PREFERRED_SIZE))
 										.addGap(18, 18, 18)
-										.addComponent(jLabelGroupPlanGames,
-												GroupLayout.PREFERRED_SIZE, 25,
+										.addComponent(jLabelGroupPlanGames, GroupLayout.PREFERRED_SIZE, 25,
 												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(jScrollPaneGroupPlanGames,
-												GroupLayout.PREFERRED_SIZE, 0,
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(jScrollPaneGroupPlanGames, GroupLayout.PREFERRED_SIZE, 0,
 												Short.MAX_VALUE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
 										.addComponent(jLabelGroupPlanStanding)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(jScrollPaneGroupPlanStanding,
-												GroupLayout.PREFERRED_SIZE, 265,
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(jScrollPaneGroupPlanStanding, GroupLayout.PREFERRED_SIZE, 265,
 												GroupLayout.PREFERRED_SIZE)));
 
 		setJMenuBar(createMenu());
@@ -464,41 +424,28 @@ public class MainFrame extends javax.swing.JFrame implements
 
 		GroupLayout layout = new GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout
-				.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addComponent(jPanelTournamentPlan,
-										GroupLayout.DEFAULT_SIZE,
-										GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(jPanelGroupPlan,
-										GroupLayout.DEFAULT_SIZE,
-										GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addComponent(jToolBar1, GroupLayout.DEFAULT_SIZE,
-						GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+		layout.setHorizontalGroup(
+				layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup()
+										  .addComponent(jPanelTournamentPlan, GroupLayout.DEFAULT_SIZE,
+												  GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										  .addComponent(jPanelGroupPlan, GroupLayout.DEFAULT_SIZE,
+												  GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addComponent(jToolBar1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
-		layout.setVerticalGroup(layout
-				.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addComponent(jToolBar1, GroupLayout.PREFERRED_SIZE,
-										GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												GroupLayout.Alignment.LEADING)
-												.addComponent(jPanelTournamentPlan,
-														GroupLayout.DEFAULT_SIZE,
-														GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE)
-												.addComponent(jPanelGroupPlan,
-														GroupLayout.DEFAULT_SIZE,
-														GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE))));
+		layout.setVerticalGroup(
+				layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(
+								layout.createSequentialGroup()
+										.addComponent(jToolBar1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+														  .addComponent(jPanelTournamentPlan, GroupLayout.DEFAULT_SIZE,
+																  GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+														  .addComponent(jPanelGroupPlan, GroupLayout.DEFAULT_SIZE,
+																  GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))));
 
 		pack();
 	}
@@ -559,14 +506,13 @@ public class MainFrame extends javax.swing.JFrame implements
 		jMenuPrepare.add(jMenuItemConfigurationWizard);
 
 		OpenTournamentMouseAdapter openTournamentMouseAdapter = new OpenTournamentMouseAdapter();
-		openTournamentMouseAdapter
-				.addChangeHandler(new ChangeHandler<Tournament>() {
-					@Override
-					public void onChange(Tournament tournament)
-					{
-						openTournamentMouseAdapterAddChangeHandler(tournament);
-					}
-				});
+		openTournamentMouseAdapter.addChangeHandler(new ChangeHandler<Tournament>() {
+			@Override
+			public void onChange(Tournament tournament)
+			{
+				openTournamentMouseAdapterAddChangeHandler(tournament);
+			}
+		});
 		jMenuItemLoadTournament.addMouseListener(openTournamentMouseAdapter);
 		jMenuPrepare.add(jMenuItemLoadTournament);
 
@@ -582,25 +528,23 @@ public class MainFrame extends javax.swing.JFrame implements
 
 		// menu run tournament
 		jMenuItemTournamentStart.setEnabled(false);
-		jMenuItemTournamentStart
-				.addActionListener(new java.awt.event.ActionListener() {
-					@Override
-					public void actionPerformed(java.awt.event.ActionEvent evt)
-					{
-						jButtonToolBarStartActionPerformed(evt);
-					}
-				});
+		jMenuItemTournamentStart.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				jButtonToolBarStartActionPerformed(evt);
+			}
+		});
 		jMenuTournament.add(jMenuItemTournamentStart);
 
 		jMenuItemTournamentStop.setEnabled(false);
-		jMenuItemTournamentStop
-				.addActionListener(new java.awt.event.ActionListener() {
-					@Override
-					public void actionPerformed(java.awt.event.ActionEvent evt)
-					{
-						jButtonToolBarStopActionPerformed(evt);
-					}
-				});
+		jMenuItemTournamentStop.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				jButtonToolBarStopActionPerformed(evt);
+			}
+		});
 		jMenuTournament.add(jMenuItemTournamentStop);
 
 		jMenuItemTournamentTieBreak.setEnabled(false);
@@ -628,11 +572,9 @@ public class MainFrame extends javax.swing.JFrame implements
 			{
 				try {
 					HTMLGenerator.generateHTML(_tournament);
-					JOptionPane.showMessageDialog(null,
-							"Successfully exported tournament to HTML document!");
+					JOptionPane.showMessageDialog(null, "Successfully exported tournament to HTML document!");
 				} catch (IOException e1) {
-					JOptionPane.showMessageDialog(null,
-							"Error occured on exporting the HTML document!");
+					JOptionPane.showMessageDialog(null, "Error occured on exporting the HTML document!");
 					e1.printStackTrace();
 				}
 			}
@@ -657,37 +599,30 @@ public class MainFrame extends javax.swing.JFrame implements
 		jToolBar1.setRollover(true);
 
 		jButtonToolBarStart.setEnabled(false);
-		jButtonToolBarStart.setIcon(new ImageIcon(this.getClass()
-				.getClassLoader().getResource("startgame.png")));
+		jButtonToolBarStart.setIcon(new ImageIcon(this.getClass().getClassLoader().getResource("startgame.png")));
 		// jButtonToolBarStart.setIcon(new ImageIcon("buttonPics/startgame.png"));
 
 		jButtonToolBarStart.setFocusable(false);
-		jButtonToolBarStart
-				.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-		jButtonToolBarStart
-				.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-		jButtonToolBarStart
-				.addActionListener(new java.awt.event.ActionListener() {
-					@Override
-					public void actionPerformed(java.awt.event.ActionEvent evt)
-					{
-						jButtonToolBarStartActionPerformed(evt);
-					}
-				});
+		jButtonToolBarStart.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+		jButtonToolBarStart.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+		jButtonToolBarStart.addActionListener(new java.awt.event.ActionListener() {
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				jButtonToolBarStartActionPerformed(evt);
+			}
+		});
 
 		jToolBar1.add(jButtonToolBarStart);
 
 		jButtonToolBarStop.setEnabled(false);
-		jButtonToolBarStop.setIcon(new ImageIcon(this.getClass().getClassLoader()
-				.getResource("stop-button.png")));
+		jButtonToolBarStop.setIcon(new ImageIcon(this.getClass().getClassLoader().getResource("stop-button.png")));
 		// jButtonToolBarStop.setIcon(new
 		// ImageIcon("buttonPics/stop-button.png"));
 
 		jButtonToolBarStop.setFocusable(false);
-		jButtonToolBarStop
-				.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-		jButtonToolBarStop
-				.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+		jButtonToolBarStop.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+		jButtonToolBarStop.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 		jButtonToolBarStop.addActionListener(new java.awt.event.ActionListener() {
 			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -725,20 +660,17 @@ public class MainFrame extends javax.swing.JFrame implements
 			File inputVerzFile = chooser.getSelectedFile();
 			tournamentToMergeFilePath = inputVerzFile.getPath();
 			try {
-				tournamentFromFile = JsonHandler.createFromFile(new File(
-						tournamentToMergeFilePath), Tournament.class);
+				tournamentFromFile = JsonHandler.createFromFile(new File(tournamentToMergeFilePath), Tournament.class);
 
 				JsonHandler.mergeTournaments(this._tournament, tournamentFromFile);
 
 				saveTournamentToJsonFile();
 
-				JOptionPane.showMessageDialog(null,
-						"Successfully merged the two tournaments!");
+				JOptionPane.showMessageDialog(null, "Successfully merged the two tournaments!");
 
 				refresh();
 			} catch (IOException e1) {
-				JOptionPane.showMessageDialog(null,
-						"Error on loading tournament JSON file for merging!");
+				JOptionPane.showMessageDialog(null, "Error on loading tournament JSON file for merging!");
 			}
 		} else {
 			chooser.setSelectedFile(null);
@@ -751,8 +683,7 @@ public class MainFrame extends javax.swing.JFrame implements
 		System.exit(0);
 	}
 
-	private void jButtonToolBarStartActionPerformed(
-			java.awt.event.ActionEvent evt)
+	private void jButtonToolBarStartActionPerformed(java.awt.event.ActionEvent evt)
 	{
 		if (isPhaseBeforeFinished() == false) {
 			showMessage("Please finish the previous phase first.");
@@ -768,8 +699,7 @@ public class MainFrame extends javax.swing.JFrame implements
 		}
 
 		tournamentRunner.setGames(getSelectedGames());
-		tournamentRunner.setPhaseName(tournamentPlanTableModel.getCurrentPhase()
-				.getName());
+		tournamentRunner.setPhaseName(tournamentPlanTableModel.getCurrentPhase().getName());
 		tournamentRunner.setGameDuration(_tournament.getGameDuration());
 		tournamentRunner.startTournament();
 		refresh();
@@ -780,8 +710,7 @@ public class MainFrame extends javax.swing.JFrame implements
 		tournamentRunner.stopTournament();
 	}
 
-	private void jtTournamentPlanPlanAddListSelectionListener(
-			ListSelectionEvent e)
+	private void jtTournamentPlanPlanAddListSelectionListener(ListSelectionEvent e)
 	{
 		int index = -1;
 		index = jtTournamentPlanPlan.getSelectedRow();
@@ -805,8 +734,7 @@ public class MainFrame extends javax.swing.JFrame implements
 				} else {
 					tournamentPlanTableModel.setCurrentPhase(phase);
 					comboBoxModel.setPhase(phase);
-					grouPlanGamesTableModel.setGroup(((GroupPhase) phase)
-							.getGroups().get(0));
+					grouPlanGamesTableModel.setGroup(((GroupPhase) phase).getGroups().get(0));
 					tmstanding.setGroup(((GroupPhase) phase).getGroups().get(0));
 					comboBoxModel.setIndex(0);
 				}
@@ -826,8 +754,7 @@ public class MainFrame extends javax.swing.JFrame implements
 		}
 	}
 
-	private void jComoBoxGroupPlanGroupAddActionListener(ActionEvent e,
-			Group currentGroup)
+	private void jComoBoxGroupPlanGroupAddActionListener(ActionEvent e, Group currentGroup)
 	{
 		int index = comboBoxModel.getSelectedIndex();
 		if (index == -1) {
@@ -883,9 +810,8 @@ public class MainFrame extends javax.swing.JFrame implements
 	 */
 	private boolean haveTournament()
 	{
-		return ((tournamentPlanTableModel != null)
-				&& (tournamentPlanTableModel.hasTournament())
-				&& (grouPlanGamesTableModel != null) && (tmstanding != null));
+		return ((tournamentPlanTableModel != null) && (tournamentPlanTableModel.hasTournament()) &&
+				(grouPlanGamesTableModel != null) && (tmstanding != null));
 	}
 
 	/**
@@ -941,8 +867,7 @@ public class MainFrame extends javax.swing.JFrame implements
 			return;
 		}
 
-		configurationWizard = new ConfigurationWizard(tournamentBuilderProvider,
-				teams);
+		configurationWizard = new ConfigurationWizard(tournamentBuilderProvider, teams);
 		configurationWizard.addWindowListener(new WindowAdapter() {
 
 			@Override
@@ -983,11 +908,10 @@ public class MainFrame extends javax.swing.JFrame implements
 		}
 
 		tournamentRunner.setGameDuration(_tournament.getGameDuration());
-		TieBreakView tieBreakView = new TieBreakView(
-				tournamentPlanTableModel.getCurrentPhase(), tournamentRunner, this);
+		TieBreakView tieBreakView =
+				new TieBreakView(tournamentPlanTableModel.getCurrentPhase(), tournamentRunner, this);
 		tieBreakView.setVisible(true);
 
 		refresh();
 	}
-
 }

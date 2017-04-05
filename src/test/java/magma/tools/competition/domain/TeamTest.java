@@ -12,7 +12,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class TeamTest
 {
-
 	private Team team;
 
 	@Before
@@ -114,5 +113,4 @@ public class TeamTest
 	{
 		EqualsVerifier.forClass(Team.class).usingGetClass().verify();
 	}
-
 }

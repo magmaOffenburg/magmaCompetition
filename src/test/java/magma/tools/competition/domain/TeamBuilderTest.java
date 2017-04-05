@@ -15,7 +15,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class TeamBuilderTest
 {
-
 	@Mock
 	private TeamFactory factory;
 
@@ -28,11 +27,8 @@ public class TeamBuilderTest
 	@Test
 	public void testBuild() throws Exception
 	{
-		builder.name("name").setTeam(true).username("username")
-				.startScriptFilename("script").pathToScriptFile("path");
-		when(factory.create("name", true, "username", "script", "path"))
-				.thenReturn(team);
+		builder.name("name").setTeam(true).username("username").startScriptFilename("script").pathToScriptFile("path");
+		when(factory.create("name", true, "username", "script", "path")).thenReturn(team);
 		assertSame(team, builder.build());
 	}
-
 }

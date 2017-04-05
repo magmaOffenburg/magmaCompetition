@@ -5,20 +5,19 @@ import java.util.ArrayList;
 /**
  * This class counts the points, goals and goals against for each team included
  * in a list of games.
- * 
+ *
  * @author Simon Gutjahr
- * 
+ *
  */
 public class TeamResultCalculationStrategy
 {
-
 	public TeamResultCalculationStrategy()
 	{
 	}
 
 	/**
 	 * Returns a List of Object Arrays. Each Array represents a team.
-	 * 
+	 *
 	 * @param games A List of games
 	 * @return An List of Object Arrays. Structure of the Object Array for each
 	 *         team: [0] = Team (Team Object), [1] = Position (int), [2] = Games
@@ -45,11 +44,9 @@ public class TeamResultCalculationStrategy
 			homeTeam = initTeamArray(t1, unsortetResult);
 			guestTeam = initTeamArray(t2, unsortetResult);
 
-			if (game.getResult().getHomeTeamPoints() > game.getResult()
-					.getGuestTeamPoints()) {
+			if (game.getResult().getHomeTeamPoints() > game.getResult().getGuestTeamPoints()) {
 				victoryHomeTeam(homeTeam, guestTeam, game);
-			} else if (game.getResult().getHomeTeamPoints() < game.getResult()
-					.getGuestTeamPoints()) {
+			} else if (game.getResult().getHomeTeamPoints() < game.getResult().getGuestTeamPoints()) {
 				victoryGuestTeam(guestTeam, homeTeam, game);
 			} else {
 				draw(homeTeam, guestTeam, game);
@@ -70,7 +67,6 @@ public class TeamResultCalculationStrategy
 				teamArray = tmp;
 				isKnown = true;
 				break;
-
 			}
 		}
 
@@ -92,38 +88,28 @@ public class TeamResultCalculationStrategy
 		teamArray[5] = 0;
 	}
 
-	private void victoryHomeTeam(Object winningTeam[], Object loosingTeam[],
-			Game game)
+	private void victoryHomeTeam(Object winningTeam[], Object loosingTeam[], Game game)
 	{
 		winningTeam[2] = (int) winningTeam[2] + 1;
-		winningTeam[3] = (int) winningTeam[3]
-				+ game.getResult().getHomeTeamPoints();
-		winningTeam[4] = (int) winningTeam[4]
-				+ game.getResult().getGuestTeamPoints();
+		winningTeam[3] = (int) winningTeam[3] + game.getResult().getHomeTeamPoints();
+		winningTeam[4] = (int) winningTeam[4] + game.getResult().getGuestTeamPoints();
 		winningTeam[5] = (int) winningTeam[5] + 3;
 
 		loosingTeam[2] = (int) loosingTeam[2] + 1;
-		loosingTeam[3] = (int) loosingTeam[3]
-				+ game.getResult().getGuestTeamPoints();
-		loosingTeam[4] = (int) loosingTeam[4]
-				+ game.getResult().getHomeTeamPoints();
+		loosingTeam[3] = (int) loosingTeam[3] + game.getResult().getGuestTeamPoints();
+		loosingTeam[4] = (int) loosingTeam[4] + game.getResult().getHomeTeamPoints();
 	}
 
-	private void victoryGuestTeam(Object winningTeam[], Object loosingTeam[],
-			Game game)
+	private void victoryGuestTeam(Object winningTeam[], Object loosingTeam[], Game game)
 	{
 		winningTeam[2] = (int) winningTeam[2] + 1;
-		winningTeam[3] = (int) winningTeam[3]
-				+ game.getResult().getGuestTeamPoints();
-		winningTeam[4] = (int) winningTeam[4]
-				+ game.getResult().getHomeTeamPoints();
+		winningTeam[3] = (int) winningTeam[3] + game.getResult().getGuestTeamPoints();
+		winningTeam[4] = (int) winningTeam[4] + game.getResult().getHomeTeamPoints();
 		winningTeam[5] = (int) winningTeam[5] + 3;
 
 		loosingTeam[2] = (int) loosingTeam[2] + 1;
-		loosingTeam[3] = (int) loosingTeam[3]
-				+ game.getResult().getHomeTeamPoints();
-		loosingTeam[4] = (int) loosingTeam[4]
-				+ game.getResult().getGuestTeamPoints();
+		loosingTeam[3] = (int) loosingTeam[3] + game.getResult().getHomeTeamPoints();
+		loosingTeam[4] = (int) loosingTeam[4] + game.getResult().getGuestTeamPoints();
 	}
 
 	private void draw(Object hometeam[], Object guestTeam[], Game game)

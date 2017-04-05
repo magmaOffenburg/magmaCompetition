@@ -15,7 +15,6 @@ import com.google.inject.Inject;
 
 public class PhaseBuilder
 {
-
 	private final PhaseFactory phaseFactory;
 
 	private final GroupFactory groupFactory;
@@ -33,8 +32,7 @@ public class PhaseBuilder
 	private boolean useRetiringTeams;
 
 	@Inject
-	public PhaseBuilder(PhaseFactory phaseFactory, GroupFactory groupFactory,
-			GroupDrawStrategy drawStrategy)
+	public PhaseBuilder(PhaseFactory phaseFactory, GroupFactory groupFactory, GroupDrawStrategy drawStrategy)
 	{
 		this.phaseFactory = phaseFactory;
 		this.groupFactory = groupFactory;
@@ -78,8 +76,7 @@ public class PhaseBuilder
 		} else if (GroupPhase.class.isAssignableFrom(previousPhase.getClass())) {
 			return buildGroupPhase(name, (GroupPhase) previousPhase);
 		} else {
-			throw new IllegalStateException(
-					"Illegal configuration: A Group Phase cannot be preceded by a Ko Phase.");
+			throw new IllegalStateException("Illegal configuration: A Group Phase cannot be preceded by a Ko Phase.");
 		}
 	}
 
@@ -92,30 +89,25 @@ public class PhaseBuilder
 				return buildKoPhase(name, (KoPhase) previousPhase);
 			}
 		}
-		throw new IllegalStateException(
-				"Illegal configuration: A Ko Phase must be preceded by a Group Phase.");
+		throw new IllegalStateException("Illegal configuration: A Ko Phase must be preceded by a Group Phase.");
 	}
 
 	private Phase buildInitialGroupPhase(String name)
 	{
 		checkState(useRetiringTeams == false,
 				"Illegal configuration: Cannot build initial group phase using retiring teams.");
-		List<LinkedHashSet<ITeam>> teamBuckets = drawStrategy.draw(
-				numberOfGroups, teams);
+		List<LinkedHashSet<ITeam>> teamBuckets = drawStrategy.draw(numberOfGroups, teams);
 		LinkedHashSet<Group> groups = createGroups(teamBuckets);
-		return phaseFactory.createGroupPhase(name, groups,
-				numberOfQualifyingTeams);
+		return phaseFactory.createGroupPhase(name, groups, numberOfQualifyingTeams);
 	}
 
 	private Phase buildGroupPhase(String name, GroupPhase previousPhase)
 	{
 		ShiftableMatrix<ITeam> matrix = createTeamsMatrix(previousPhase);
 		matrix.reorder();
-		List<LinkedHashSet<ITeam>> teamBuckets = sortToBuckets(numberOfGroups,
-				matrix);
+		List<LinkedHashSet<ITeam>> teamBuckets = sortToBuckets(numberOfGroups, matrix);
 		LinkedHashSet<Group> groups = createGroups(teamBuckets);
-		return phaseFactory.createGroupPhase(name, groups,
-				numberOfQualifyingTeams);
+		return phaseFactory.createGroupPhase(name, groups, numberOfQualifyingTeams);
 	}
 
 	private Phase buildKoPhase(String name, GroupPhase previousPhase)
@@ -140,13 +132,11 @@ public class PhaseBuilder
 		return phaseFactory.createKoPhase(name, teams);
 	}
 
-	private LinkedHashSet<Group> createGroups(
-			List<LinkedHashSet<ITeam>> teamBuckets)
+	private LinkedHashSet<Group> createGroups(List<LinkedHashSet<ITeam>> teamBuckets)
 	{
 		LinkedHashSet<Group> groups = Sets.newLinkedHashSet();
 		for (int i = 0; i < teamBuckets.size(); i++) {
-			Group group = groupFactory.create(String.valueOf((char) (65 + i)),
-					teamBuckets.get(i));
+			Group group = groupFactory.create(String.valueOf((char) (65 + i)), teamBuckets.get(i));
 			groups.add(group);
 		}
 		return groups;
@@ -158,20 +148,17 @@ public class PhaseBuilder
 		ShiftableMatrix<ITeam> matrix;
 		List<ITeam> qualifyingTeams;
 		if (useRetiringTeams == true) {
-			matrix = new ShiftableMatrix<>(previousGroups.size(),
-					previousPhase.getNumberOfRetiringTeams());
+			matrix = new ShiftableMatrix<>(previousGroups.size(), previousPhase.getNumberOfRetiringTeams());
 			qualifyingTeams = previousPhase.getRetiringTeams();
 		} else {
-			matrix = new ShiftableMatrix<>(previousGroups.size(),
-					previousPhase.getNumberOfQualifyingTeams());
+			matrix = new ShiftableMatrix<>(previousGroups.size(), previousPhase.getNumberOfQualifyingTeams());
 			qualifyingTeams = previousPhase.getQualifyingTeams();
 		}
 		matrix.putAllColumnsFirst(qualifyingTeams);
 		return matrix;
 	}
 
-	private List<LinkedHashSet<ITeam>> sortToBuckets(int numBuckets,
-			ShiftableMatrix<ITeam> matrix)
+	private List<LinkedHashSet<ITeam>> sortToBuckets(int numBuckets, ShiftableMatrix<ITeam> matrix)
 	{
 		List<LinkedHashSet<ITeam>> buckets = Lists.newArrayList();
 		for (int i = 0; i < numBuckets; i++) {
@@ -185,5 +172,4 @@ public class PhaseBuilder
 		}
 		return buckets;
 	}
-
 }

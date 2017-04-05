@@ -43,10 +43,8 @@ public class GameRunnerSimulation extends AbstractGameRunner
 
 			// Game was found
 			this.gameToReplay.setState(GameState.FINISHED);
-			this.gameToReplay.getResult().setGuestTeamPoints(
-					game.getResult().getGuestTeamPoints());
-			this.gameToReplay.getResult().setHomeTeamPoints(
-					game.getResult().getHomeTeamPoints());
+			this.gameToReplay.getResult().setGuestTeamPoints(game.getResult().getGuestTeamPoints());
+			this.gameToReplay.getResult().setHomeTeamPoints(game.getResult().getHomeTeamPoints());
 
 			Thread.sleep(200);
 		} catch (Exception e) {
@@ -54,14 +52,13 @@ public class GameRunnerSimulation extends AbstractGameRunner
 		}
 	}
 
-	private Game findGameByPhaseName() throws GameNotFoundInTournamentException,
-			JsonParseException, JsonMappingException, IOException
+	private Game findGameByPhaseName()
+			throws GameNotFoundInTournamentException, JsonParseException, JsonMappingException, IOException
 	{
 		List<Group> groups;
 		List<Game> games;
 
-		Tournament tournament = JsonHandler.createFromFile(
-				this.jsonFileRobocup2014, Tournament.class);
+		Tournament tournament = JsonHandler.createFromFile(this.jsonFileRobocup2014, Tournament.class);
 
 		for (Phase phase : tournament.getPhases()) {
 			if (phase.getName().equals(this.phaseName)) {
@@ -75,20 +72,11 @@ public class GameRunnerSimulation extends AbstractGameRunner
 							// 2. homeTeam.getName() equal?
 							// 3. guestTeam.getName() equal?
 							// -> return found game
-							if (tempGame.isDecisionGame() == this.gameToReplay
-									.isDecisionGame()
-									&& tempGame
-											.getHomeTeam()
-											.getName()
-											.equals(
-													this.gameToReplay.getHomeTeam()
-															.getName())
-									&& tempGame
-											.getGuestTeam()
-											.getName()
-											.equals(
-													this.gameToReplay.getGuestTeam()
-															.getName())) {
+							if (tempGame.isDecisionGame() == this.gameToReplay.isDecisionGame() &&
+									tempGame.getHomeTeam().getName().equals(
+											this.gameToReplay.getHomeTeam().getName()) &&
+									tempGame.getGuestTeam().getName().equals(
+											this.gameToReplay.getGuestTeam().getName())) {
 								return tempGame;
 							}
 						}
@@ -101,17 +89,9 @@ public class GameRunnerSimulation extends AbstractGameRunner
 						// 2. homeTeam.getName() equal?
 						// 3. guestTeam.getName() equal?
 						// -> return found game
-						if (tempGame.isDecisionGame() == this.gameToReplay
-								.isDecisionGame()
-								&& tempGame
-										.getHomeTeam()
-										.getName()
-										.equals(this.gameToReplay.getHomeTeam().getName())
-								&& tempGame
-										.getGuestTeam()
-										.getName()
-										.equals(
-												this.gameToReplay.getGuestTeam().getName())) {
+						if (tempGame.isDecisionGame() == this.gameToReplay.isDecisionGame() &&
+								tempGame.getHomeTeam().getName().equals(this.gameToReplay.getHomeTeam().getName()) &&
+								tempGame.getGuestTeam().getName().equals(this.gameToReplay.getGuestTeam().getName())) {
 							return tempGame;
 						}
 					}
@@ -137,5 +117,4 @@ public class GameRunnerSimulation extends AbstractGameRunner
 	public void setFinished(boolean b)
 	{
 	}
-
 }

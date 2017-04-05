@@ -11,7 +11,6 @@ public class SSHGame
 {
 	public static void main(String[] args)
 	{
-
 		try {
 			SSHDataReceiver dataReceiverServer = new SSHDataReceiver();
 			SSHDataReceiver dataReceiverMagma = new SSHDataReceiver();
@@ -24,8 +23,7 @@ public class SSHGame
 
 			SSHClient sshClientServer = new SSHClient(username, server);
 			sshClientServer.addObserver(dataReceiverServer);
-			sshClientServer
-					.setPreferredAuthentication(AuthenticationMethods.PASSWORD);
+			sshClientServer.setPreferredAuthentication(AuthenticationMethods.PASSWORD);
 			sshClientServer.setPassword(password);
 			sshClientServer.setKnownHosts(knownHosts);
 			sshClientServer.connect();
@@ -33,16 +31,14 @@ public class SSHGame
 			String agent1 = "127.0.0.1";
 			SSHClient sshClientMagma = new SSHClient(username, agent1);
 			sshClientMagma.addObserver(dataReceiverMagma);
-			sshClientMagma
-					.setPreferredAuthentication(AuthenticationMethods.PASSWORD);
+			sshClientMagma.setPreferredAuthentication(AuthenticationMethods.PASSWORD);
 			sshClientMagma.setPassword(password);
 			sshClientMagma.setKnownHosts(knownHosts);
 
 			String agent2 = "127.0.0.1";
 			SSHClient sshClientMagmaOpp = new SSHClient(username, agent2);
 			sshClientMagmaOpp.addObserver(dataReceiverMagmaOpp);
-			sshClientMagmaOpp
-					.setPreferredAuthentication(AuthenticationMethods.PASSWORD);
+			sshClientMagmaOpp.setPreferredAuthentication(AuthenticationMethods.PASSWORD);
 			sshClientMagmaOpp.setPassword(password);
 			sshClientMagmaOpp.setKnownHosts(knownHosts);
 
@@ -55,25 +51,21 @@ public class SSHGame
 					sshClientMagma.connect();
 
 					if (sshClientMagma.isConnected()) {
-						sshClientMagma
-								.sendCmd("echo -e '"
-										+ password
-										+ "\n' | sudo -k -S su magma -c 'cd /home/magma/ && ./start.sh "
-										+ server + "'");
+						sshClientMagma.sendCmd("echo -e '" + password +
+											   "\n' | sudo -k -S su magma -c 'cd /home/magma/ && ./start.sh " + server +
+											   "'");
 						Thread.sleep(8000);
 
 						sshClientMagmaOpp.connect();
 
 						if (sshClientMagmaOpp.isConnected()) {
-							sshClientMagmaOpp
-									.sendCmd("echo -e '"
-											+ password
-											+ "\n' | sudo -k -S su magmaopp -c 'cd /home/magmaopp/ && ./start.sh "
-											+ server + "'");
+							sshClientMagmaOpp.sendCmd(
+									"echo -e '" + password +
+									"\n' | sudo -k -S su magmaopp -c 'cd /home/magmaopp/ && ./start.sh " + server +
+									"'");
 							System.out.println("Server and clients started");
 							Thread.sleep(8000);
 						}
-
 					}
 
 					sshClientServer.disconnect();
@@ -96,7 +88,6 @@ class SSHDataReceiver implements Observer
 
 	public SSHDataReceiver()
 	{
-
 	}
 
 	@Override

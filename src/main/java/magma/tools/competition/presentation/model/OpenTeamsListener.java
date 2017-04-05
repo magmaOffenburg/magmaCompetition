@@ -16,7 +16,6 @@ import magma.tools.competition.util.ClusterConfiguration;
 
 public class OpenTeamsListener implements ActionListener
 {
-
 	private JFileChooser chooser;
 
 	private LinkedList<ITeam> teams;
@@ -60,11 +59,9 @@ public class OpenTeamsListener implements ActionListener
 			teamFilePath = inputVerzFile.getPath();
 			try {
 				teams = CSVReader.readOutCSV(teamFilePath, true, ";");
-				JOptionPane.showMessageDialog(null,
-						"Successfully loaded " + teams.size() + " teams!");
+				JOptionPane.showMessageDialog(null, "Successfully loaded " + teams.size() + " teams!");
 			} catch (CSVReadingException e1) {
-				JOptionPane.showMessageDialog(null,
-						"Error open team file - Unexpected format");
+				JOptionPane.showMessageDialog(null, "Error open team file - Unexpected format");
 			}
 		} else {
 			chooser.setSelectedFile(null);

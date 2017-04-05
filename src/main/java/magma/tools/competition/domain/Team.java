@@ -13,7 +13,6 @@ import com.google.inject.assistedinject.Assisted;
 
 class Team implements ITeam
 {
-
 	private static final long serialVersionUID = 5823165442040356841L;
 
 	private final String name;
@@ -84,8 +83,7 @@ class Team implements ITeam
 	}
 
 	@Override
-	public void setStartScriptFileName(String startScriptFileName)
-			throws ProxyNotResolvableException
+	public void setStartScriptFileName(String startScriptFileName) throws ProxyNotResolvableException
 	{
 		checkStartScriptFileName(startScriptFileName);
 		this.startScriptFileName = startScriptFileName;
@@ -98,8 +96,7 @@ class Team implements ITeam
 	}
 
 	@Override
-	public void setPathToScriptFile(String pathToScriptFile)
-			throws ProxyNotResolvableException
+	public void setPathToScriptFile(String pathToScriptFile) throws ProxyNotResolvableException
 	{
 		checkPathToScriptFile(pathToScriptFile);
 		this.pathToScriptFile = pathToScriptFile;
@@ -108,7 +105,6 @@ class Team implements ITeam
 	private void checkName(String name)
 	{
 		check(name, "A team's name must not be empty.");
-
 	}
 
 	private void checkUsername(String username)
@@ -119,7 +115,6 @@ class Team implements ITeam
 	private void checkStartScriptFileName(String startScriptFileName)
 	{
 		check(startScriptFileName, "The startscript filename must not be empty.");
-
 	}
 
 	private void checkPathToScriptFile(String pathToScriptFile)
@@ -136,11 +131,8 @@ class Team implements ITeam
 	@Override
 	public String toString()
 	{
-		return String
-				.format(
-						"{Teamname: %s, Username: %s, Startscript Filename: %s, Path to Script: %s, Set Team: %s}",
-						name, username, startScriptFileName, pathToScriptFile,
-						setTeam);
+		return String.format("{Teamname: %s, Username: %s, Startscript Filename: %s, Path to Script: %s, Set Team: %s}",
+				name, username, startScriptFileName, pathToScriptFile, setTeam);
 	}
 
 	@Override
@@ -164,5 +156,4 @@ class Team implements ITeam
 		Team other = (Team) obj;
 		return new EqualsBuilder().append(name, other.name).isEquals();
 	}
-
 }

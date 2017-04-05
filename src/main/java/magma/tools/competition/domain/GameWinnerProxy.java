@@ -12,7 +12,6 @@ import com.google.inject.assistedinject.Assisted;
 
 public class GameWinnerProxy extends TeamProxy
 {
-
 	private static final long serialVersionUID = 8326146947778629195L;
 
 	@JsonProperty
@@ -43,8 +42,7 @@ public class GameWinnerProxy extends TeamProxy
 	@Override
 	protected String getProxiedName()
 	{
-		return String.format("Winner '%s : %s'", game.getHomeTeam().getName(),
-				game.getGuestTeam().getName());
+		return String.format("Winner '%s : %s'", game.getHomeTeam().getName(), game.getGuestTeam().getName());
 	}
 
 	private void checkGame(Game game)
@@ -79,5 +77,4 @@ public class GameWinnerProxy extends TeamProxy
 		GameWinnerProxy other = (GameWinnerProxy) obj;
 		return new EqualsBuilder().append(game, other.game).isEquals();
 	}
-
 }

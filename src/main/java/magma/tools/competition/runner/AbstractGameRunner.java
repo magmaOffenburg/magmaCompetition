@@ -7,5 +7,4 @@ public abstract class AbstractGameRunner extends Thread
 	public abstract SimulationEvent getSimulationEvent();
 
 	public abstract void setFinished(boolean b);
-
 }
